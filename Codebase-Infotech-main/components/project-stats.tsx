@@ -22,7 +22,7 @@ const stats = [
   },
   {
     icon: Clock,
-    value: "5+",
+    value: "8+",
     label: "Years Experience",
     description: "Years of expertise in cutting-edge technology solutions",
   },

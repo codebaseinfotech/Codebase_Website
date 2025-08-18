@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { ArrowRight, Code, Smartphone, Globe, CheckCircle, Sparkles, Zap, Shield, RefreshCw, Quote } from "lucide-react"
@@ -28,6 +28,9 @@ export default function HeroSection() {
   const [currentQuote, setCurrentQuote] = useState(techQuotes[0])
   const [isGenerating, setIsGenerating] = useState(false)
   const [isQuoteOpen, setIsQuoteOpen] = useState(false)
+  const [projectCount, setProjectCount] = useState(0)
+  const [clientCount, setClientCount] = useState(0)
+  const [uptime, setUptime] = useState(0)
 
   const generateRandomQuote = () => {
     setIsGenerating(true)
@@ -42,6 +45,62 @@ export default function HeroSection() {
     generateRandomQuote()
     setIsQuoteOpen(true)
   }
+
+  useEffect(() => {
+    // Animate projectCount (155+)
+    let start1 = 0
+    const end1 = 155
+    let current1 = start1
+    let duration1 = 1200
+    let increment1 = end1 / (duration1 / 16)
+    const timer1 = setInterval(() => {
+      current1 += increment1
+      if (current1 >= end1) {
+        setProjectCount(end1)
+        clearInterval(timer1)
+      } else {
+        setProjectCount(Math.floor(current1))
+      }
+    }, 16)
+
+    // Animate clientCount (90+)
+    let start2 = 0
+    const end2 = 90
+    let current2 = start2
+    let duration2 = 1200
+    let increment2 = end2 / (duration2 / 16)
+    const timer2 = setInterval(() => {
+      current2 += increment2
+      if (current2 >= end2) {
+        setClientCount(end2)
+        clearInterval(timer2)
+      } else {
+        setClientCount(Math.floor(current2))
+      }
+    }, 16)
+
+    // Animate uptime (99.9%)
+    let start3 = 0
+    const end3 = 99.9
+    let current3 = start3
+    let duration3 = 1200
+    let increment3 = end3 / (duration3 / 16)
+    const timer3 = setInterval(() => {
+      current3 += increment3
+      if (current3 >= end3) {
+        setUptime(end3)
+        clearInterval(timer3)
+      } else {
+        setUptime(Number(current3.toFixed(1)))
+      }
+    }, 16)
+
+    return () => {
+      clearInterval(timer1)
+      clearInterval(timer2)
+      clearInterval(timer3)
+    }
+  }, [])
 
   return (
     <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-10 overflow-hidden">
@@ -144,25 +203,25 @@ export default function HeroSection() {
 
             {/* Enhanced Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-slate-200 animate-slide-up delay-500">
-              <div className="text-center group">
-                <div className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:scale-110 transition-transform">
-                  155+
-                </div>
-                <div className="text-sm text-slate-500 font-medium">Projects Delivered</div>
-              </div>
-              <div className="text-center group">
-                <div className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:scale-110 transition-transform">
-                  90+
-                </div>
-                <div className="text-sm text-slate-500 font-medium">Global Clients</div>
-              </div>
-              <div className="text-center group">
-                <div className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:scale-110 transition-transform">
-                  99.9%
-                </div>
-                <div className="text-sm text-slate-500 font-medium">Uptime SLA</div>
-              </div>
-            </div>
+      <div className="text-center group">
+        <div className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:scale-110 transition-transform">
+          {projectCount}+
+        </div>
+        <div className="text-sm text-slate-500 font-medium">Projects Delivered</div>
+      </div>
+      <div className="text-center group">
+        <div className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:scale-110 transition-transform">
+          {clientCount}+
+        </div>
+        <div className="text-sm text-slate-500 font-medium">Global Clients</div>
+      </div>
+      <div className="text-center group">
+        <div className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:scale-110 transition-transform">
+          {uptime}%
+        </div>
+        <div className="text-sm text-slate-500 font-medium">Uptime SLA</div>
+      </div>
+    </div>
           </div>
 
           {/* Enhanced Visual Elements */}

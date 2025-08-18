@@ -42,7 +42,7 @@ export default function TestimonialsHero() {
             </div>
             <div className="bg-card p-6 rounded-xl border border-border shadow-sm">
               <Users className="h-12 w-12 text-primary mb-4" />
-              <div className="text-3xl font-bold text-card-foreground mb-2">50+</div>
+              <div className="text-3xl font-bold text-card-foreground mb-2">90+</div>
               <div className="text-muted-foreground">Happy Clients</div>
             </div>
             <div className="bg-card p-6 rounded-xl border border-border shadow-sm col-span-2">

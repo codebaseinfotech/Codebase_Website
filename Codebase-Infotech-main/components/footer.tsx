@@ -17,13 +17,21 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-muted-foreground">
-              Empowering businesses with cutting-edge IT solutions and digital transformation services.
+              Codebase Infotech is a global IT solutions provider based in India. At Codebase Infotech, we believe in delivering Extensive and integrated solutions to our valued clients which best suit their requirements.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-              <Twitter className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-              <Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-              <Instagram className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+              <Link href="https://www.facebook.com/CodesWidgetInfotech/" target="_blank" rel="noopener noreferrer">
+                <Facebook className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+              </Link>
+              <Link href="https://x.com/Codebase_infotech" target="_blank" rel="noopener noreferrer">
+                <Twitter className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+              </Link>
+              <Link href="https://www.linkedin.com/company/codebaseinfotech/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+              </Link>
+              <Link href="https://www.instagram.com/codebase.infotech/" target="_blank" rel="noopener noreferrer">
+                <Instagram className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+              </Link>
             </div>
           </div>
 

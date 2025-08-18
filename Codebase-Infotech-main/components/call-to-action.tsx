@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import Link from "next/link"
 import { ArrowRight, Phone, Mail, RefreshCw, Quote } from "lucide-react"
 
 const techQuotes = [
@@ -87,13 +88,15 @@ export default function CallToAction() {
                   </div>
                 </DialogContent>
               </Dialog>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-lg px-8 border-white text-white hover:bg-white hover:text-primary bg-transparent"
-              >
-                Schedule Consultation
-              </Button>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 border-white text-white hover:bg-white hover:text-primary bg-transparent"
+                >
+                  Schedule Consultation
+                </Button>
+              </Link>
             </div>
           </div>
 

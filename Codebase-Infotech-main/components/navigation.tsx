@@ -84,7 +84,7 @@ export default function Navigation() {
           key={item.name}
           href={item.href}
           className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-            pathname === item.href ? "text-blue-500" : "text-foreground hover:text-blue-500"
+            pathname === item.href ? "text-secondary" : "text-foreground hover:text-secondary"
           }`}
         >
           {item.name}
@@ -143,7 +143,7 @@ export default function Navigation() {
             key={item.name}
             href={item.href}
             className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
-              pathname === item.href ? "text-blue-500" : "text-foreground hover:text-blue-500"
+              pathname === item.href ? "text-secondary" : "text-foreground hover:text-secondary"
             }`}
             onClick={() => setIsMenuOpen(false)}
           >

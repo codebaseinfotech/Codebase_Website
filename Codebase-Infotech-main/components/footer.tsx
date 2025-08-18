@@ -24,7 +24,11 @@ export default function Footer() {
                 <Facebook className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
               </Link>
               <Link href="https://x.com/Codebase_infotech" target="_blank" rel="noopener noreferrer">
-                <Twitter className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                <img
+                  src="/twitter.png"
+                  alt="twitter"
+                  className="h-5 w-5 cursor-pointer transition-colors hover:opacity-80"
+                />
               </Link>
               <Link href="https://www.linkedin.com/company/codebaseinfotech/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />

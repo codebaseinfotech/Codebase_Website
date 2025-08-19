@@ -49,7 +49,7 @@ export default function ServicesOverview() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">
-            Our <span className="text-primary">Services</span>
+            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">Services</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We offer comprehensive IT solutions to help your business thrive in the digital landscape

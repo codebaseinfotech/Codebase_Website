@@ -9,8 +9,8 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center mr-3">
-                <span className="text-primary-foreground font-bold text-lg">C</span>
+              <div className="w-10 h-9 bg-primary rounded-lg flex items-center justify-center mr-3">
+                <span className="text-primary-foreground font-bold text-lg">CB</span>
               </div>
               <span className="font-bold text-xl text-card-foreground">
                 Codebase <span className="text-primary">Infotech</span>

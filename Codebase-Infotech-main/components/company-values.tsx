@@ -41,7 +41,7 @@ export default function CompanyValues() {
         {/* Header */}
         <div className="text-center mb-10">
           <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">
-            Our <span className="text-primary">Values</span>
+            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">Values</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             The principles that guide our work and define our company culture

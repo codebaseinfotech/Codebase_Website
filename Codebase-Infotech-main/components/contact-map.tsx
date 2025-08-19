@@ -26,10 +26,10 @@ export default function ContactMap() {
           ></iframe>
 
           {/* Overlay with Contact Info */}
-          <div className="absolute top-6 left-6 bg-background/95 backdrop-blur-sm p-6 rounded-lg border border-border shadow-lg max-w-sm">
+          {/* <div className="absolute top-6 left-6 bg-background/95 backdrop-blur-sm p-6 rounded-lg border border-border shadow-lg max-w-sm">
             <h3 className="font-bold text-foreground mb-2">Codebase Infotech</h3>
             <p className="text-muted-foreground text-sm mb-3">
-              201, Akshar Square
+                
               <br />
               opp. Cancer Hospital, Dabholi, Surat, Gujarat
               <br />
@@ -39,7 +39,7 @@ export default function ContactMap() {
               <p className="text-primary font-medium">+91 92652 42366</p>
               <p className="text-secondary font-medium">info@codebaseinfotech.com</p>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Directions */}

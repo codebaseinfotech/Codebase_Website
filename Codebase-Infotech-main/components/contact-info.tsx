@@ -134,9 +134,7 @@ export default function ContactInfo() {
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 mb-3">Visit Our Office</h3>
                   <p className="text-slate-600 mb-4 leading-relaxed">
-                    201, Akshar Square, opp. Cancer Hospital, Dabholi, Surat, Gujarat
-                    <br />
-                    India
+                    201, Akshar Square, opp. Cancer Hospital, Dabholi, Surat, Gujarat,<br /> India - 395004
                   </p>
                   <Button variant="outline" className="border-blue-200 text-blue-600 hover:bg-blue-50 bg-transparent">
                     Get Directions

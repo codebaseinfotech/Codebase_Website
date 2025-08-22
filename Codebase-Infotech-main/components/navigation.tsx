@@ -67,8 +67,12 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <div className="w-10 h-9 bg-primary rounded-lg flex items-center justify-center mr-3">
-                <span className="text-primary-foreground font-bold text-lg">CB</span>
+              <div className="flex items-center justify-center mr-3">
+                <img
+                  src="/logo.png"
+                  alt="Codebase Logo"
+                  className="w-16 h-16 object-contain"
+                />
               </div>
               <span className="font-bold text-xl text-foreground">
                 Codebase <span className="text-primary">Infotech</span>

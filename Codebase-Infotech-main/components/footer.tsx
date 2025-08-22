@@ -7,10 +7,15 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div className="flex items-center">
-              <div className="w-10 h-9 bg-primary rounded-lg flex items-center justify-center mr-3">
-                <span className="text-primary-foreground font-bold text-lg">CB</span>
+              <div className="w-15 h-12 flex items-center justify-center mr-1">
+                {/* <span className="text-primary-foreground font-bold text-lg">CB</span> */}
+                <img
+                  src="/logo.png"
+                  alt="Codebase Logo"
+                  className="w-15 h-12 object-contain"
+                />
               </div>
               <span className="font-bold text-xl text-card-foreground">
                 Codebase <span className="text-primary">Infotech</span>

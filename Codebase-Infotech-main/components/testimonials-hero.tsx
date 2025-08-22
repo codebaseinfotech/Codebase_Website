@@ -1,5 +1,32 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Star, Users, MessageSquare } from "lucide-react"
+import { ArrowRight, Star, Users, MessageSquare, } from "lucide-react"
+import Link from "next/link"
+
+// 🔹 Reusable CountUp component
+function CountUp({ end, duration = 2000 }: { end: number; duration?: number }) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    let start = 0
+    const increment = end / (duration / 16) // ~60fps
+    const timer = setInterval(() => {
+      start += increment
+      if (start >= end) {
+        setCount(end)
+        clearInterval(timer)
+      } else {
+        setCount(Math.floor(start))
+      }
+    }, 16)
+
+    return () => clearInterval(timer)
+  }, [end, duration])
+
+  return <span>{count}</span>
+}
 
 export default function TestimonialsHero() {
   return (
@@ -27,9 +54,11 @@ export default function TestimonialsHero() {
                 Start Your Project
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent">
-                View Our Work
-              </Button>
+              <Link href="/contact">
+                <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent">
+                  View Our Work
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -37,17 +66,23 @@ export default function TestimonialsHero() {
           <div className="grid grid-cols-2 gap-6">
             <div className="bg-card p-6 rounded-xl border border-border shadow-sm">
               <Star className="h-12 w-12 text-yellow-400 mb-4" />
-              <div className="text-3xl font-bold text-card-foreground mb-2">4.9/5</div>
+              <div className="text-3xl font-bold text-card-foreground mb-2">
+                <CountUp end={4.5} duration={1500} />/5
+              </div>
               <div className="text-muted-foreground">Average Rating</div>
             </div>
             <div className="bg-card p-6 rounded-xl border border-border shadow-sm">
               <Users className="h-12 w-12 text-primary mb-4" />
-              <div className="text-3xl font-bold text-card-foreground mb-2">90+</div>
+              <div className="text-3xl font-bold text-card-foreground mb-2">
+                <CountUp end={90} duration={2000} />+
+              </div>
               <div className="text-muted-foreground">Happy Clients</div>
             </div>
             <div className="bg-card p-6 rounded-xl border border-border shadow-sm col-span-2">
               <MessageSquare className="h-12 w-12 text-secondary mb-4" />
-              <div className="text-3xl font-bold text-card-foreground mb-2">99%</div>
+              <div className="text-3xl font-bold text-card-foreground mb-2">
+                <CountUp end={99} duration={2500} />%
+              </div>
               <div className="text-muted-foreground">Would Recommend Us</div>
             </div>
           </div>

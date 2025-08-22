@@ -1,8 +1,42 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Users, Target, Award } from "lucide-react"
 import Link from "next/link"
 
+function useCountUp(end: number, duration: number = 2000) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    let start = 0
+    const increment = end / (duration / 16) // ~60fps
+    let frame: number
+
+    const step = () => {
+      start += increment
+      if (start < end) {
+        setCount(Math.floor(start))
+        frame = requestAnimationFrame(step)
+      } else {
+        setCount(end)
+        cancelAnimationFrame(frame)
+      }
+    }
+
+    frame = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(frame)
+  }, [end, duration])
+
+  return count
+}
+
 export default function AboutHero() {
+
+  const clients = useCountUp(90, 2000)
+  const projects = useCountUp(155, 2500)
+  const years = useCountUp(8, 3000)
+
   return (
     <section className="relative bg-gradient-to-br from-slate-50 via-white to-blue-50 py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,17 +86,17 @@ export default function AboutHero() {
           <div className="grid grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-2xl border border-blue-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <Users className="h-12 w-12 text-blue-600 mb-4" />
-              <div className="text-3xl font-bold text-slate-900 mb-2">90+</div>
+              <div className="text-3xl font-bold text-slate-900 mb-2">{clients}+</div>
               <div className="text-slate-600">Happy Clients</div>
             </div>
             <div className="bg-white p-6 rounded-2xl border border-cyan-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <Target className="h-12 w-12 text-cyan-600 mb-4" />
-              <div className="text-3xl font-bold text-slate-900 mb-2">155+</div>
+              <div className="text-3xl font-bold text-slate-900 mb-2">{projects}+</div>
               <div className="text-slate-600">Projects Delivered</div>
             </div>
             <div className="bg-white p-6 rounded-2xl border border-purple-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 col-span-2">
               <Award className="h-12 w-12 text-purple-600 mb-4" />
-              <div className="text-3xl font-bold text-slate-900 mb-2">8+ Years</div>
+              <div className="text-3xl font-bold text-slate-900 mb-2">{years}+ Years</div>
               <div className="text-slate-600">of Excellence in IT Solutions</div>
             </div>
           </div>

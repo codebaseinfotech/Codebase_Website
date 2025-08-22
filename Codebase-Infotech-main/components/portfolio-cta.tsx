@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, MessageSquare, FileText, Calendar } from "lucide-react"
+import Link from "next/link"
 
 export default function PortfolioCTA() {
   return (
@@ -19,13 +20,15 @@ export default function PortfolioCTA() {
                 Start Your Project
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-lg px-8 border-white text-white hover:bg-white hover:text-primary bg-transparent"
-              >
-                View More Work
-              </Button>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 border-white text-white hover:bg-white hover:text-primary bg-transparent"
+                >
+                  View More Work
+                </Button>
+              </Link>
             </div>
           </CardContent>
         </Card>
@@ -39,9 +42,11 @@ export default function PortfolioCTA() {
               <p className="text-muted-foreground mb-4">
                 Share your vision with our experts and get professional insights
               </p>
-              <Button variant="outline" className="bg-transparent">
-                Get In Touch
-              </Button>
+              <Link href="/contact">
+                <Button variant="outline" className="bg-transparent">
+                  Get In Touch
+                </Button>
+              </Link>
             </CardContent>
           </Card>
 
@@ -52,9 +57,11 @@ export default function PortfolioCTA() {
               <p className="text-muted-foreground mb-4">
                 Receive a detailed project proposal with timeline and pricing
               </p>
-              <Button variant="outline" className="bg-transparent">
-                Request Quote
-              </Button>
+              <Link href="/contact">
+                <Button variant="outline" className="bg-transparent">
+                  Request Quote
+                </Button>
+              </Link>
             </CardContent>
           </Card>
 
@@ -65,9 +72,11 @@ export default function PortfolioCTA() {
               <p className="text-muted-foreground mb-4">
                 Book a free consultation to discuss your project requirements
               </p>
-              <Button variant="outline" className="bg-transparent">
-                Book Meeting
-              </Button>
+              <Link href="/contact">
+                <Button variant="outline" className="bg-transparent">
+                  Book Meeting
+                </Button>
+              </Link>
             </CardContent>
           </Card>
         </div>

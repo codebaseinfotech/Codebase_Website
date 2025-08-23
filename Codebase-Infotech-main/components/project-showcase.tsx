@@ -476,11 +476,11 @@ export default function ProjectShowcase() {
                             </div>
                              <div className="space-y-4"></div>
                             <div>
-                              <h4 className="font-semibold text-slate-900 mb-1 flex items-center">
+                              <h4 className="font-semibold text-slate-900 mb-1 flex items-center w-30">
                                 <Users className="h-4 w-4 mr-2 text-blue-600" />
                                 Team Size
                               </h4>
-                              <p className="text-slate-600">{project.caseStudy.teamSize}</p>
+                              <p className=" w-30 text-slate-600">{project.caseStudy.teamSize}</p>
                             </div>
                           </div>
                         </div>

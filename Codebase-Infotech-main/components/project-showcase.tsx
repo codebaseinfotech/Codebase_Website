@@ -11,13 +11,13 @@ import Link from "next/link"
 const projects = [
   {
     id: 1,
-    title: "Moos Barber Mobile App",
+    title: "Moos Barber",
     category: "Mobile App",
     type: "mobile",
     description: "Enjoy the best Barbering services with MOOS BARBERS. Get a local's insight into the Barber professions & Saloons & plan your visit by contacting them ahead of time. Using this app, you can find direct Barber professions & Saloons.",
     image: "/ecommerce-mobile-app-mockup.png",
     technologies: ["iOS","Android", "Node.js", "MongoDB", "AI/ML"],
-    client: "Moos Barber Inc.",
+    client: "United Kingdom",
     results: ["300% increase in user engagement", "50% reduction in cart abandonment", "4.8/5 app store rating"],
     caseStudy: {
       challenge:
@@ -28,6 +28,76 @@ const projects = [
         "The app achieved over 100K downloads in the first 6 months, with users reporting 40% more bookings and high engagement with the Barber profiles.",
       timeline: "4 months",
       teamSize: "6 developers",
+      projectDetails: "Multivendor Barber apps for Customers & professionals barbers/salons.",
+      technologies: ["React Native", "Node.js", "MongoDB", "TensorFlow", "AWS", "Stripe"],
+    },
+  },
+  {
+    id: 7,
+    title: "Wyld",
+    category: "Mobile App",
+    type: "mobile",
+    description: "Enjoy the best vacation experiences with WYLD Camps. Get a local's insight into the Camps you plan to visit before your vacation by contacting them ahead of time. Using this app, you can find direct venders for summer camps.",
+    image: "/wyld-app.jpg",
+    technologies: ["iOS","Android", "Node.js", "MongoDB", "AI/ML"],
+    client: "USA",
+    results: ["300% increase in user engagement", "50% reduction in cart abandonment", "4.8/5 app store rating"],
+    caseStudy: {
+      challenge:
+        "Moos Barber needed a mobile platform that would make Barbering services accessible and engaging for everyday consumers while tracking their preferences.",
+      solution:
+        "We developed a React Native app with AI-powered Barber recommendations, appointment scheduling, and user-friendly interfaces to encourage bookings.",
+      outcome:
+        "The app achieved over 100K downloads in the first 6 months, with users reporting 40% more bookings and high engagement with the Barber profiles.",
+      timeline: "4 months",
+      teamSize: "6 developers",
+      projectDetails: "Camp Booking for Customers and Venders.",
+      technologies: ["React Native", "Node.js", "MongoDB", "TensorFlow", "AWS", "Stripe"],
+    },
+  },
+  {
+    id: 8,
+    title: "Fly Elite",
+    category: "Mobile App",
+    type: "mobile",
+    description: "Enjoy the best Jet vacation experiences around the globe with Fly Elite. Using this app, you can find best booking experience & make the most of your itinerary by planning efficiently.",
+    image: "/flyelite.jpg",
+    technologies: ["iOS","Android", "Node.js", "MongoDB", "AI/ML"],
+    client: "Dubai, UAE",
+    results: ["300% increase in user engagement", "50% reduction in cart abandonment", "4.8/5 app store rating"],
+    caseStudy: {
+      challenge:
+        "Moos Barber needed a mobile platform that would make Barbering services accessible and engaging for everyday consumers while tracking their preferences.",
+      solution:
+        "We developed a React Native app with AI-powered Barber recommendations, appointment scheduling, and user-friendly interfaces to encourage bookings.",
+      outcome:
+        "The app achieved over 100K downloads in the first 6 months, with users reporting 40% more bookings and high engagement with the Barber profiles.",
+      timeline: "4 months",
+      teamSize: "6 developers",
+      projectDetails: "Jet Booking apps",
+      technologies: ["React Native", "Node.js", "MongoDB", "TensorFlow", "AWS", "Stripe"],
+    },
+  },
+  {
+    id: 9,
+    title: "G8pass",
+    category: "Mobile App",
+    type: "mobile",
+    description: "G8PASS is the best Society Management Apps & backend Software. It provides to manage housing, apartments security, visitor management and facility management etc. Now managing your Housing Society is simple.",
+    image: "/gatepass-app.jpg",
+    technologies: ["iOS","Android", "Node.js", "MongoDB", "AI/ML"],
+    client: "Germany & Dubai - UAE",
+    results: ["300% increase in user engagement", "50% reduction in cart abandonment", "4.8/5 app store rating"],
+    caseStudy: {
+      challenge:
+        "Moos Barber needed a mobile platform that would make Barbering services accessible and engaging for everyday consumers while tracking their preferences.",
+      solution:
+        "We developed a React Native app with AI-powered Barber recommendations, appointment scheduling, and user-friendly interfaces to encourage bookings.",
+      outcome:
+        "The app achieved over 100K downloads in the first 6 months, with users reporting 40% more bookings and high engagement with the Barber profiles.",
+      timeline: "4 months",
+      teamSize: "6 developers",
+      projectDetails: "Society Management Apps for Customers, Security Guards & web software for society management staff",
       technologies: ["React Native", "Node.js", "MongoDB", "TensorFlow", "AWS", "Stripe"],
     },
   },
@@ -404,6 +474,7 @@ export default function ProjectShowcase() {
                               </h4>
                               <p className="text-slate-600">{project.caseStudy.timeline}</p>
                             </div>
+                             <div className="space-y-4"></div>
                             <div>
                               <h4 className="font-semibold text-slate-900 mb-1 flex items-center">
                                 <Users className="h-4 w-4 mr-2 text-blue-600" />
@@ -417,6 +488,12 @@ export default function ProjectShowcase() {
 
                       {/* Challenge, Solution, Outcome */}
                       <div className="space-y-6">
+
+                        <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
+                          <h3 className="text-xl font-bold text-orange-900 mb-3">Project Details</h3>
+                          <p className="text-orange-800">{project.caseStudy.projectDetails}</p>
+                        </div>
+
                         <div className="bg-red-50 p-6 rounded-xl border border-red-100">
                           <h3 className="text-xl font-bold text-red-900 mb-3">Challenge</h3>
                           <p className="text-red-800">{project.caseStudy.challenge}</p>

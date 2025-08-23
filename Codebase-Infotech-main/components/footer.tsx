@@ -28,7 +28,7 @@ export default function Footer() {
               <Link href="https://www.facebook.com/CodesWidgetInfotech/" target="_blank" rel="noopener noreferrer">
                 <Facebook className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
               </Link>
-              <Link href="https://x.com/Codebase_infotech" target="_blank" rel="noopener noreferrer">
+              <Link href="https://x.com/Codebase_IT" target="_blank" rel="noopener noreferrer">
                 <img
                   src="/twitter.png"
                   alt="twitter"

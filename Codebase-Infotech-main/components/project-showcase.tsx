@@ -296,40 +296,47 @@ export default function ProjectShowcase() {
                         </DialogHeader>
 
                         <div className="space-y-8">
-                          {/* Project Overview */}
-                          <div className="grid md:grid-cols-2 gap-8">
+                      {/* Project Overview */}
+                      <div className="grid md:grid-cols-2 gap-8">
+                        <div>
+                          <img
+                            src={project.image || "/placeholder.svg?height=300&width=400"}
+                            alt={project.title}
+                            className="w-full h-64 object-cover rounded-xl"
+                          />
+                        </div>
+                        <div className="space-y-4">
+                          <div>
+                            <h3 className="font-semibold text-slate-900 mb-2">Client</h3>
+                            <p className="text-slate-600">{project.client}</p>
+                          </div>
+                          <div className="grid grid-cols-2 gap-4">
                             <div>
-                              <img
-                                src={project.image || "/placeholder.svg?height=300&width=400"}
-                                alt={project.title}
-                                className="w-full h-64 object-cover rounded-xl"
-                              />
+                              <h4 className="font-semibold text-slate-900 mb-1 flex items-center">
+                                <Calendar className="h-4 w-4 mr-2 text-blue-600" />
+                                Timeline
+                              </h4>
+                              <p className="text-slate-600">{project.caseStudy.timeline}</p>
                             </div>
-                            <div className="space-y-4">
-                              <div>
-                                <h3 className="font-semibold text-slate-900 mb-2">Client</h3>
-                                <p className="text-slate-600">{project.client}</p>
-                              </div>
-                              <div className="grid grid-cols-2 gap-4">
-                                <div>
-                                  <h4 className="font-semibold text-slate-900 mb-1 flex items-center">
-                                    <Calendar className="h-4 w-4 mr-2 text-blue-600" />
-                                    Timeline
-                                  </h4>
-                                  <p className="text-slate-600">{project.caseStudy.timeline}</p>
-                                </div>
-                                <div>
-                                  <h4 className="font-semibold text-slate-900 mb-1 flex items-center">
-                                    <Users className="h-4 w-4 mr-2 text-blue-600" />
-                                    Team Size
-                                  </h4>
-                                  <p className="text-slate-600">{project.caseStudy.teamSize}</p>
-                                </div>
-                              </div>
+                             <div className="space-y-4"></div>
+                            <div>
+                              <h4 className="font-semibold text-slate-900 mb-1 flex items-center w-30">
+                                <Users className="h-4 w-4 mr-2 text-blue-600" />
+                                Team Size
+                              </h4>
+                              <p className=" w-30 text-slate-600">{project.caseStudy.teamSize}</p>
                             </div>
                           </div>
+                        </div>
+                      </div>
 
                           {/* Challenge, Solution, Outcome */}
+
+                        <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
+                          <h3 className="text-xl font-bold text-orange-900 mb-3">Project Details</h3>
+                          <p className="text-orange-800">{project.caseStudy.projectDetails}</p>
+                        </div>
+
                           <div className="space-y-6">
                             <div className="bg-red-50 p-6 rounded-xl border border-red-100">
                               <h3 className="text-xl font-bold text-red-900 mb-3">Challenge</h3>

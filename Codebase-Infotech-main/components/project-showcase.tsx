@@ -16,7 +16,7 @@ const projects = [
     type: "mobile",
     description: "Enjoy the best Barbering services with MOOS BARBERS. Get a local's insight into the Barber professions & Saloons & plan your visit by contacting them ahead of time. Using this app, you can find direct Barber professions & Saloons.",
     image: "/ecommerce-mobile-app-mockup.png",
-    technologies: ["iOS","Android", "Node.js", "MongoDB", "AI/ML"],
+    technologies: ["iOS","Android"],
     client: "United Kingdom",
     results: ["300% increase in user engagement", "50% reduction in cart abandonment", "4.8/5 app store rating"],
     caseStudy: {
@@ -29,7 +29,9 @@ const projects = [
       timeline: "4 months",
       teamSize: "6 developers",
       projectDetails: "Multivendor Barber apps for Customers & professionals barbers/salons.",
-      technologies: ["React Native", "Node.js", "MongoDB", "TensorFlow", "AWS", "Stripe"],
+      AppHighlights: ["Discover professional barbers and salons nearby", "Book appointments online instantly", "Connect directly with barbers and salon professionals", "Use the app in both Arabic and English for your convenience"],
+      technologies: ["iOS","Android"],
+      thirdPartyServices: ["Google Maps", "Firebase", "Braintree","PayPal","Alamofire"],
     },
   },
   {
@@ -39,7 +41,7 @@ const projects = [
     type: "mobile",
     description: "Enjoy the best vacation experiences with WYLD Camps. Get a local's insight into the Camps you plan to visit before your vacation by contacting them ahead of time. Using this app, you can find direct venders for summer camps.",
     image: "/wyld-app.jpg",
-    technologies: ["iOS","Android", "Node.js", "MongoDB", "AI/ML"],
+    technologies: ["iOS","Android"],
     client: "USA",
     results: ["300% increase in user engagement", "50% reduction in cart abandonment", "4.8/5 app store rating"],
     caseStudy: {
@@ -52,7 +54,9 @@ const projects = [
       timeline: "4 months",
       teamSize: "6 developers",
       projectDetails: "Camp Booking for Customers and Venders.",
-      technologies: ["React Native", "Node.js", "MongoDB", "TensorFlow", "AWS", "Stripe"],
+      AppHighlights: ["Discover Camps – Browse curated summer camps with detailed info and reviews","Direct Vendor Access – Connect with camp organizers before booking","Secure Payments – Safe and easy booking","Seamless Booking – Real-time availability and instant confirmations","Local Insights – Get personalized tips from camp vendors and hosts","User-Friendly Experience – Simple, fast, and intuitive design"],
+      technologies: ["iOS","Android"],
+      thirdPartyServices: ["Google Maps", "Firebase", "Authorize.Net Accept","Alamofire"],
     },
   },
   {
@@ -75,7 +79,9 @@ const projects = [
       timeline: "4 months",
       teamSize: "6 developers",
       projectDetails: "Jet Booking apps",
+      AppHighlights: ["•	Discover professional barbers and salons nearby", "•	Book appointments online instantly", "•	Connect directly with barbers and salon professionals", "•	Use the app in both Arabic and English for your convenience"],
       technologies: ["React Native", "Node.js", "MongoDB", "TensorFlow", "AWS", "Stripe"],
+       thirdPartyServices: ["Firebase", "Stripe", "Twilio"],
     },
   },
   {
@@ -85,7 +91,7 @@ const projects = [
     type: "mobile",
     description: "G8PASS is the best Society Management Apps & backend Software. It provides to manage housing, apartments security, visitor management and facility management etc. Now managing your Housing Society is simple.",
     image: "/gatepass-app.jpg",
-    technologies: ["iOS","Android", "Node.js", "MongoDB", "AI/ML"],
+    technologies: ["iOS","Android"],
     client: "Germany & Dubai - UAE",
     results: ["300% increase in user engagement", "50% reduction in cart abandonment", "4.8/5 app store rating"],
     caseStudy: {
@@ -98,7 +104,34 @@ const projects = [
       timeline: "4 months",
       teamSize: "6 developers",
       projectDetails: "Society Management Apps for Customers, Security Guards & web software for society management staff",
-      technologies: ["React Native", "Node.js", "MongoDB", "TensorFlow", "AWS", "Stripe"],
+      AppHighlights: ["Resident App – Pay maintenance bills, raise complaints, book amenities, track visitors.","Security Guard App – Quick visitor entry/exit, emergency alerts, staff attendance.","Society Staff Web Software – Manage members, finances, facility bookings, and reports.","Communication Hub – Announcements, polls, and notice board for residents.","Digital Payments – Easy online payments for maintenance & utilities.","Smart Dashboard – Real-time analytics and reports for management committees.","Instant Alerts – SMS, push notifications & emergency notifications.","Facility Management – Track bookings for clubhouse, gym, parking, etc.",""],
+      technologies: ["iOS","Android"],
+      thirdPartyServices: ["Alamofire","Pushy"],
+    },
+  },
+   {
+    id: 10,
+    title: "Binsina Pharmacy",
+    category: "Mobile App",
+    type: "mobile",
+    description: "G8PASS is the best Society Management Apps & backend Software. It provides to manage housing, apartments security, visitor management and facility management etc. Now managing your Housing Society is simple.",
+    image: "/Binsin.png",
+    technologies: ["iOS","Android"],
+    client: "Germany & Dubai - UAE",
+    results: ["300% increase in user engagement", "50% reduction in cart abandonment", "4.8/5 app store rating"],
+    caseStudy: {
+      challenge:
+        "Moos Barber needed a mobile platform that would make Barbering services accessible and engaging for everyday consumers while tracking their preferences.",
+      solution:
+        "We developed a React Native app with AI-powered Barber recommendations, appointment scheduling, and user-friendly interfaces to encourage bookings.",
+      outcome:
+        "The app achieved over 100K downloads in the first 6 months, with users reporting 40% more bookings and high engagement with the Barber profiles.",
+      timeline: "4 months",
+      teamSize: "6 developers",
+      projectDetails: "Society Management Apps for Customers, Security Guards & web software for society management staff",
+      AppHighlights: ["Resident App – Pay maintenance bills, raise complaints, book amenities, track visitors.","Security Guard App – Quick visitor entry/exit, emergency alerts, staff attendance.","Society Staff Web Software – Manage members, finances, facility bookings, and reports.","Communication Hub – Announcements, polls, and notice board for residents.","Digital Payments – Easy online payments for maintenance & utilities.","Smart Dashboard – Real-time analytics and reports for management committees.","Instant Alerts – SMS, push notifications & emergency notifications.","Facility Management – Track bookings for clubhouse, gym, parking, etc.",""],
+      technologies: ["iOS","Android"],
+      thirdPartyServices: ["Alamofire","Pushy"],
     },
   },
   {
@@ -121,6 +154,8 @@ const projects = [
       timeline: "3 months",
       teamSize: "4 developers",
       technologies: ["Next.js", "React.js", "Tailwind CSS", "Vercel", "Contentful", "Google Analytics"],
+      AppHighlights: ["•	Discover professional barbers and salons nearby", "•	Book appointments online instantly", "•	Connect directly with barbers and salon professionals", "•	Use the app in both Arabic and English for your convenience"],
+       thirdPartyServices: ["Firebase", "Stripe", "Twilio"],
     },
   },
   {
@@ -143,6 +178,8 @@ const projects = [
       timeline: "2 months",
       teamSize: "3 designers",
       technologies: ["Figma", "Adobe XD", "Principle", "InVision", "Miro", "Zeplin"],
+      AppHighlights: ["•	Discover professional barbers and salons nearby", "•	Book appointments online instantly", "•	Connect directly with barbers and salon professionals", "•	Use the app in both Arabic and English for your convenience"],
+       thirdPartyServices: ["Firebase", "Stripe", "Twilio"],
     },
   },
   {
@@ -165,6 +202,8 @@ const projects = [
       timeline: "6 months",
       teamSize: "8 developers",
       technologies: ["Laravel", "Vue.js", "MySQL", "Redis", "Docker", "AWS", "Stripe"],
+      AppHighlights: ["•	Discover professional barbers and salons nearby", "•	Book appointments online instantly", "•	Connect directly with barbers and salon professionals", "•	Use the app in both Arabic and English for your convenience"],
+       thirdPartyServices: ["Firebase", "Stripe", "Twilio"],
     },
   },
   {
@@ -187,6 +226,8 @@ const projects = [
       timeline: "5 months",
       teamSize: "7 developers",
       technologies: ["Flutter", "Firebase", "TensorFlow", "Stripe", "HealthKit", "Google Fit"],
+      AppHighlights: ["•	Discover professional barbers and salons nearby", "•	Book appointments online instantly", "•	Connect directly with barbers and salon professionals", "•	Use the app in both Arabic and English for your convenience"],
+       thirdPartyServices: ["Firebase", "Stripe", "Twilio"],
     },
   },
   {
@@ -209,6 +250,8 @@ const projects = [
       timeline: "8 months",
       teamSize: "10 developers",
       technologies: ["Magento", "PHP", "Elasticsearch", "AWS", "Redis", "Varnish", "CDN"],
+      AppHighlights: ["•	Discover professional barbers and salons nearby", "•	Book appointments online instantly", "•	Connect directly with barbers and salon professionals", "•	Use the app in both Arabic and English for your convenience"],
+       thirdPartyServices: ["Firebase", "Stripe", "Twilio"],
     },
   },
 ]
@@ -333,11 +376,23 @@ export default function ProjectShowcase() {
                           {/* Challenge, Solution, Outcome */}
 
                         <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
-                          <h3 className="text-xl font-bold text-orange-900 mb-3">Project Details</h3>
+                          <h3 className="text-xl font-bold text-orange-900 mb-3">Project Details:</h3>
                           <p className="text-orange-800">{project.caseStudy.projectDetails}</p>
+                           <br />
+                          <p className="text-orange-800">{project.description}</p>
                         </div>
 
-                          <div className="space-y-6">
+                         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                          <h3 className="text-xl font-bold text-blue-900 mb-3">App Highlights:</h3>
+
+                            <ul className="list-disc list-inside text-blue-800 space-y-1">
+                            {project.caseStudy.AppHighlights.map((item, index) => (
+                            <li key={index}>{item}
+                            </li>))}
+                           </ul>
+                          </div>
+
+                          {/* <div className="space-y-6">
                             <div className="bg-red-50 p-6 rounded-xl border border-red-100">
                               <h3 className="text-xl font-bold text-red-900 mb-3">Challenge</h3>
                               <p className="text-red-800">{project.caseStudy.challenge}</p>
@@ -352,9 +407,21 @@ export default function ProjectShowcase() {
                               <h3 className="text-xl font-bold text-green-900 mb-3">Outcome</h3>
                               <p className="text-green-800">{project.caseStudy.outcome}</p>
                             </div>
+                          </div> */}
+
+                          {/* Third-Party Used */}
+                          <div>
+                            <h3 className="text-xl font-bold text-slate-900 mb-4">Third-Party Services Used</h3>
+                            <div className="flex flex-wrap gap-2">
+                              {project.caseStudy.thirdPartyServices.map((tech, index) => (
+                                <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-800">
+                                  {tech}
+                                </Badge>
+                              ))}
+                            </div>
                           </div>
 
-                          {/* Technologies */}
+                           {/* Technologies */}
                           <div>
                             <h3 className="text-xl font-bold text-slate-900 mb-4">Technologies Used</h3>
                             <div className="flex flex-wrap gap-2">
@@ -367,13 +434,13 @@ export default function ProjectShowcase() {
                           </div>
 
                           {/* Results */}
-                          <div>
+                          {/* <div>
                             <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center">
                               <TrendingUp className="h-5 w-5 mr-2 text-green-600" />
                               Key Results
                             </h3>
                             <div className="grid md:grid-cols-3 gap-4">
-                              {project.results.map((result, index) => (
+                              {project.ca.map((result, index) => (
                                 <div
                                   key={index}
                                   className="bg-gradient-to-br from-green-50 to-blue-50 p-4 rounded-xl border border-green-100"
@@ -381,20 +448,20 @@ export default function ProjectShowcase() {
                                   <p className="text-green-800 font-semibold">{result}</p>
                                 </div>
                               ))}
-                            </div>
-                          </div>
+                            </div> */}
+                          {/* </div> */}
                         </div>
                       </DialogContent>
                     </Dialog>
 
-                    <Button
+                    {/* <Button
                       size="sm"
                       variant="outline"
                       className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
                     >
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Live Demo
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
               </div>
@@ -429,7 +496,7 @@ export default function ProjectShowcase() {
                 </div>
 
                 {/* Results Preview */}
-                <div className="space-y-2 mb-4">
+                {/* <div className="space-y-2 mb-4">
                   <h4 className="font-semibold text-slate-900 text-sm">Key Results:</h4>
                   <ul className="space-y-1">
                     {project.results.slice(0, 2).map((result, index) => (
@@ -439,7 +506,7 @@ export default function ProjectShowcase() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </div> */}
 
                 <Dialog>
                   <DialogTrigger asChild>
@@ -499,9 +566,21 @@ export default function ProjectShowcase() {
                         <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
                           <h3 className="text-xl font-bold text-orange-900 mb-3">Project Details</h3>
                           <p className="text-orange-800">{project.caseStudy.projectDetails}</p>
+                          <br />
+                          <p className="text-orange-800">{project.description}</p>
                         </div>
 
-                        <div className="bg-red-50 p-6 rounded-xl border border-red-100">
+                         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                          <h3 className="text-xl font-bold text-blue-900 mb-3">App Highlights:</h3>
+
+                            <ul className="list-disc list-inside text-blue-800 space-y-1">
+                            {project.caseStudy.AppHighlights.map((item, index) => (
+                            <li key={index}>{item}
+                            </li>))}
+                           </ul>
+                          </div>
+
+                        {/* <div className="bg-red-50 p-6 rounded-xl border border-red-100">
                           <h3 className="text-xl font-bold text-red-900 mb-3">Challenge</h3>
                           <p className="text-red-800">{project.caseStudy.challenge}</p>
                         </div>
@@ -514,8 +593,20 @@ export default function ProjectShowcase() {
                         <div className="bg-green-50 p-6 rounded-xl border border-green-100">
                           <h3 className="text-xl font-bold text-green-900 mb-3">Outcome</h3>
                           <p className="text-green-800">{project.caseStudy.outcome}</p>
-                        </div>
+                        </div> */}
                       </div>
+
+                       {/* Third-Party Used */}
+                          <div>
+                            <h3 className="text-xl font-bold text-slate-900 mb-4">Third-Party Services Used</h3>
+                            <div className="flex flex-wrap gap-2">
+                              {project.caseStudy.thirdPartyServices.map((tech, index) => (
+                                <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-800">
+                                  {tech}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
 
                       {/* Technologies */}
                       <div>
@@ -530,7 +621,7 @@ export default function ProjectShowcase() {
                       </div>
 
                       {/* Results */}
-                      <div>
+                      {/* <div>
                         <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center">
                           <TrendingUp className="h-5 w-5 mr-2 text-green-600" />
                           Key Results
@@ -545,7 +636,7 @@ export default function ProjectShowcase() {
                             </div>
                           ))}
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </DialogContent>
                 </Dialog>

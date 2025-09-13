@@ -5,256 +5,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { ExternalLink, Eye, ArrowRight, Calendar, Users, TrendingUp } from "lucide-react"
+import { ExternalLink, Eye, ArrowRight, Calendar, Users, TrendingUp, Apple, ArrowDownNarrowWideIcon, AppWindowIcon } from "lucide-react"
 import Link from "next/link"
-
-const projects = [
-  {
-    id: 1,
-    title: "Moos Barber",
-    category: "Mobile App",
-    type: "mobile",
-    description: "Enjoy the best Barbering services with MOOS BARBERS. Get a local's insight into the Barber professions & Saloons & plan your visit by contacting them ahead of time. Using this app, you can find direct Barber professions & Saloons.",
-    image: "/ecommerce-mobile-app-mockup.png",
-    technologies: ["iOS","Android"],
-    client: "United Kingdom",
-    results: ["300% increase in user engagement", "50% reduction in cart abandonment", "4.8/5 app store rating"],
-    caseStudy: {
-      challenge:
-        "Moos Barber needed a mobile platform that would make Barbering services accessible and engaging for everyday consumers while tracking their preferences.",
-      solution:
-        "We developed a React Native app with AI-powered Barber recommendations, appointment scheduling, and user-friendly interfaces to encourage bookings.",
-      outcome:
-        "The app achieved over 100K downloads in the first 6 months, with users reporting 40% more bookings and high engagement with the Barber profiles.",
-      timeline: "4 months",
-      teamSize: "6 developers",
-      projectDetails: "Multivendor Barber apps for Customers & professionals barbers/salons.",
-      AppHighlights: ["Discover professional barbers and salons nearby", "Book appointments online instantly", "Connect directly with barbers and salon professionals", "Use the app in both Arabic and English for your convenience"],
-      technologies: ["iOS","Android"],
-      thirdPartyServices: ["Google Maps", "Firebase", "Braintree","PayPal","Alamofire"],
-    },
-  },
-  {
-    id: 7,
-    title: "Wyld",
-    category: "Mobile App",
-    type: "mobile",
-    description: "Enjoy the best vacation experiences with WYLD Camps. Get a local's insight into the Camps you plan to visit before your vacation by contacting them ahead of time. Using this app, you can find direct venders for summer camps.",
-    image: "/wyld-app.jpg",
-    technologies: ["iOS","Android"],
-    client: "USA",
-    results: ["300% increase in user engagement", "50% reduction in cart abandonment", "4.8/5 app store rating"],
-    caseStudy: {
-      challenge:
-        "Moos Barber needed a mobile platform that would make Barbering services accessible and engaging for everyday consumers while tracking their preferences.",
-      solution:
-        "We developed a React Native app with AI-powered Barber recommendations, appointment scheduling, and user-friendly interfaces to encourage bookings.",
-      outcome:
-        "The app achieved over 100K downloads in the first 6 months, with users reporting 40% more bookings and high engagement with the Barber profiles.",
-      timeline: "4 months",
-      teamSize: "6 developers",
-      projectDetails: "Camp Booking for Customers and Venders.",
-      AppHighlights: ["Discover Camps – Browse curated summer camps with detailed info and reviews","Direct Vendor Access – Connect with camp organizers before booking","Secure Payments – Safe and easy booking","Seamless Booking – Real-time availability and instant confirmations","Local Insights – Get personalized tips from camp vendors and hosts","User-Friendly Experience – Simple, fast, and intuitive design"],
-      technologies: ["iOS","Android"],
-      thirdPartyServices: ["Google Maps", "Firebase", "Authorize.Net Accept","Alamofire"],
-    },
-  },
-  {
-    id: 8,
-    title: "Fly Elite",
-    category: "Mobile App",
-    type: "mobile",
-    description: "Enjoy the best Jet vacation experiences around the globe with Fly Elite. Using this app, you can find best booking experience & make the most of your itinerary by planning efficiently.",
-    image: "/flyelite.jpg",
-    technologies: ["iOS","Android", "Node.js", "MongoDB", "AI/ML"],
-    client: "Dubai, UAE",
-    results: ["300% increase in user engagement", "50% reduction in cart abandonment", "4.8/5 app store rating"],
-    caseStudy: {
-      challenge:
-        "Moos Barber needed a mobile platform that would make Barbering services accessible and engaging for everyday consumers while tracking their preferences.",
-      solution:
-        "We developed a React Native app with AI-powered Barber recommendations, appointment scheduling, and user-friendly interfaces to encourage bookings.",
-      outcome:
-        "The app achieved over 100K downloads in the first 6 months, with users reporting 40% more bookings and high engagement with the Barber profiles.",
-      timeline: "4 months",
-      teamSize: "6 developers",
-      projectDetails: "Jet Booking apps",
-      AppHighlights: ["•	Discover professional barbers and salons nearby", "•	Book appointments online instantly", "•	Connect directly with barbers and salon professionals", "•	Use the app in both Arabic and English for your convenience"],
-      technologies: ["React Native", "Node.js", "MongoDB", "TensorFlow", "AWS", "Stripe"],
-       thirdPartyServices: ["Firebase", "Stripe", "Twilio"],
-    },
-  },
-  {
-    id: 9,
-    title: "G8pass",
-    category: "Mobile App",
-    type: "mobile",
-    description: "G8PASS is the best Society Management Apps & backend Software. It provides to manage housing, apartments security, visitor management and facility management etc. Now managing your Housing Society is simple.",
-    image: "/gatepass-app.jpg",
-    technologies: ["iOS","Android"],
-    client: "Germany & Dubai - UAE",
-    results: ["300% increase in user engagement", "50% reduction in cart abandonment", "4.8/5 app store rating"],
-    caseStudy: {
-      challenge:
-        "Moos Barber needed a mobile platform that would make Barbering services accessible and engaging for everyday consumers while tracking their preferences.",
-      solution:
-        "We developed a React Native app with AI-powered Barber recommendations, appointment scheduling, and user-friendly interfaces to encourage bookings.",
-      outcome:
-        "The app achieved over 100K downloads in the first 6 months, with users reporting 40% more bookings and high engagement with the Barber profiles.",
-      timeline: "4 months",
-      teamSize: "6 developers",
-      projectDetails: "Society Management Apps for Customers, Security Guards & web software for society management staff",
-      AppHighlights: ["Resident App – Pay maintenance bills, raise complaints, book amenities, track visitors.","Security Guard App – Quick visitor entry/exit, emergency alerts, staff attendance.","Society Staff Web Software – Manage members, finances, facility bookings, and reports.","Communication Hub – Announcements, polls, and notice board for residents.","Digital Payments – Easy online payments for maintenance & utilities.","Smart Dashboard – Real-time analytics and reports for management committees.","Instant Alerts – SMS, push notifications & emergency notifications.","Facility Management – Track bookings for clubhouse, gym, parking, etc.",""],
-      technologies: ["iOS","Android"],
-      thirdPartyServices: ["Alamofire","Pushy"],
-    },
-  },
-   {
-    id: 10,
-    title: "Binsina Pharmacy",
-    category: "Mobile App",
-    type: "mobile",
-    description: "G8PASS is the best Society Management Apps & backend Software. It provides to manage housing, apartments security, visitor management and facility management etc. Now managing your Housing Society is simple.",
-    image: "/Binsin.png",
-    technologies: ["iOS","Android"],
-    client: "Germany & Dubai - UAE",
-    results: ["300% increase in user engagement", "50% reduction in cart abandonment", "4.8/5 app store rating"],
-    caseStudy: {
-      challenge:
-        "Moos Barber needed a mobile platform that would make Barbering services accessible and engaging for everyday consumers while tracking their preferences.",
-      solution:
-        "We developed a React Native app with AI-powered Barber recommendations, appointment scheduling, and user-friendly interfaces to encourage bookings.",
-      outcome:
-        "The app achieved over 100K downloads in the first 6 months, with users reporting 40% more bookings and high engagement with the Barber profiles.",
-      timeline: "4 months",
-      teamSize: "6 developers",
-      projectDetails: "Society Management Apps for Customers, Security Guards & web software for society management staff",
-      AppHighlights: ["Resident App – Pay maintenance bills, raise complaints, book amenities, track visitors.","Security Guard App – Quick visitor entry/exit, emergency alerts, staff attendance.","Society Staff Web Software – Manage members, finances, facility bookings, and reports.","Communication Hub – Announcements, polls, and notice board for residents.","Digital Payments – Easy online payments for maintenance & utilities.","Smart Dashboard – Real-time analytics and reports for management committees.","Instant Alerts – SMS, push notifications & emergency notifications.","Facility Management – Track bookings for clubhouse, gym, parking, etc.",""],
-      technologies: ["iOS","Android"],
-      thirdPartyServices: ["Alamofire","Pushy"],
-    },
-  },
-  {
-    id: 2,
-    title: "TechCorp Website Redesign",
-    category: "Web Development",
-    type: "web",
-    description: "Complete website overhaul with modern design, improved performance, and enhanced user experience.",
-    image: "/modern-corporate-website-design.png",
-    technologies: ["React.js", "Next.js", "Tailwind CSS", "Vercel"],
-    client: "TechCorp Solutions",
-    results: ["200% increase in page speed", "150% boost in conversions", "40% reduction in bounce rate"],
-    caseStudy: {
-      challenge:
-        "TechCorp's outdated website was slow, had poor mobile experience, and wasn't converting visitors into leads effectively.",
-      solution:
-        "We redesigned the entire website using Next.js and Tailwind CSS, implementing modern UI/UX principles, optimizing for performance, and adding conversion-focused elements.",
-      outcome:
-        "The new website loads 3x faster, has a 95+ Google PageSpeed score, and generates 150% more qualified leads with significantly improved user engagement metrics.",
-      timeline: "3 months",
-      teamSize: "4 developers",
-      technologies: ["Next.js", "React.js", "Tailwind CSS", "Vercel", "Contentful", "Google Analytics"],
-      AppHighlights: ["•	Discover professional barbers and salons nearby", "•	Book appointments online instantly", "•	Connect directly with barbers and salon professionals", "•	Use the app in both Arabic and English for your convenience"],
-       thirdPartyServices: ["Firebase", "Stripe", "Twilio"],
-    },
-  },
-  {
-    id: 3,
-    title: "HealthTracker Dashboard",
-    category: "UI/UX Design",
-    type: "design",
-    description: "Intuitive health monitoring dashboard with data visualization and personalized insights.",
-    image: "/health-dashboard-ui-design.png",
-    technologies: ["Figma", "Adobe XD", "Principle", "InVision"],
-    client: "HealthTech Innovations",
-    results: ["90% user satisfaction", "60% increase in daily active users", "Award-winning design"],
-    caseStudy: {
-      challenge:
-        "HealthTech needed a user-friendly dashboard that could present complex health data in an understandable and actionable way for both patients and healthcare providers.",
-      solution:
-        "We designed an intuitive dashboard with clear data visualizations, personalized health insights, and an easy-to-navigate interface that works seamlessly across all devices.",
-      outcome:
-        "The dashboard received a 90% user satisfaction rating, won the 2023 Healthcare UX Award, and helped increase patient engagement by 60% with their health monitoring.",
-      timeline: "2 months",
-      teamSize: "3 designers",
-      technologies: ["Figma", "Adobe XD", "Principle", "InVision", "Miro", "Zeplin"],
-      AppHighlights: ["•	Discover professional barbers and salons nearby", "•	Book appointments online instantly", "•	Connect directly with barbers and salon professionals", "•	Use the app in both Arabic and English for your convenience"],
-       thirdPartyServices: ["Firebase", "Stripe", "Twilio"],
-    },
-  },
-  {
-    id: 4,
-    title: "RestaurantPro Management System",
-    category: "Full Stack",
-    type: "fullstack",
-    description: "Comprehensive restaurant management system with POS, inventory, and analytics features.",
-    image: "/restaurant-management-system.png",
-    technologies: ["Laravel", "Vue.js", "MySQL", "Redis"],
-    client: "Restaurant Chain Group",
-    results: ["80% reduction in order processing time", "95% inventory accuracy", "30% cost savings"],
-    caseStudy: {
-      challenge:
-        "A restaurant chain needed an integrated system to manage orders, inventory, staff, and analytics across multiple locations efficiently.",
-      solution:
-        "We built a comprehensive management system with real-time POS integration, automated inventory tracking, staff management, and detailed analytics dashboard.",
-      outcome:
-        "The system reduced order processing time by 80%, improved inventory accuracy to 95%, and helped the chain save 30% on operational costs through better resource management.",
-      timeline: "6 months",
-      teamSize: "8 developers",
-      technologies: ["Laravel", "Vue.js", "MySQL", "Redis", "Docker", "AWS", "Stripe"],
-      AppHighlights: ["•	Discover professional barbers and salons nearby", "•	Book appointments online instantly", "•	Connect directly with barbers and salon professionals", "•	Use the app in both Arabic and English for your convenience"],
-       thirdPartyServices: ["Firebase", "Stripe", "Twilio"],
-    },
-  },
-  {
-    id: 5,
-    title: "FitnessPro Mobile App",
-    category: "Cross Platform",
-    type: "mobile",
-    description: "Cross-platform fitness app with workout tracking, social features, and AI personal trainer.",
-    image: "/fitness-app-cross-platform.png",
-    technologies: ["Flutter", "Firebase", "TensorFlow", "Stripe"],
-    client: "FitnessPro Studios",
-    results: ["1M+ downloads", "4.9/5 user rating", "500% revenue increase"],
-    caseStudy: {
-      challenge:
-        "FitnessPro wanted to create a comprehensive fitness app that could provide personalized workout plans, track progress, and build a community of fitness enthusiasts.",
-      solution:
-        "We developed a Flutter app with AI-powered workout recommendations, social features, progress tracking, and integration with wearable devices for comprehensive fitness monitoring.",
-      outcome:
-        "The app reached 1 million downloads within 8 months, maintains a 4.9/5 rating, and generated 500% increase in revenue through premium subscriptions and in-app purchases.",
-      timeline: "5 months",
-      teamSize: "7 developers",
-      technologies: ["Flutter", "Firebase", "TensorFlow", "Stripe", "HealthKit", "Google Fit"],
-      AppHighlights: ["•	Discover professional barbers and salons nearby", "•	Book appointments online instantly", "•	Connect directly with barbers and salon professionals", "•	Use the app in both Arabic and English for your convenience"],
-       thirdPartyServices: ["Firebase", "Stripe", "Twilio"],
-    },
-  },
-  {
-    id: 6,
-    title: "LuxuryBrand E-commerce",
-    category: "CMS Development",
-    type: "ecommerce",
-    description: "High-end e-commerce platform with custom CMS, advanced search, and premium user experience.",
-    image: "/luxury-ecommerce-platform.png",
-    technologies: ["Magento", "PHP", "Elasticsearch", "AWS"],
-    client: "Luxury Fashion Brand",
-    results: ["400% increase in online sales", "70% improvement in search accuracy", "Premium user experience"],
-    caseStudy: {
-      challenge:
-        "A luxury fashion brand needed an e-commerce platform that reflected their premium brand image while providing advanced search and personalization features.",
-      solution:
-        "We built a custom Magento-based platform with advanced search capabilities, personalized recommendations, and a premium user interface that matches the brand's luxury positioning.",
-      outcome:
-        "The platform increased online sales by 400%, improved search accuracy by 70%, and received industry recognition for its exceptional user experience and design.",
-      timeline: "8 months",
-      teamSize: "10 developers",
-      technologies: ["Magento", "PHP", "Elasticsearch", "AWS", "Redis", "Varnish", "CDN"],
-      AppHighlights: ["•	Discover professional barbers and salons nearby", "•	Book appointments online instantly", "•	Connect directly with barbers and salon professionals", "•	Use the app in both Arabic and English for your convenience"],
-       thirdPartyServices: ["Firebase", "Stripe", "Twilio"],
-    },
-  },
-]
+import { projects } from "./projects"
+import { Andada_Pro } from "next/font/google"
 
 const categories = [
   "All",
@@ -325,12 +79,12 @@ export default function ProjectShowcase() {
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-600/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="flex space-x-4">
                     <Dialog>
-                      <DialogTrigger asChild>
+                      { <DialogTrigger asChild>
                         <Button size="sm" className="bg-white text-blue-600 hover:bg-blue-50">
                           <Eye className="h-4 w-4 mr-2" />
                           View Case Study
                         </Button>
-                      </DialogTrigger>
+                      </DialogTrigger> }
                       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
                         <DialogHeader>
                           <DialogTitle className="text-2xl font-bold text-slate-900 mb-4">
@@ -374,6 +128,35 @@ export default function ProjectShowcase() {
                       </div>
 
                           {/* Challenge, Solution, Outcome */}
+                          <Dialog>
+<DialogTrigger asChild>
+  <div className="flex space-x-2">
+    {/* App Store Button */}
+    {project.iOS_Link && (
+    <Button
+      size="sm"
+      className="bg-black text-white hover:bg-gray-800 flex items-center border border-gray-600 rounded"
+      onClick={() => window.open(project.iOS_Link, "_blank")}
+    >
+      <Apple className="h-4 w-4 mr-2" />
+      App Store
+    </Button>
+ )}
+    {/* Play Store Button */}
+    {project.Android_Link && (
+      <Button
+        size="sm"
+        className="bg-white text-green-600 hover:bg-green-50 flex items-center border border-gray-300 rounded"
+        onClick={() => window.open(project.Android_Link, "_blank")}
+      >
+        <AppWindowIcon className="h-4 w-4 mr-2" />
+        Google Play
+      </Button>
+    )}
+  </div>
+</DialogTrigger>
+</Dialog>
+                      
 
                         <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
                           <h3 className="text-xl font-bold text-orange-900 mb-3">Project Details:</h3>
@@ -432,6 +215,7 @@ export default function ProjectShowcase() {
                               ))}
                             </div>
                           </div>
+                          
 
                           {/* Results */}
                           {/* <div>
@@ -479,7 +263,7 @@ export default function ProjectShowcase() {
                 <p className="text-slate-600 mb-4 leading-relaxed">{project.description}</p>
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                {/* <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.slice(0, 3).map((tech, index) => (
                     <span
                       key={index}
@@ -493,7 +277,18 @@ export default function ProjectShowcase() {
                       +{project.technologies.length - 3} more
                     </span>
                   )}
-                </div>
+                </div> */}
+
+                <div>
+                            <h3 className="text-xl font-bold text-slate-900 mb-4"></h3>
+                            <div className="flex flex-wrap gap-2">
+                              {project.technologies.map((tech, index) => (
+                                <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-800">
+                                  {tech}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
 
                 {/* Results Preview */}
                 {/* <div className="space-y-2 mb-4">
@@ -509,15 +304,14 @@ export default function ProjectShowcase() {
                 </div> */}
 
                 <Dialog>
-                  <DialogTrigger asChild>
+                  {/* <DialogTrigger asChild>
                     <Button
                       variant="ghost"
-                      className="w-full group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200 p-0"
-                    >
+                      className="w-full group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200 p-0">
                       View Case Study
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
                     </Button>
-                  </DialogTrigger>
+                  </DialogTrigger> */}
                   <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
                     <DialogHeader>
                       <DialogTitle className="text-2xl font-bold text-slate-900 mb-4">

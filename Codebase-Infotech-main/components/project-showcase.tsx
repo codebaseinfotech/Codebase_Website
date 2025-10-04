@@ -16,7 +16,6 @@ const categories = [
   "Web Development",
   "UI/UX Design",
   "Full Stack",
-  "Cross Platform",
   "CMS Development",
   "Digital Marketing",
 ]

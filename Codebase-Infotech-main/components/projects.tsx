@@ -429,7 +429,7 @@ export const projects = [
     Android_Link: "https://play.google.com/store/apps/details?id=com.SI.tashead&hl=en",
     type: "mobile",
     description: "The new Dubai Harbour Marinas mobile app is designed to ensure an impeccable docking and seafront journey. Engaging and intuitive, the fully integrated app will allow marina members to access a wide range of information and request a host of services at their fingertips. The app works seamlessly across all mobile devices and the user-friendly navigation ensures easy access to key, frequently visited sections.",
-    image: "/DHM.png",
+    image: "/Tashead.png",
     technologies: ["iOS", "Alamofire", "Firebase","One Single","NISDK"],
     client: "Kuwait",
     results: ["300% increase in user engagement", "50% reduction in cart abandonment", "4.8/5 app store rating"],

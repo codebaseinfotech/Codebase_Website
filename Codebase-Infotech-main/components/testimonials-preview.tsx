@@ -1,3 +1,6 @@
+"use client"
+
+import { useRouter } from "next/navigation"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Star, ArrowRight } from "lucide-react"
@@ -30,6 +33,7 @@ const testimonials = [
 ]
 
 export default function TestimonialsPreview() {
+  const router = useRouter()
   return (
     <section className="py-12 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,7 +76,7 @@ export default function TestimonialsPreview() {
 
         {/* CTA to testimonials page */}
         <div className="text-center">
-          <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent">
+          <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent" onClick={() => router.push("/testimonials")}>
             View All Testimonials
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>

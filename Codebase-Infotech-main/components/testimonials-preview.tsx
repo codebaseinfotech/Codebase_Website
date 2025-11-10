@@ -11,7 +11,7 @@ const testimonials = [
     company: "TechStart Inc.",
     role: "CEO",
     content:
-      "Codebase Infotech transformed our business with their exceptional mobile app development. The team was professional, responsive, and delivered beyond our expectations.",
+      "Codebase Infotech completely transformed our business with their outstanding mobile app development services. The team was highly professional, incredibly responsive, and consistently delivered results that exceeded our expectations.",
     rating: 5,
   },
   {
@@ -19,7 +19,7 @@ const testimonials = [
     company: "Shilu E-Commerce Plus",
     role: "CTO",
     content:
-      "Their exceptional app and web development expertise enabled us to build a stunning e-commerce platform. As a result, our sales grew by 150% within the first quarter after launch.",
+      "Their exceptional expertise in app and web development helped us create a stunning e-commerce platform. Within the first quarter after launch, our sales increased by an impressive 150%.",
     rating: 5,
   },
   {
@@ -27,7 +27,7 @@ const testimonials = [
     company: "Digital Marketing Pro",
     role: "Marketing Director",
     content:
-      "The UI/UX design services provided by Codebase Infotech were outstanding. They truly understand user experience and created designs that convert.",
+      "The UI/UX design services from Codebase Infotech were exceptional. They have a deep understanding of user experience and crafted designs that are both visually stunning and highly conversion-focused.",
     rating: 5,
   },
 ]

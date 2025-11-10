@@ -25,9 +25,9 @@ export default function MissionVision() {
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                To empower businesses with innovative technology solutions that drive growth, efficiency, and success.
-                We are committed to delivering exceptional value through cutting-edge development, creative design, and
-                strategic digital marketing.
+                To empower businesses through innovative technology solutions that fuel growth, 
+                enhance efficiency, and ensure long-term success. We are dedicated to delivering exceptional value 
+                with cutting-edge development, creative design, and results-driven digital marketing strategies.
               </p>
             </CardContent>
           </Card>
@@ -40,9 +40,9 @@ export default function MissionVision() {
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                To be the leading technology partner that transforms ideas into reality, helping businesses thrive in
-                the digital age. We envision a future where technology seamlessly integrates with business goals to
-                create meaningful impact.
+                To become the leading technology partner that turns innovative ideas into reality, 
+                enabling businesses to thrive in the digital era. We aspire to create a future where technology 
+                seamlessly aligns with business goals to deliver lasting impact and meaningful growth.
               </p>
             </CardContent>
           </Card>

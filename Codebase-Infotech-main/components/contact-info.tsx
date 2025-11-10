@@ -7,7 +7,7 @@ const contactMethods = [
     icon: Phone,
     title: "Call Us",
     description: "Speak directly with our experts",
-    details: ["+91 92652 42366", "Monday - Saturday: 9 AM - 6 PM IST"],
+    details: ["+91 70968 59504", "Monday - Saturday: 9 AM - 6 PM IST"],
     action: "Call Now",
     href: "tel:+15551234567",
     color: "text-green-600",
@@ -40,7 +40,7 @@ const contactMethods = [
     icon: MessageSquare,
     title: "WhatsApp",
     description: "Quick chat on WhatsApp",
-    details: ["+91 92652 42366", "Available 24/7"],
+    details: ["+91 70968 59504", "Available 24/7"],
     action: "Chat Now",
     href: "https://wa.me/15551234567",
     color: "text-green-600",
@@ -146,13 +146,13 @@ export default function ContactInfo() {
                 <h4 className="text-lg font-bold text-slate-900 mb-4">Office Hours</h4>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
-                    <span className="text-slate-700 font-medium">Monday - Friday</span>
+                    <span className="text-slate-700 font-medium">Monday - Saturday</span>
                     <span className="text-slate-600">9:00 AM - 6:00 PM</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                  {/* <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
                     <span className="text-slate-700 font-medium">Saturday</span>
-                    <span className="text-slate-600">9:00 AM - 4:00 PM</span>
-                  </div>
+                    <span className="text-slate-600">9:00 AM - 6:00 PM</span>
+                  </div> */}
                   <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
                     <span className="text-slate-700 font-medium">Sunday</span>
                     <span className="text-slate-600">Closed</span>

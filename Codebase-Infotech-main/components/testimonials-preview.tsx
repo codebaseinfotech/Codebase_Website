@@ -13,10 +13,10 @@ const testimonials = [
   },
   {
     name: "Michael Chen",
-    company: "E-Commerce Plus",
+    company: "Shilu E-Commerce Plus",
     role: "CTO",
     content:
-      "Their web development expertise helped us create a stunning e-commerce platform. Sales increased by 150% within the first quarter after launch.",
+      "Their exceptional app and web development expertise enabled us to build a stunning e-commerce platform. As a result, our sales grew by 150% within the first quarter after launch.",
     rating: 5,
   },
   {

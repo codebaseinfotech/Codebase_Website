@@ -106,7 +106,7 @@ export default function ServiceCTA() {
               <Phone className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-foreground mb-2">Call Us</h3>
               <p className="text-muted-foreground mb-4">Speak directly with our experts</p>
-              <p className="text-primary font-semibold">+91 92652 42366</p>
+              <p className="text-primary font-semibold">+91 70968 59504</p>
             </CardContent>
           </Card>
 

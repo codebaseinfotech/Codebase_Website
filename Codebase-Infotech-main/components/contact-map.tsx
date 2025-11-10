@@ -36,7 +36,7 @@ export default function ContactMap() {
               India
             </p>
             <div className="space-y-1 text-sm">
-              <p className="text-primary font-medium">+91 92652 42366</p>
+              <p className="text-primary font-medium">+91 70968 59504</p>
               <p className="text-secondary font-medium">info@codebaseinfotech.com</p>
             </div>
           </div> */}

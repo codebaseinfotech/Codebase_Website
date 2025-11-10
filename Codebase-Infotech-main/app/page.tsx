@@ -22,7 +22,7 @@ export default function HomePage() {
         <TechnologyStack />
         <WhyChooseUs />
         <CompanyStats />
-        <RecentProjects />
+        {/* <RecentProjects /> */}
         <ProcessOverview />
         <TestimonialsPreview />
         <IndustryExperience />

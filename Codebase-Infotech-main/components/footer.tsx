@@ -102,7 +102,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center text-muted-foreground">
                 <Phone className="h-4 w-4 mr-3 text-primary" />
-                +91 92652 42366
+                +91 70968 59504
               </li>
               <li className="flex items-start text-muted-foreground">
                 <MapPin className="h-6 w-11 mr-3 text-primary mt-1" />

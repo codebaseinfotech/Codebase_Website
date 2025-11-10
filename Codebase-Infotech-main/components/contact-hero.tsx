@@ -39,7 +39,7 @@ export default function ContactHero() {
               <Phone className="h-8 w-8 text-primary mb-4" />
               <h3 className="font-semibold text-card-foreground mb-2">Call Us</h3>
               <p className="text-muted-foreground mb-2">Speak directly with our experts</p>
-              <p className="text-primary font-semibold">+91 92652 42366</p>
+              <p className="text-primary font-semibold">+91 70968 59504</p>
             </div>
 
             <div className="bg-card p-6 rounded-xl border border-border shadow-sm">
@@ -52,8 +52,8 @@ export default function ContactHero() {
             <div className="bg-card p-6 rounded-xl border border-border shadow-sm">
               <Clock className="h-8 w-8 text-accent mb-4" />
               <h3 className="font-semibold text-card-foreground mb-2">Business Hours</h3>
-              <p className="text-muted-foreground mb-2">Monday - Friday: 9:00 AM - 6:00 PM</p>
-              <p className="text-muted-foreground">Saturday: 9:00 AM - 4:00 PM</p>
+              <p className="text-muted-foreground mb-2">Monday - Saturday: 9:00 AM - 6:00 PM</p>
+              {/* <p className="text-muted-foreground">Saturday: 9:00 AM - 4:00 PM</p> */}
             </div>
           </div>
         </div>

@@ -106,7 +106,7 @@ export default function CallToAction() {
               <Phone className="h-6 w-6" />
               <div>
                 <div className="font-semibold text-left">Call Us</div>
-                <div className="text-sm">+91 92652 42366</div>
+                <div className="text-sm">+91 70968 59504</div>
               </div>
             </div>
             <div className="flex items-center justify-center space-x-3 text-primary-foreground/90">

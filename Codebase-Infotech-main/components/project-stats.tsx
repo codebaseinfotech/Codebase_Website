@@ -22,7 +22,7 @@ const stats = [
   },
   {
     icon: Clock,
-    value: "8+",
+    value: "9+",
     label: "Years Experience",
     description: "Years of expertise in cutting-edge technology solutions",
   },
@@ -70,11 +70,11 @@ export default function ProjectStats() {
                 they created exceeded our expectations and drove incredible results."
               </blockquote>
               <div className="flex items-center justify-center space-x-4">
-                <img
+                {/* <img
                   src="/placeholder.svg"
                   alt="Client"
                   className="w-12 h-12 rounded-full border-2 border-primary/20"
-                />
+                /> */}
                 <div className="text-left">
                   <div className="font-semibold text-foreground">Sarah Johnson</div>
                   <div className="text-muted-foreground text-sm">CEO, TechStart Inc.</div>

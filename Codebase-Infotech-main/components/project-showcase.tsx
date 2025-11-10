@@ -42,7 +42,7 @@ export default function ProjectShowcase() {
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        {/* <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (
             <Button
               key={category}
@@ -57,7 +57,7 @@ export default function ProjectShowcase() {
               {category}
             </Button>
           ))}
-        </div>
+        </div> */}
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

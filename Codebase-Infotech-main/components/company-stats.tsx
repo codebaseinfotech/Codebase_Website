@@ -15,7 +15,7 @@ const stats = [
   },
   {
     icon: Clock,
-    number: "8+",
+    number: "9+",
     label: "Years Experience",
     description: "In software development",
   },

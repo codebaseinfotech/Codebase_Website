@@ -21,12 +21,12 @@ const testimonials = [
   {
     id: 2,
     name: "Michael Chen",
-    company: "E-Commerce Plus",
+    company: "Shilu E-Commerce Plus",
     role: "CTO",
     image: "/client-michael-chen.png",
     rating: 5,
     content:
-      "Their web development expertise helped us create a stunning e-commerce platform. Sales increased by 150% within the first quarter after launch. The team's attention to detail and technical skills are outstanding.",
+      "Their exceptional app and web development expertise enabled us to build a stunning e-commerce platform. As a result, our sales grew by 150% within the first quarter after launch.",
     project: "E-Commerce Website",
     results: ["150% increase in sales", "70% improvement in page speed", "40% reduction in bounce rate"],
   },
@@ -150,11 +150,11 @@ export default function TestimonialsSlider() {
 
               {/* Client Info */}
               <div className="flex items-center justify-center space-x-6 mb-8">
-                <img
+                {/* <img
                   src={currentTestimonial.image || "/placeholder.svg"}
                   alt={currentTestimonial.name}
                   className="w-16 h-16 rounded-full border-4 border-primary/20"
-                />
+                /> */}
                 <div className="text-center">
                   <div className="font-bold text-card-foreground text-lg">{currentTestimonial.name}</div>
                   <div className="text-primary font-medium">{currentTestimonial.role}</div>
@@ -233,11 +233,11 @@ export default function TestimonialsSlider() {
 
                   {/* Client */}
                   <div className="flex items-center space-x-3">
-                    <img
+                    {/* <img
                       src={testimonial.image || "/placeholder.svg"}
                       alt={testimonial.name}
                       className="w-10 h-10 rounded-full border-2 border-primary/20"
-                    />
+                    /> */}
                     <div>
                       <div className="font-semibold text-card-foreground text-sm">{testimonial.name}</div>
                       <div className="text-muted-foreground text-xs">{testimonial.company}</div>

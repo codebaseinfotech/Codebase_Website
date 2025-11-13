@@ -20,8 +20,8 @@ export default function MissionVision() {
           {/* Mission */}
           <Card className="border-border bg-background">
             <CardContent className="p-8 text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Target className="h-8 w-8 text-primary" />
+              <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Target className="h-8 w-8 text-secondary" />
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">

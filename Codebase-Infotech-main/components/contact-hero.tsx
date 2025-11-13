@@ -10,7 +10,7 @@ export default function ContactHero() {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
-                Get In <span className="text-primary">Touch</span>
+                Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">Touch</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Ready to transform your business with cutting-edge technology? Let's discuss your project and create

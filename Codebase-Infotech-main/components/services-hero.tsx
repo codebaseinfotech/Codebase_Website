@@ -10,8 +10,9 @@ export default function ServicesHero() {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
-                Our <span className="text-primary">Services</span>
+                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">Services</span>
               </h1>
+              {/* text-primary */}
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Comprehensive IT solutions tailored to your business needs. From mobile apps to digital marketing, we
                 have the expertise to transform your ideas into reality.

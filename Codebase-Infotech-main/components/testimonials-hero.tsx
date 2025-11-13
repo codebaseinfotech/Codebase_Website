@@ -37,7 +37,7 @@ export default function TestimonialsHero() {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
-                Client <span className="text-primary">Testimonials</span>
+                Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">Testimonials</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Don't just take our word for it. Hear from the businesses we've helped transform their digital presence

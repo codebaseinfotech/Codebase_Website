@@ -35,7 +35,7 @@ export default function PortfolioHero() {
           <div className="space-y-8">
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
-                Our <span className="text-primary">Portfolio</span>
+                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">Portfolio</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Explore our collection of successful projects that showcase our expertise in mobile app development, web

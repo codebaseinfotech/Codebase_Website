@@ -18,9 +18,9 @@ const contactMethods = [
     icon: Mail,
     title: "Email Us",
     description: "Get detailed information via email",
-    details: ["hello@codebaseinfotech.com", "Response within 24 hours"],
+    details: ["info@codebaseinfotech.com", "Response within 24 hours"],
     action: "Send Email",
-    href: "mailto:hello@codebaseinfotech.com",
+    href: "mailto:info@codebaseinfotech.com",
     color: "text-blue-600",
     bgColor: "bg-blue-50",
     borderColor: "border-blue-100",
@@ -136,9 +136,15 @@ export default function ContactInfo() {
                   <p className="text-slate-600 mb-4 leading-relaxed">
                     201, Akshar Square, opp. Cancer Hospital, Dabholi, Surat, Gujarat,<br /> India - 395004
                   </p>
-                  <Button variant="outline" className="border-blue-200 text-blue-600 hover:bg-blue-50 bg-transparent">
-                    Get Directions
-                  </Button>
+                  <a
+                    href="https://maps.app.goo.gl/N7NDybeZHDG5pvPU8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="outline" className="border-blue-200 text-blue-600 hover:bg-blue-50 bg-transparent">
+                      Get Directions
+                    </Button>
+                  </a>
                 </div>
               </div>
 

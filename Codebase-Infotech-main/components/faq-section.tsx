@@ -115,7 +115,7 @@ export default function FAQSection() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="mailto:hello@codebaseinfotech.com"
+                  href="mailto:info@codebaseinfotech.com"
                   className="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-xl hover:bg-slate-100 transition-colors"
                 >
                   Email Us

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
@@ -25,6 +26,7 @@ const techQuotes = [
 ]
 
 export default function ServiceCTA() {
+  const router = useRouter()
   const [currentQuote, setCurrentQuote] = useState(techQuotes[0])
   const [isGenerating, setIsGenerating] = useState(false)
   const [isQuoteOpen, setIsQuoteOpen] = useState(false)
@@ -124,7 +126,7 @@ export default function ServiceCTA() {
               <Calendar className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-foreground mb-2">Schedule Meeting</h3>
               <p className="text-muted-foreground mb-4">Book a convenient time to discuss</p>
-              <Button variant="outline" className="mt-2 bg-transparent">
+              <Button variant="outline" className="mt-2 bg-transparent" onClick={() => router.push('/contact')}>
                 Book Now
               </Button>
             </CardContent>

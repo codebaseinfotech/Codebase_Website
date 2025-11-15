@@ -9,7 +9,7 @@ const stats = [
   },
   {
     icon: Award,
-    number: "155+",
+    number: "170+",
     label: "Projects Completed",
     description: "Successfully delivered solutions",
   },

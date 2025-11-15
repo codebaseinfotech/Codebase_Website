@@ -121,7 +121,7 @@ export default function FAQSection() {
                   Email Us
                 </a>
                 <a
-                  href="tel:+15551234567"
+                  href="tel:+917096859504"
                   className="inline-flex items-center justify-center px-6 py-3 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors border border-white/20"
                 >
                   Call Us

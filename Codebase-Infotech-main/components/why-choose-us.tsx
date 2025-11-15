@@ -5,7 +5,7 @@ const features = [
   {
     icon: Shield,
     title: "Proven Expertise",
-    description: "8+ years of experience delivering high-quality IT solutions across various industries",
+    description: "9+ years of experience delivering high-quality IT solutions across various industries",
   },
   {
     icon: Clock,
@@ -73,7 +73,7 @@ export default function WhyChooseUs() {
         {/* Stats Section */}
         <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="text-4xl font-bold text-primary mb-2">155+</div>
+            <div className="text-4xl font-bold text-primary mb-2">170+</div>
             <div className="text-muted-foreground">Projects Delivered</div>
           </div>
           <div className="text-center">

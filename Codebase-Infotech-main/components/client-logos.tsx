@@ -44,7 +44,7 @@ export default function ClientLogos() {
   //           <div className="text-muted-foreground">Satisfied Clients</div>
   //         </div>
   //         <div>
-  //           <div className="text-3xl font-bold text-primary mb-2">155+</div>
+  //           <div className="text-3xl font-bold text-primary mb-2">170+</div>
   //           <div className="text-muted-foreground">Projects Completed</div>
   //         </div>
   //         <div>

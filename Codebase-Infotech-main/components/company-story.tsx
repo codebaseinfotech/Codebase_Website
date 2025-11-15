@@ -54,7 +54,7 @@ export default function CompanyStory() {
                   <Lightbulb className="h-6 w-6 text-white" />
                 </div>
                 <div className="ml-6 bg-white p-6 rounded-2xl shadow-lg border border-blue-100 flex-1">
-                  <div className="text-sm text-blue-600 font-semibold mb-1">2017</div>
+                  <div className="text-sm text-blue-600 font-semibold mb-1">2016</div>
                   <h4 className="text-xl font-bold text-slate-900 mb-2">Foundation</h4>
                   <p className="text-slate-600">
                     Started with a vision to make technology accessible and impactful for businesses of all sizes.
@@ -101,12 +101,12 @@ export default function CompanyStory() {
           </div>
           <div className="text-center p-6 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl border border-cyan-100">
             <Target className="h-8 w-8 text-cyan-600 mx-auto mb-3" />
-            <div className="text-2xl font-bold text-slate-900">155+</div>
+            <div className="text-2xl font-bold text-slate-900">170+</div>
             <div className="text-sm text-slate-600">Projects</div>
           </div>
           <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl border border-purple-100">
             <Award className="h-8 w-8 text-purple-600 mx-auto mb-3" />
-            <div className="text-2xl font-bold text-slate-900">8+</div>
+            <div className="text-2xl font-bold text-slate-900">9+</div>
             <div className="text-sm text-slate-600">Years Experience</div>
           </div>
           <div className="text-center p-6 bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl border border-green-100">

@@ -41,7 +41,7 @@ export default function TestimonialsCTA() {
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-3">Proven Track Record</h3>
               <p className="text-muted-foreground leading-relaxed">
-                With 155+ successful projects and 99% client satisfaction, we have the experience to deliver exceptional
+                With 170+ successful projects and 99% client satisfaction, we have the experience to deliver exceptional
                 results.
               </p>
             </CardContent>

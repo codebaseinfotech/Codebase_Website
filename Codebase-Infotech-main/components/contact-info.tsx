@@ -9,7 +9,7 @@ const contactMethods = [
     description: "Speak directly with our experts",
     details: ["+91 70968 59504", "Monday - Saturday: 9 AM - 6 PM IST"],
     action: "Call Now",
-    href: "tel:+15551234567",
+    href: "tel:+917096859504",
     color: "text-green-600",
     bgColor: "bg-green-50",
     borderColor: "border-green-100",
@@ -42,7 +42,7 @@ const contactMethods = [
     description: "Quick chat on WhatsApp",
     details: ["+91 70968 59504", "Available 24/7"],
     action: "Chat Now",
-    href: "https://wa.me/15551234567",
+    href: "https://wa.me/917096859504",
     color: "text-green-600",
     bgColor: "bg-green-50",
     borderColor: "border-green-100",
@@ -175,7 +175,7 @@ export default function ContactInfo() {
             For urgent technical support or critical project issues, reach out to us immediately.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+15551234567">
+            <a href="tel:+917096859504">
               <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
                 <Phone className="h-5 w-5 mr-2" />
                 Emergency Hotline

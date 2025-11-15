@@ -34,8 +34,8 @@ function useCountUp(end: number, duration: number = 2000) {
 export default function AboutHero() {
 
   const clients = useCountUp(90, 2000)
-  const projects = useCountUp(155, 2500)
-  const years = useCountUp(8, 3000)
+  const projects = useCountUp(170, 2500)
+  const years = useCountUp(9, 3000)
 
   return (
     <section className="relative bg-gradient-to-br from-slate-50 via-white to-blue-50 py-20 lg:py-32">

@@ -22,7 +22,7 @@ export default function PortfolioHero() {
   }
 
   useEffect(() => {
-    animateValue(setProjects, 155, 2000)      // animate to 155 in 2s
+    animateValue(setProjects, 170, 2000)      // animate to 170 in 2s
     animateValue(setClients, 90, 2000)        // animate to 90 in 2s
     animateValue(setSatisfaction, 99, 2000)   // animate to 99 in 2s
   }, [])

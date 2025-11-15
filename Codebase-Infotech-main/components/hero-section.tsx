@@ -47,9 +47,9 @@ export default function HeroSection() {
   }
 
   useEffect(() => {
-    // Animate projectCount (155+)
+    // Animate projectCount (170+)
     let start1 = 0
-    const end1 = 155
+    const end1 = 170
     let current1 = start1
     let duration1 = 1200
     let increment1 = end1 / (duration1 / 16)

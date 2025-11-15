@@ -124,7 +124,7 @@ export default function HeroSection() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 leading-tight animate-slide-up">
-                Transform Your{" "}
+                Transform om Your{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-800 animate-gradient">
                   Digital Vision
                 </span>{" "}

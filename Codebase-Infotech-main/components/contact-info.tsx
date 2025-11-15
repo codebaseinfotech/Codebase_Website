@@ -105,15 +105,15 @@ export default function ContactInfo() {
                       <p className="text-slate-600 mb-3">{method.description}</p>
                       <div className="space-y-1 mb-4">
                         {method.details.map((detail, idx) => (
-                          <p key={idx} className="text-sm text-slate-500 flex items-center">
+                          <div key={idx} className="text-sm text-slate-500 flex items-center">
                             <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
-                            {detail}
-                          </p>
+                            {detail}dfew
+                          </div>
                         ))}
                       </div>
                       <a href={method.href}>
-                        <Button variant="ghost" className={`${method.color} hover:${method.bgColor} font-semibold p-0`}>
-                          {method.action} →
+                        <Button variant="ghost" className={`${method.color} cursor-pointer p-2 hover:text-black hover:${method.bgColor} font-semibold`}>
+                          {method.action}aswddqw →
                         </Button>
                       </a>
                     </div>
@@ -181,7 +181,7 @@ export default function ContactInfo() {
                 Emergency Hotline
               </Button>
             </a>
-            <a href="mailto:urgent@codebaseinfotech.com">
+            <a href="mailto:codebaseinfotech@gmail.com">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent">
                 <Mail className="h-5 w-5 mr-2" />
                 Priority Email

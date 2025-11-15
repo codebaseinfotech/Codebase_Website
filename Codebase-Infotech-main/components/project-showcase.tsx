@@ -78,12 +78,12 @@ export default function ProjectShowcase() {
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-600/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="flex space-x-4">
                     <Dialog>
-                      { <DialogTrigger asChild>
+                      {<DialogTrigger asChild>
                         <Button size="sm" className="bg-white text-blue-600 hover:bg-blue-50">
                           <Eye className="h-4 w-4 mr-2" />
                           View Case Study
                         </Button>
-                      </DialogTrigger> }
+                      </DialogTrigger>}
                       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
                         <DialogHeader>
                           <DialogTitle className="text-2xl font-bold text-slate-900 mb-4">
@@ -92,86 +92,86 @@ export default function ProjectShowcase() {
                         </DialogHeader>
 
                         <div className="space-y-8">
-                      {/* Project Overview */}
-                      <div className="grid md:grid-cols-2 gap-8">
-                        <div>
-                          <img
-                            src={project.image || "/placeholder.svg?height=300&width=400"}
-                            alt={project.title}
-                            className="w-full h-64 object-cover rounded-xl"
-                          />
-                        </div>
-                        <div className="space-y-4">
-                          <div>
-                            <h3 className="font-semibold text-slate-900 mb-2">Client</h3>
-                            <p className="text-slate-600">{project.client}</p>
-                          </div>
-                          <div className="grid grid-cols-2 gap-4">
+                          {/* Project Overview */}
+                          <div className="grid md:grid-cols-2 gap-8">
                             <div>
-                              <h4 className="font-semibold text-slate-900 mb-1 flex items-center">
-                                <Calendar className="h-4 w-4 mr-2 text-blue-600" />
-                                Timeline
-                              </h4>
-                              <p className="text-slate-600">{project.caseStudy.timeline}</p>
+                              <img
+                                src={project.image || "/placeholder.svg?height=300&width=400"}
+                                alt={project.title}
+                                className="w-full h-64 object-cover rounded-xl"
+                              />
                             </div>
-                             <div className="space-y-4"></div>
-                            <div>
-                              <h4 className="font-semibold text-slate-900 mb-1 flex items-center w-30">
-                                <Users className="h-4 w-4 mr-2 text-blue-600" />
-                                Team Size
-                              </h4>
-                              <p className=" w-30 text-slate-600">{project.caseStudy.teamSize}</p>
+                            <div className="space-y-4">
+                              <div>
+                                <h3 className="font-semibold text-slate-900 mb-2">Client</h3>
+                                <p className="text-slate-600">{project.client}</p>
+                              </div>
+                              <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                  <h4 className="font-semibold text-slate-900 mb-1 flex items-center">
+                                    <Calendar className="h-4 w-4 mr-2 text-blue-600" />
+                                    Timeline
+                                  </h4>
+                                  <p className="text-slate-600">{project.caseStudy.timeline}</p>
+                                </div>
+                                <div className="space-y-4"></div>
+                                <div>
+                                  <h4 className="font-semibold text-slate-900 mb-1 flex items-center w-30">
+                                    <Users className="h-4 w-4 mr-2 text-blue-600" />
+                                    Team Size
+                                  </h4>
+                                  <p className=" w-30 text-slate-600">{project.caseStudy.teamSize}</p>
+                                </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
 
                           {/* Challenge, Solution, Outcome */}
                           <Dialog>
-<DialogTrigger asChild>
-  <div className="flex space-x-2">
-    {/* App Store Button */}
-    {project.iOS_Link && (
-    <Button
-      size="sm"
-      className="bg-black text-white hover:bg-gray-800 flex items-center border border-gray-600 rounded"
-      onClick={() => window.open(project.iOS_Link, "_blank")}
-    >
-      <Apple className="h-4 w-4 mr-2" />
-      App Store
-    </Button>
- )}
-    {/* Play Store Button */}
-    {project.Android_Link && (
-      <Button
-        size="sm"
-        className="bg-white text-green-600 hover:bg-green-50 flex items-center border border-gray-300 rounded"
-        onClick={() => window.open(project.Android_Link, "_blank")}
-      >
-        <AppWindowIcon className="h-4 w-4 mr-2" />
-        Google Play
-      </Button>
-    )}
-  </div>
-</DialogTrigger>
-</Dialog>
-                      
+                            <DialogTrigger asChild>
+                              <div className="flex space-x-2">
+                                {/* App Store Button */}
+                                {project.iOS_Link && (
+                                  <Button
+                                    size="sm"
+                                    className="bg-black text-white hover:bg-gray-800 flex items-center border border-gray-600 rounded"
+                                    onClick={() => window.open(project.iOS_Link, "_blank")}
+                                  >
+                                    <Apple className="h-4 w-4 mr-2" />
+                                    App Store
+                                  </Button>
+                                )}
+                                {/* Play Store Button */}
+                                {project.Android_Link && (
+                                  <Button
+                                    size="sm"
+                                    className="bg-white text-green-600 hover:bg-green-50 flex items-center border border-gray-300 rounded"
+                                    onClick={() => window.open(project.Android_Link, "_blank")}
+                                  >
+                                    <AppWindowIcon className="h-4 w-4 mr-2" />
+                                    Google Play
+                                  </Button>
+                                )}
+                              </div>
+                            </DialogTrigger>
+                          </Dialog>
 
-                        <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
-                          <h3 className="text-xl font-bold text-orange-900 mb-3">Project Details:</h3>
-                          <p className="text-orange-800">{project.caseStudy.projectDetails}</p>
-                           <br />
-                          <p className="text-orange-800">{project.description}</p>
-                        </div>
 
-                         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
-                          <h3 className="text-xl font-bold text-blue-900 mb-3">App Highlights:</h3>
+                          <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
+                            <h3 className="text-xl font-bold text-orange-900 mb-3">Project Details:</h3>
+                            <p className="text-orange-800">{project.caseStudy.projectDetails}</p>
+                            <br />
+                            <p className="text-orange-800">{project.description}</p>
+                          </div>
+
+                          <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                            <h3 className="text-xl font-bold text-blue-900 mb-3">App Highlights:</h3>
 
                             <ul className="list-disc list-inside text-blue-800 space-y-1">
-                            {project.caseStudy.AppHighlights.map((item, index) => (
-                            <li key={index}>{item}
-                            </li>))}
-                           </ul>
+                              {project.caseStudy.AppHighlights.map((item, index) => (
+                                <li key={index}>{item}
+                                </li>))}
+                            </ul>
                           </div>
 
                           {/* <div className="space-y-6">
@@ -203,7 +203,7 @@ export default function ProjectShowcase() {
                             </div>
                           </div>
 
-                           {/* Technologies */}
+                          {/* Technologies */}
                           <div>
                             <h3 className="text-xl font-bold text-slate-900 mb-4">Technologies Used</h3>
                             <div className="flex flex-wrap gap-2">
@@ -214,7 +214,7 @@ export default function ProjectShowcase() {
                               ))}
                             </div>
                           </div>
-                          
+
 
                           {/* Results */}
                           {/* <div>
@@ -279,15 +279,15 @@ export default function ProjectShowcase() {
                 </div> */}
 
                 <div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-4"></h3>
-                            <div className="flex flex-wrap gap-2">
-                              {project.technologies.map((tech, index) => (
-                                <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-800">
-                                  {tech}
-                                </Badge>
-                              ))}
-                            </div>
-                          </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4"></h3>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, index) => (
+                      <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-800">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
 
                 {/* Results Preview */}
                 {/* <div className="space-y-2 mb-4">
@@ -341,7 +341,7 @@ export default function ProjectShowcase() {
                               </h4>
                               <p className="text-slate-600">{project.caseStudy.timeline}</p>
                             </div>
-                             <div className="space-y-4"></div>
+                            <div className="space-y-4"></div>
                             <div>
                               <h4 className="font-semibold text-slate-900 mb-1 flex items-center w-30">
                                 <Users className="h-4 w-4 mr-2 text-blue-600" />
@@ -363,15 +363,15 @@ export default function ProjectShowcase() {
                           <p className="text-orange-800">{project.description}</p>
                         </div>
 
-                         <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                        <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
                           <h3 className="text-xl font-bold text-blue-900 mb-3">App Highlights:</h3>
 
-                            <ul className="list-disc list-inside text-blue-800 space-y-1">
+                          <ul className="list-disc list-inside text-blue-800 space-y-1">
                             {project.caseStudy.AppHighlights.map((item, index) => (
-                            <li key={index}>{item}
-                            </li>))}
-                           </ul>
-                          </div>
+                              <li key={index}>{item}
+                              </li>))}
+                          </ul>
+                        </div>
 
                         {/* <div className="bg-red-50 p-6 rounded-xl border border-red-100">
                           <h3 className="text-xl font-bold text-red-900 mb-3">Challenge</h3>
@@ -389,17 +389,17 @@ export default function ProjectShowcase() {
                         </div> */}
                       </div>
 
-                       {/* Third-Party Used */}
-                          <div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-4">Third-Party Services Used</h3>
-                            <div className="flex flex-wrap gap-2">
-                              {project.caseStudy.thirdPartyServices.map((tech, index) => (
-                                <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-800">
-                                  {tech}
-                                </Badge>
-                              ))}
-                            </div>
-                          </div>
+                      {/* Third-Party Used */}
+                      <div>
+                        <h3 className="text-xl font-bold text-slate-900 mb-4">Third-Party Services Used</h3>
+                        <div className="flex flex-wrap gap-2">
+                          {project.caseStudy.thirdPartyServices.map((tech, index) => (
+                            <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-800">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
 
                       {/* Technologies */}
                       <div>

@@ -13,17 +13,17 @@ const teamMembers = [
       email: "alex@codebaseinfotech.com",
     },
   },
-  {
-    name: "Sarah Chen",
-    role: "CTO",
-    bio: "Technical expert specializing in full-stack development and system architecture. Leads our development team with expertise in modern frameworks.",
-    image: "/cto-headshot-female.png",
-    social: {
-      linkedin: "#",
-      twitter: "#",
-      email: "sarah@codebaseinfotech.com",
-    },
-  },
+  // {
+  //   name: "Sarah Chen",
+  //   role: "CTO",
+  //   bio: "Technical expert specializing in full-stack development and system architecture. Leads our development team with expertise in modern frameworks.",
+  //   image: "/cto-headshot-female.png",
+  //   social: {
+  //     linkedin: "#",
+  //     twitter: "#",
+  //     email: "sarah@codebaseinfotech.com",
+  //   },
+  // },
   {
     name: "Michael Rodriguez",
     role: "Lead Developer",
@@ -35,17 +35,17 @@ const teamMembers = [
       email: "michael@codebaseinfotech.com",
     },
   },
-  {
-    name: "Emily Davis",
-    role: "UI/UX Designer",
-    bio: "Creative designer focused on user-centered design and creating beautiful, functional interfaces that users love.",
-    image: "/professional-female-designer-headshot.png",
-    social: {
-      linkedin: "#",
-      twitter: "#",
-      email: "emily@codebaseinfotech.com",
-    },
-  },
+  // {
+  //   name: "Emily Davis",
+  //   role: "UI/UX Designer",
+  //   bio: "Creative designer focused on user-centered design and creating beautiful, functional interfaces that users love.",
+  //   image: "/professional-female-designer-headshot.png",
+  //   social: {
+  //     linkedin: "#",
+  //     twitter: "#",
+  //     email: "emily@codebaseinfotech.com",
+  //   },
+  // },
   {
     name: "David Kim",
     role: "Digital Marketing Manager",
@@ -56,18 +56,18 @@ const teamMembers = [
       twitter: "#",
       email: "david@codebaseinfotech.com",
     },
-  },
-  {
-    name: "Lisa Thompson",
-    role: "Project Manager",
-    bio: "Experienced project manager ensuring smooth delivery of projects on time and within budget. Expert in agile methodologies.",
-    image: "/professional-female-project-manager.png",
-    social: {
-      linkedin: "#",
-      twitter: "#",
-      email: "lisa@codebaseinfotech.com",
-    },
-  },
+  },  
+  // {
+  //   name: "Lisa Thompson",
+  //   role: "Project Manager",
+  //   bio: "Experienced project manager ensuring smooth delivery of projects on time and within budget. Expert in agile methodologies.",
+  //   image: "/professional-female-project-manager.png",
+  //   social: {
+  //     linkedin: "#",
+  //     twitter: "#",
+  //     email: "lisa@codebaseinfotech.com",
+  //   },
+  // },
 ]
 
 export default function TeamSection() {

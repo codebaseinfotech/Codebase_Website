@@ -25,8 +25,8 @@ export default function HomePage() {
         {/* <RecentProjects /> */}
         <ProcessOverview />
         <TestimonialsPreview />
-        <IndustryExperience />
-        <BlogPreview />
+        {/* <IndustryExperience />
+        <BlogPreview /> */}
         <CallToAction />
       </main>
       <Footer />

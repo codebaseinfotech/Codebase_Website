@@ -117,7 +117,7 @@ export default function ServiceCTA() {
               <Mail className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-foreground mb-2">Email Us</h3>
               <p className="text-muted-foreground mb-4">Get detailed information via email</p>
-              <p className="text-primary font-semibold">info@codebaseinfotech.com</p>
+              <p className="text-primary font-semibold">codebaseinfotech@gmail.com</p>
             </CardContent>
           </Card>
 

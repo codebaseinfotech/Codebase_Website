@@ -113,7 +113,7 @@ export default function CallToAction() {
               <Mail className="h-6 w-6" />
               <div>
                 <div className="font-semibold text-left">Email Us</div>
-                <div className="text-sm">info@codebaseinfotech.com</div>
+                <div className="text-sm">codebaseinfotech@gmail.com</div>
               </div>
             </div>
           </div>

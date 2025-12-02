@@ -46,7 +46,7 @@ export default function ContactHero() {
               <Mail className="h-8 w-8 text-secondary mb-4" />
               <h3 className="font-semibold text-card-foreground mb-2">Email Us</h3>
               <p className="text-muted-foreground mb-2">Get detailed information via email</p>
-              <p className="text-secondary font-semibold">info@codebaseinfotech.com</p>
+              <p className="text-secondary font-semibold">codebaseinfotech@gmail.com</p>
             </div>
 
             <div className="bg-card p-6 rounded-xl border border-border shadow-sm">

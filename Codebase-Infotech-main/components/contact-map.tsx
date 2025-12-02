@@ -37,7 +37,7 @@ export default function ContactMap() {
             </p>
             <div className="space-y-1 text-sm">
               <p className="text-primary font-medium">+91 70968 59504</p>
-              <p className="text-secondary font-medium">info@codebaseinfotech.com</p>
+              <p className="text-secondary font-medium">codebaseinfotech@gmail.com</p>
             </div>
           </div> */}
         </div>

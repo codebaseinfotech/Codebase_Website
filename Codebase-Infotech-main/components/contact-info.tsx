@@ -18,9 +18,9 @@ const contactMethods = [
     icon: Mail,
     title: "Email Us",
     description: "Get detailed information via email",
-    details: ["info@codebaseinfotech.com", "Response within 24 hours"],
+    details: ["codebaseinfotech@gmail.com", "Response within 24 hours"],
     action: "Send Email",
-    href: "mailto:info@codebaseinfotech.com",
+    href: "mailto:codebaseinfotech@gmail.com",
     color: "text-blue-600",
     bgColor: "bg-blue-50",
     borderColor: "border-blue-100",
@@ -107,13 +107,13 @@ export default function ContactInfo() {
                         {method.details.map((detail, idx) => (
                           <div key={idx} className="text-sm text-slate-500 flex items-center">
                             <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
-                            {detail}dfew
+                            {detail}
                           </div>
                         ))}
                       </div>
                       <a href={method.href}>
                         <Button variant="ghost" className={`${method.color} cursor-pointer p-2 hover:text-black hover:${method.bgColor} font-semibold`}>
-                          {method.action}aswddqw →
+                          {method.action} →
                         </Button>
                       </a>
                     </div>

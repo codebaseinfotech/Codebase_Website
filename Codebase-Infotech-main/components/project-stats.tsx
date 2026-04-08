@@ -64,8 +64,8 @@ export default function ProjectStats() {
         {/* Client Testimonial */}
         <div className="mt-16">
           <Card className="border-border bg-background">
-            <CardContent className="p-12 text-center">
-              <blockquote className="text-2xl font-medium text-foreground mb-6 leading-relaxed">
+            <CardContent className="p-6 sm:p-12 text-center">
+              <blockquote className="text-base sm:text-lg lg:text-2xl font-medium text-foreground mb-6 leading-relaxed">
                 "Codebase Infotech transformed our business with their exceptional development skills. The mobile app
                 they created exceeded our expectations and drove incredible results."
               </blockquote>

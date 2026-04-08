@@ -50,7 +50,7 @@ export default function ServiceCTA() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main CTA Card */}
         <Card className="border-border bg-gradient-to-r from-primary to-secondary text-primary-foreground">
-          <CardContent className="p-12 text-center">
+          <CardContent className="p-6 sm:p-12 text-center">
             <h2 className="text-3xl lg:text-5xl font-bold mb-6">Ready to Get Started?</h2>
             <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
               Let's discuss your project requirements and create a custom solution that drives your business forward.
@@ -117,7 +117,7 @@ export default function ServiceCTA() {
               <Mail className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-foreground mb-2">Email Us</h3>
               <p className="text-muted-foreground mb-4">Get detailed information via email</p>
-              <p className="text-primary font-semibold">codebaseinfotech@gmail.com</p>
+              <p className="text-primary font-semibold text-sm sm:text-base break-all sm:break-normal">codebaseinfotech@gmail.com</p>
             </CardContent>
           </Card>
 
@@ -136,7 +136,7 @@ export default function ServiceCTA() {
         {/* Service Guarantee */}
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-bold text-foreground mb-4">Our Service Guarantee</h3>
-          <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             <div>
               <div className="text-3xl font-bold text-primary mb-2">100%</div>
               <div className="text-sm text-muted-foreground">Quality Assurance</div>

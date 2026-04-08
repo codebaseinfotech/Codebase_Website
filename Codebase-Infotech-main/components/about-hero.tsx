@@ -38,7 +38,7 @@ export default function AboutHero() {
   const years = useCountUp(9, 3000)
 
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 via-white to-blue-50 py-20 lg:py-32">
+    <section className="relative bg-gradient-to-br from-slate-50 via-white to-blue-50 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}

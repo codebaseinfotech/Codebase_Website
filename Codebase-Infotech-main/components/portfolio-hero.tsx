@@ -28,7 +28,7 @@ export default function PortfolioHero() {
   }, [])
 
   return (
-    <section className="relative bg-gradient-to-br from-background via-card to-background py-20 lg:py-32">
+    <section className="relative bg-gradient-to-br from-background via-card to-background py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}

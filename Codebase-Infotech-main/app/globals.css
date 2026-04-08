@@ -121,7 +121,18 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground font-sans;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  /* Prevent long words/emails from breaking layouts on mobile */
+  p, span, div, a, li, td, th {
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 }

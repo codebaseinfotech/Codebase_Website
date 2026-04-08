@@ -104,14 +104,14 @@ export default function HeroSection() {
 
   return (
     <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-10 overflow-hidden">
-      {/* Enhanced background decoration */}
+      {/* Enhanced background decoration - contained within section */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      <div className="absolute top-20 -left-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 -right-20 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
-      {/* Floating elements */}
-      <div className="absolute top-32 right-20 w-4 h-4 bg-blue-500 rounded-full animate-bounce delay-300"></div>
-      <div className="absolute bottom-40 left-20 w-6 h-6 bg-cyan-500 rounded-full animate-bounce delay-700"></div>
+      {/* Floating elements - hidden on mobile to prevent overflow */}
+      <div className="hidden sm:block absolute top-32 right-20 w-4 h-4 bg-blue-500 rounded-full animate-bounce delay-300"></div>
+      <div className="hidden sm:block absolute bottom-40 left-20 w-6 h-6 bg-cyan-500 rounded-full animate-bounce delay-700"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -202,53 +202,53 @@ export default function HeroSection() {
             </div>
 
             {/* Enhanced Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-slate-200 animate-slide-up delay-500">
-      <div className="text-center group">
-        <div className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:scale-110 transition-transform">
-          {projectCount}+
-        </div>
-        <div className="text-sm text-slate-500 font-medium">Projects Delivered</div>
-      </div>
-      <div className="text-center group">
-        <div className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:scale-110 transition-transform">
-          {clientCount}+
-        </div>
-        <div className="text-sm text-slate-500 font-medium">Global Clients</div>
-      </div>
-      <div className="text-center group">
-        <div className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:scale-110 transition-transform">
-          {uptime}%
-        </div>
-        <div className="text-sm text-slate-500 font-medium">Uptime SLA</div>
-      </div>
-    </div>
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-8 border-t border-slate-200 animate-slide-up delay-500">
+              <div className="text-center group">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:scale-110 transition-transform">
+                  {projectCount}+
+                </div>
+                <div className="text-xs sm:text-sm text-slate-500 font-medium">Projects Delivered</div>
+              </div>
+              <div className="text-center group">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:scale-110 transition-transform">
+                  {clientCount}+
+                </div>
+                <div className="text-xs sm:text-sm text-slate-500 font-medium">Global Clients</div>
+              </div>
+              <div className="text-center group">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:scale-110 transition-transform">
+                  {uptime}%
+                </div>
+                <div className="text-xs sm:text-sm text-slate-500 font-medium">Uptime SLA</div>
+              </div>
+            </div>
           </div>
 
           {/* Enhanced Visual Elements */}
-          <div className="relative animate-slide-up delay-600">
-            <div className="grid grid-cols-2 gap-6">
-              <div className="space-y-6">
-                <div className="bg-gradient-to-br from-white to-blue-50 p-6 rounded-2xl border border-blue-100 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
-                  <Code className="h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
-                  <h3 className="font-bold text-slate-900 mb-2">AI-Powered Solutions</h3>
-                  <p className="text-sm text-slate-600">Next-gen applications with machine learning</p>
+          <div className="relative animate-slide-up delay-600 hidden sm:block">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="bg-gradient-to-br from-white to-blue-50 p-4 sm:p-6 rounded-2xl border border-blue-100 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
+                  <Code className="h-8 w-8 sm:h-12 sm:w-12 text-blue-600 mb-3 sm:mb-4 group-hover:scale-110 transition-transform" />
+                  <h3 className="font-bold text-slate-900 mb-1 sm:mb-2 text-sm sm:text-base">AI-Powered Solutions</h3>
+                  <p className="text-xs sm:text-sm text-slate-600">Next-gen applications with machine learning</p>
                 </div>
-                <div className="bg-gradient-to-br from-white to-cyan-50 p-6 rounded-2xl border border-cyan-100 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
-                  <Smartphone className="h-12 w-12 text-cyan-600 mb-4 group-hover:scale-110 transition-transform" />
-                  <h3 className="font-bold text-slate-900 mb-2">Cross-Platform Apps</h3>
-                  <p className="text-sm text-slate-600">iOS, Android & Progressive Web Apps</p>
+                <div className="bg-gradient-to-br from-white to-cyan-50 p-4 sm:p-6 rounded-2xl border border-cyan-100 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
+                  <Smartphone className="h-8 w-8 sm:h-12 sm:w-12 text-cyan-600 mb-3 sm:mb-4 group-hover:scale-110 transition-transform" />
+                  <h3 className="font-bold text-slate-900 mb-1 sm:mb-2 text-sm sm:text-base">Cross-Platform Apps</h3>
+                  <p className="text-xs sm:text-sm text-slate-600">iOS, Android & Progressive Web Apps</p>
                 </div>
               </div>
-              <div className="space-y-6 pt-12">
-                <div className="bg-gradient-to-br from-white to-purple-50 p-6 rounded-2xl border border-purple-100 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
-                  <Globe className="h-12 w-12 text-purple-600 mb-4 group-hover:scale-110 transition-transform" />
-                  <h3 className="font-bold text-slate-900 mb-2">Cloud Solutions</h3>
-                  <p className="text-sm text-slate-600">Scalable & secure cloud infrastructure</p>
+              <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
+                <div className="bg-gradient-to-br from-white to-purple-50 p-4 sm:p-6 rounded-2xl border border-purple-100 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
+                  <Globe className="h-8 w-8 sm:h-12 sm:w-12 text-purple-600 mb-3 sm:mb-4 group-hover:scale-110 transition-transform" />
+                  <h3 className="font-bold text-slate-900 mb-1 sm:mb-2 text-sm sm:text-base">Cloud Solutions</h3>
+                  <p className="text-xs sm:text-sm text-slate-600">Scalable & secure cloud infrastructure</p>
                 </div>
-                <div className="bg-gradient-to-r from-blue-500 to-cyan-500 p-6 rounded-2xl shadow-xl text-white hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div className="bg-gradient-to-r from-blue-500 to-cyan-500 p-4 sm:p-6 rounded-2xl shadow-xl text-white hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                   <div className="text-center">
-                    <div className="text-2xl font-bold mb-1">Free</div>
-                    <div className="text-sm opacity-90">Strategy Session</div>
+                    <div className="text-xl sm:text-2xl font-bold mb-1">Free</div>
+                    <div className="text-xs sm:text-sm opacity-90">Strategy Session</div>
                   </div>
                 </div>
               </div>

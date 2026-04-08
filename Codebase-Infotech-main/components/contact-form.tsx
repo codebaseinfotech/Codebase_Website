@@ -32,6 +32,7 @@ export default function ContactForm() {
     message: "",
   })
   const [errors, setErrors] = useState<FormErrors>({})
+  const [serverError, setServerError] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -75,6 +76,7 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setServerError(null)
 
     if (!validateForm()) {
       return
@@ -83,16 +85,28 @@ export default function ContactForm() {
     setIsSubmitting(true)
 
     try {
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      // Send the data to the backend API route you created
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
 
-      // In a real application, you would send the data to your backend
-      console.log("Form submitted:", formData)
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message.")
+      }
+
+      console.log("Form successfully submitted:", data)
 
       setIsSubmitted(true)
       setFormData({ name: "", email: "", phone: "", message: "" })
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error submitting form:", error)
+      setServerError(error.message || "An unexpected error occurred. Please try again.")
     } finally {
       setIsSubmitting(false)
     }
@@ -132,6 +146,13 @@ export default function ContactForm() {
             </p>
           </CardHeader>
           <CardContent className="p-8">
+            {serverError && (
+              <div className="mb-6 p-4 rounded-md bg-red-500/10 border border-red-500 text-red-500 flex items-start text-sm">
+                <AlertCircle className="h-5 w-5 mr-3 flex-shrink-0 mt-0.5" />
+                <span>{serverError}</span>
+              </div>
+            )}
+            
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Field */}
               <div className="space-y-2">

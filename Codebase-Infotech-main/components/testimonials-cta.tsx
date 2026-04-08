@@ -8,7 +8,7 @@ export default function TestimonialsCTA() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main CTA */}
         <Card className="border-border bg-gradient-to-r from-primary to-secondary text-primary-foreground mb-12">
-          <CardContent className="p-12 text-center">
+          <CardContent className="p-6 sm:p-12 text-center">
             <Star className="h-16 w-16 mx-auto mb-6 text-yellow-300" />
             <h2 className="text-3xl lg:text-5xl font-bold mb-6">Join Our Success Stories</h2>
             <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">

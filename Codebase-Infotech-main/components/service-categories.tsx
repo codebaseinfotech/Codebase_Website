@@ -1,105 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Smartphone, Globe, Code, Palette, ShoppingCart, TrendingUp, ArrowRight, Monitor, Layers } from "lucide-react"
-
-const serviceCategories = [
-  {
-    icon: Smartphone,
-    title: "App Development",
-    description: "Native and cross-platform mobile applications that deliver exceptional user experiences",
-    services: ["Android App Development", "iOS App Development", "Web App Development"],
-    features: [
-      "Native iOS & Android development",
-      "Cross-platform solutions with React Native & Flutter",
-      "Progressive Web Apps (PWA)",
-      "App Store optimization and deployment",
-    ],
-  },
-  {
-    icon: Globe,
-    title: "Web Development",
-    description: "Modern, responsive websites and web applications built with the latest technologies",
-    services: ["PHP Development", "CodeIgniter", "Laravel Development"],
-    features: [
-      "Custom PHP web applications",
-      "Laravel framework expertise",
-      "CodeIgniter development",
-      "RESTful API development",
-    ],
-  },
-  {
-    icon: ShoppingCart,
-    title: "CMS Development",
-    description: "Powerful content management systems and e-commerce platforms for your business",
-    services: ["WooCommerce", "Bootstrap", "Magento", "OpenCart"],
-    features: [
-      "WooCommerce store development",
-      "Custom Magento solutions",
-      "OpenCart e-commerce platforms",
-      "Bootstrap responsive frameworks",
-    ],
-  },
-  {
-    icon: Code,
-    title: "Full Stack Development",
-    description: "Complete end-to-end development solutions using modern technology stacks",
-    services: ["Node.js Development", "React.js Development"],
-    features: [
-      "MERN Stack (MongoDB, Express, React, Node.js)",
-      "MEAN Stack development",
-      "Real-time applications with Socket.io",
-      "Microservices architecture",
-    ],
-  },
-  {
-    icon: Palette,
-    title: "UI/UX Design",
-    description: "Beautiful, user-centered designs that enhance user experience and drive conversions",
-    services: ["UI/UX Design"],
-    features: [
-      "User research and persona development",
-      "Wireframing and prototyping",
-      "Visual design and branding",
-      "Usability testing and optimization",
-    ],
-  },
-  {
-    icon: Monitor,
-    title: "Cross Platform Development",
-    description: "Build once, deploy everywhere with our cross-platform development expertise",
-    services: ["Flutter App Development", "Ionic App Development", "React Native App Development"],
-    features: [
-      "Flutter mobile applications",
-      "React Native cross-platform apps",
-      "Ionic hybrid applications",
-      "Code sharing across platforms",
-    ],
-  },
-  {
-    icon: TrendingUp,
-    title: "Digital Marketing",
-    description: "Comprehensive digital marketing strategies to grow your online presence and drive results",
-    services: ["Digital Marketing Services", "SEO Plans", "App Store Optimization"],
-    features: [
-      "Search Engine Optimization (SEO)",
-      "Social media marketing",
-      "App Store Optimization (ASO)",
-      "Content marketing and strategy",
-    ],
-  },
-  {
-    icon: Layers,
-    title: "Custom Solutions",
-    description: "Tailored technology solutions designed specifically for your unique business requirements",
-    services: ["Custom Development", "System Integration", "Consulting"],
-    features: [
-      "Custom software development",
-      "Third-party integrations",
-      "Legacy system modernization",
-      "Technical consulting and strategy",
-    ],
-  },
-]
+import { ArrowRight } from "lucide-react"
+import Link from "next/link"
+import { serviceCategories } from "@/lib/services-data"
 
 export default function ServiceCategories() {
   return (
@@ -152,7 +55,7 @@ export default function ServiceCategories() {
                   </div>
 
                   {/* Features */}
-                  <div className="mb-6">
+                  <div className="mb-6 flex-grow">
                     <h4 className="font-semibold text-card-foreground mb-3">Key Features:</h4>
                     <ul className="space-y-2">
                       {category.features.map((feature, idx) => (
@@ -165,10 +68,12 @@ export default function ServiceCategories() {
                   </div>
 
                   {/* CTA Button */}
-                  <Button className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
-                  </Button>
+                  <Link href={`/services/${category.id}`} className="block mt-6">
+                    <Button className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             )

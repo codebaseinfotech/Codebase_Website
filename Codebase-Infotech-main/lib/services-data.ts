@@ -1,0 +1,108 @@
+import { Smartphone, Globe, Code, Palette, ShoppingCart, TrendingUp, Monitor, Layers } from "lucide-react"
+
+export const serviceCategories = [
+  {
+    id: "app-development",
+    icon: Smartphone,
+    title: "App Development",
+    description: "Native and cross-platform mobile applications that deliver exceptional user experiences",
+    services: ["Android App Development", "iOS App Development", "Web App Development"],
+    features: [
+      "Native iOS & Android development",
+      "Cross-platform solutions with React Native & Flutter",
+      "Progressive Web Apps (PWA)",
+      "App Store optimization and deployment",
+    ],
+  },
+  {
+    id: "web-development",
+    icon: Globe,
+    title: "Web Development",
+    description: "Modern, responsive websites and web applications built with the latest technologies",
+    services: ["PHP Development", "Website Design", "Laravel Development"],
+    features: [
+      "Custom web applications",
+      "Laravel framework expertise",
+      "Responsive UI/UX",
+      "RESTful API development",
+    ],
+  },
+  {
+    id: "cms-development",
+    icon: ShoppingCart,
+    title: "CMS & E-Commerce",
+    description: "Powerful content management systems and e-commerce platforms for your business",
+    services: ["WooCommerce", "Shopify", "Magento", "OpenCart"],
+    features: [
+      "WooCommerce store development",
+      "Custom Magento solutions",
+      "OpenCart e-commerce platforms",
+      "Bootstrap responsive frameworks",
+    ],
+  },
+  {
+    id: "full-stack-development",
+    icon: Code,
+    title: "Full Stack Development",
+    description: "Complete end-to-end development solutions using modern technology stacks",
+    services: ["Node.js Development", "React.js Development"],
+    features: [
+      "MERN Stack (MongoDB, Express, React, Node.js)",
+      "MEAN Stack development",
+      "Real-time applications with Socket.io",
+      "Microservices architecture",
+    ],
+  },
+  {
+    id: "ui-ux-design",
+    icon: Palette,
+    title: "UI/UX Design",
+    description: "Beautiful, user-centered designs that enhance user experience and drive conversions",
+    services: ["UI/UX Design", "Wireframing", "Prototyping"],
+    features: [
+      "User research and persona development",
+      "Wireframing and prototyping",
+      "Visual design and branding",
+      "Usability testing and optimization",
+    ],
+  },
+  {
+    id: "cross-platform",
+    icon: Monitor,
+    title: "Cross Platform Development",
+    description: "Build once, deploy everywhere with our cross-platform development expertise",
+    services: ["Flutter App Development", "Ionic App Development", "React Native App Development"],
+    features: [
+      "Flutter mobile applications",
+      "React Native cross-platform apps",
+      "Ionic hybrid applications",
+      "Code sharing across platforms",
+    ],
+  },
+  {
+    id: "digital-marketing",
+    icon: TrendingUp,
+    title: "Digital Marketing",
+    description: "Comprehensive digital marketing strategies to grow your online presence and drive results",
+    services: ["Digital Marketing Services", "SEO Plans", "App Store Optimization"],
+    features: [
+      "Search Engine Optimization (SEO)",
+      "Social media marketing",
+      "App Store Optimization (ASO)",
+      "Content marketing and strategy",
+    ],
+  },
+  {
+    id: "custom-solutions",
+    icon: Layers,
+    title: "Custom Solutions",
+    description: "Tailored technology solutions designed specifically for your unique business requirements",
+    services: ["Custom Development", "System Integration", "Consulting"],
+    features: [
+      "Custom software development",
+      "Third-party integrations",
+      "Legacy system modernization",
+      "Technical consulting and strategy",
+    ],
+  },
+]

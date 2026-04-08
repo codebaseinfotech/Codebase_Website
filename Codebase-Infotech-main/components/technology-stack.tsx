@@ -130,9 +130,9 @@ export default function TechnologyStack() {
         </div>
 
         <div className="text-center mt-12">
-          <div className="inline-flex items-center bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full px-6 py-3 shadow-lg">
-            <span className="text-gray-600 mr-2">Ready to discuss your project?</span>
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-medium">
+          <div className="flex flex-col sm:flex-row items-center justify-center bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl sm:rounded-full px-6 py-4 sm:py-3 shadow-lg gap-3 sm:gap-2 max-w-lg sm:max-w-none mx-auto">
+            <span className="text-gray-600 text-center sm:text-left">Ready to discuss your project?</span>
+            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-medium w-full sm:w-auto">
               Get Started
             </button>
           </div>

@@ -97,8 +97,8 @@ export default function Footer() {
             <h3 className="font-semibold text-card-foreground mb-4">Contact Info</h3>
             <ul className="space-y-3">
               <li className="flex items-center text-muted-foreground">
-                <Mail className="h-4 w-4 mr-3 text-primary" />
-                codebaseinfotech@gmail.com
+                <Mail className="h-4 w-4 mr-3 text-primary flex-shrink-0" />
+                <span className="text-sm sm:text-base break-all">codebaseinfotech@gmail.com</span>
               </li>
               <li className="flex items-center text-muted-foreground">
                 <Phone className="h-4 w-4 mr-3 text-primary" />

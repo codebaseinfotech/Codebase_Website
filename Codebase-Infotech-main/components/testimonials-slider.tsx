@@ -128,7 +128,7 @@ export default function TestimonialsSlider() {
         {/* Main Testimonial Card */}
         <div className="relative">
           <Card className="border-border shadow-2xl bg-card max-w-4xl mx-auto">
-            <CardContent className="p-12">
+            <CardContent className="p-6 sm:p-12">
               {/* Quote Icon */}
               <div className="flex justify-center mb-8">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
@@ -144,7 +144,7 @@ export default function TestimonialsSlider() {
               </div>
 
               {/* Testimonial Content */}
-              <blockquote className="text-2xl font-medium text-card-foreground text-center mb-8 leading-relaxed">
+              <blockquote className="text-base sm:text-lg lg:text-2xl font-medium text-card-foreground text-center mb-8 leading-relaxed">
                 "{currentTestimonial.content}"
               </blockquote>
 
@@ -184,18 +184,18 @@ export default function TestimonialsSlider() {
           <Button
             variant="outline"
             size="icon"
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-background border-border hover:bg-card"
+            className="absolute -left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-background border-border hover:bg-card z-10 h-8 w-8 sm:h-10 sm:w-10"
             onClick={goToPrevious}
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
           </Button>
           <Button
             variant="outline"
             size="icon"
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-background border-border hover:bg-card"
+            className="absolute -right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-background border-border hover:bg-card z-10 h-8 w-8 sm:h-10 sm:w-10"
             onClick={goToNext}
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
           </Button>
         </div>
 

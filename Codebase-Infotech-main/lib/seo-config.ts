@@ -56,11 +56,11 @@ export const siteConfig: {
     twitter: "@codebaseinfotech",
     linkedin: "https://www.linkedin.com/company/codebaseinfotech",
     facebook: "https://www.facebook.com/codebaseinfotech",
-    instagram: "https://www.instagram.com/codebaseinfotech",
+    instagram: "https://www.instagram.com/codebase.infotech/",
   },
   contact: {
-    email: "info@codebaseinfotech.com",
-    phone: "+91-XXXXXXXXXX",
+    email: "codebaseinfotech@gmail.com",
+    phone: "+91-7096859504",
   },
 };
 

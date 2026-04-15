@@ -79,13 +79,13 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
         {/* ====== Featured Image ====== */}
         {blog.image && (
-          <section className="relative -mt-2">
+          <section className="relative -mt-6 sm:-mt-10 lg:-mt-12 z-20">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-xl">
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden border-4 border-white shadow-2xl bg-slate-100">
                 <img
                   src={blog.image}
                   alt={blog.title}
-                  className="w-full h-56 sm:h-72 lg:h-96 object-cover"
+                  className="w-full aspect-video object-cover object-center"
                 />
               </div>
             </div>

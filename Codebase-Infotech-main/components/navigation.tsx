@@ -35,6 +35,7 @@ export default function Navigation() {
     { name: "Services", href: "/services" },
     { name: "Portfolio", href: "/portfolio" },
     { name: "Testimonials", href: "/testimonials" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact Us", href: "/contact" },
   ]
 
@@ -134,7 +135,7 @@ export default function Navigation() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-3 ml-6">
+          {/* <div className="hidden lg:flex items-center space-x-3 ml-6">
             <Dialog open={isQuoteOpen} onOpenChange={setIsQuoteOpen}>
               <DialogTrigger asChild>
                 <Button variant="outline" size="sm" onClick={handleQuoteClick} className="group border-primary/20 hover:border-primary/50 hover:bg-primary/5 hover:text-primary rounded-full px-5 transition-all duration-300">
@@ -173,7 +174,7 @@ export default function Navigation() {
                 <ArrowRight className="ml-1.5 h-3.5 w-3.5 group-hover:translate-x-1.5 transition-transform" />
               </Button>
             </Link>
-          </div>
+          </div> */}
 
           {/* Animated Mobile menu hamburger */}
           <div className="lg:hidden ml-auto">
@@ -233,7 +234,7 @@ export default function Navigation() {
               ))}
             </div>
             
-            <div className="border-t border-border/50 p-6 flex flex-col space-y-4 bg-muted/20">
+            {/* <div className="border-t border-border/50 p-6 flex flex-col space-y-4 bg-muted/20">
               <Dialog open={isQuoteOpen} onOpenChange={setIsQuoteOpen}>
                 <DialogTrigger asChild>
                   <Button variant="outline" className="w-full justify-between h-14 bg-background border-border shadow-sm rounded-xl text-base group">
@@ -241,7 +242,6 @@ export default function Navigation() {
                     <Quote className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
                   </Button>
                 </DialogTrigger>
-                {/* Mobile Dialog Content */}
                 <DialogContent className="sm:max-w-md w-[95%] max-w-sm rounded-3xl mx-auto border-border shadow-2xl">
                   <DialogHeader>
                     <DialogTitle className="text-center text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600">Tech Wisdom</DialogTitle>
@@ -266,7 +266,7 @@ export default function Navigation() {
                   <ArrowRight className="h-5 w-5" />
                 </Button>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

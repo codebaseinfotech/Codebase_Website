@@ -150,7 +150,7 @@ export default function WebDevelopmentPage() {
 
       <main className="flex-grow">
         {/* ====== HERO SECTION ====== */}
-        <section className="relative min-h-[90vh] lg:min-h-[95vh] flex items-center overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-20 lg:pb-10 bg-[#020617]">
+        <section className="relative min-h-[90vh] lg:min-h-[95vh] flex items-center overflow-hidden pt-20 pb-12 sm:pt-32 sm:pb-16 lg:pt-20 lg:pb-10 bg-[#020617]">
           {/* Mesh Gradient Background */}
           <div className="absolute inset-0 z-0">
             <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-blue-600/20 rounded-full blur-[140px] animate-pulse" />

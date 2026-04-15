@@ -20,7 +20,7 @@ export default function ServicesHero() {
   }, [])
 
   return (
-    <section className="relative min-h-[95vh] flex items-center overflow-hidden pt-32 pb-16 lg:pt-20 lg:pb-10 bg-[#020617]">
+    <section className="relative min-h-[95vh] flex items-center overflow-hidden pt-20 pb-16 lg:pt-20 lg:pb-10 bg-[#020617]">
       {/* Advanced Mesh Gradient Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-20%] left-[-15%] w-[60%] h-[60%] bg-blue-600/20 rounded-full blur-[160px] animate-pulse" />

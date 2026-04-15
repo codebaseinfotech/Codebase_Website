@@ -7,6 +7,7 @@ export const projects = [
     type: "mobile",
     iOS_Link: "https://apps.apple.com/us/app/moos-barber-app/id6449462238",
     Android_Link: "https://play.google.com/store/apps/details?id=com.wn.hairtattoo&hl=en",
+    website_link: "",
     description: "Enjoy the best Barbering services with MOOS BARBERS. Get a local's insight into the Barber professions & Saloons & plan your visit by contacting them ahead of time. Using this app, you can find direct Barber professions & Saloons.",
     image: "/ecommerce-mobile-app-mockup.png",
     technologies: ["iOS", "Android", "Google Maps", "Firebase", "Braintree", "PayPal", "Alamofire"],
@@ -31,7 +32,7 @@ export const projects = [
     type: "mobile",
     iOS_Link: "https://apps.apple.com/us/app/wyld-stay/id6449990424",
     Android_Link: "https://play.google.com/store/apps/details?id=com.wn.hairtattoo&hl=en",
-
+    website_link: "",
     description: "Enjoy the best vacation experiences with WYLD Camps. Get a local's insight into the Camps you plan to visit before your vacation by contacting them ahead of time. Using this app, you can find direct venders for summer camps.",
     image: "/wyld-app.jpg",
     technologies: ["iOS", "Android", "Google Maps", "Firebase", "Authorize.Net Accept", "Alamofire"],
@@ -56,7 +57,7 @@ export const projects = [
     type: "mobile",
     iOS_Link: "https://apps.apple.com/kw/app/flyelite/id6468663680",
     Android_Link: "https://play.google.com/store/apps/details?id=com.booking.flyelitejets&hl=en",
-
+    website_link: "",
     description: "Enjoy the best Jet vacation experiences around the globe with Fly Elite. Using this app, you can find best booking experience & make the most of your itinerary by planning efficiently.",
     image: "/flyelite.jpg",
     technologies: ["iOS", "Android", "Firebase", "Stripe", "Twilio"],
@@ -81,7 +82,7 @@ export const projects = [
     type: "mobile",
      iOS_Link: "https://apps.apple.com/rs/app/g8pass-app/id6447676497",
     Android_Link: "https://play.google.com/store/apps/details?id=com.lvm.g8pass&hl=en",
-
+    website_link: "",
     description: "G8PASS is the best Society Management Apps & backend Software. It provides to manage housing, apartments security, visitor management and facility management etc. Now managing your Housing Society is simple.",
     image: "/gatepass-app.jpg",
     technologies: ["iOS", "Android", "Alamofire", "Pushy"],
@@ -106,7 +107,7 @@ export const projects = [
     type: "mobile",
      iOS_Link: "https://apps.apple.com/in/app/binsina/id1633403246",
     Android_Link: "https://play.google.com/store/search?q=Binsina%20Pharmacy&c=apps&hl=en",
-
+    website_link: "",
     description: "BinSina is a pharmacy dedicated to offering exceptional and personalized services in the field of health, wellness, and nutrition. We pride ourselves on our unique approach to customer care, where our pharmacists are more than just a professional advisor, but like a trusted neighbour, a knowledgeable friend, or a caring family member.",
     image: "/Binsin.png",
     technologies: ["iOS", "Android", "Alamofire", "Tamara", "Knet", "Tabby"],
@@ -131,7 +132,7 @@ export const projects = [
     type: "mobile",
     iOS_Link: "https://apps.apple.com/us/app/samrat/id1556206159",
     Android_Link: "https://play.google.com/store/apps/details?id=com.si.samrat&hl=en",
-
+    website_link: "",
     description: "Samrat enables users to plan and book private music events (“samarat”) with full control over their experience—selecting preferred singers, instrumentalists, and audio services—without intermediaries. Online booking system with payment gateway.",
     image: "/SAMRAT.png",
     technologies: ["iOS", "Android", "Alamofire", "Knet", "OneSignal", "Firebase"],
@@ -156,7 +157,7 @@ export const projects = [
     type: "mobile",
      iOS_Link: "https://apps.apple.com/in/app/wheat-grass-restaurant/id1496306028",
     Android_Link: "https://play.google.com/store/search?q=Wheat%20Grass%20Restaurant&c=apps&hl=en",
-
+    website_link: "",
     description: "A free, multilingual (Arabic & English) app aimed at health-conscious users, offering organic wheatgrass juice and other wellness products. It’s Healthy-Food Ordering App.",
     image: "/Wheat Grass.png",
     technologies: ["iOS", "Android", "Alamofire", "Knet", "OneSignal", "Firebase"],
@@ -181,7 +182,7 @@ export const projects = [
     type: "mobile",
     iOS_Link: "https://apps.apple.com/us/app/blipd/id934985367",
     Android_Link: "",
-    
+    website_link: "",
     description: "Friends can share their location with each other in real time. Easily find each other in a crowded venue, in the city, or in your neighborhood. Find new friends, create groups with them and chat, voice and video call. Using Google Maps for location and show Blipd.",
     image: "/Blipd.png",
     technologies: ["iOS", "Alamofire", "OneSignal", "Firebase","Sendbird","Google Place API","Socket.IO","Apple MapKit"],
@@ -352,7 +353,7 @@ export const projects = [
     category: "Mobile App",
     iOS_Link: "",
     Android_Link: "",
-
+    website_link:"",
     type: "mobile",
     description: "Broadway Fashion is your ultimate fashion companion, designed to revolutionize the way you shop for clothing. Explore the latest trends and stay ahead of the curve with a vast collection from top brands and emerging designers. Get personalized style recommendations tailored to your taste and preferences. Easily browse, discover, and shop your favorite looks all in one place. Stay stylish and trendy with curated collections that match every occasion. Download Broadway Fashion today and elevate your wardrobe effortlessly!",
     image: "/Broadway.png",

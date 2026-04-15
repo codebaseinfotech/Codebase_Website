@@ -38,7 +38,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <Link
-                href="https://www.facebook.com/CodesWidgetInfotech/"
+                href="https://www.facebook.com/CodebaseInfotech/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

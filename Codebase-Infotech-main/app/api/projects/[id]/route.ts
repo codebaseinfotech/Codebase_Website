@@ -46,6 +46,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
     const Android_Link = formData.get("Android_Link") as string
     const website_link = formData.get("website_link") as string
     const description = formData.get("description") as string
+    const isActiveStr = formData.get("isActive") as string
     const client = formData.get("client") as string
     
     // Arrays
@@ -87,6 +88,10 @@ export async function PUT(request: Request, { params }: { params: { id: string }
       website_link,
       description,
       client,
+    }
+
+    if (isActiveStr !== null && isActiveStr !== undefined) {
+      projectData.isActive = isActiveStr === "false" ? false : true;
     }
 
     if (technologies) projectData.technologies = technologies

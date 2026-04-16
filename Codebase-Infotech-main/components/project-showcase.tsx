@@ -26,20 +26,12 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-/* ====== Category Filters ====== */
-const categories = [
-  "All",
-  "Mobile App",
-  "Web Development",
-  "UI/UX Design",
-  "Full Stack",
-  "CMS Development",
-  "Digital Marketing",
-];
-
 export default function ProjectShowcase({ initialProjects }: { initialProjects: any[] }) {
   const [activeCategory, setActiveCategory] = useState("All");
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+
+  // Compute available categories dynamically based on the passed active projects
+  const dynamicCategories = ["All", ...Array.from(new Set(initialProjects.map(p => p.category).filter(Boolean)))];
 
   const filteredProjects =
     activeCategory === "All"
@@ -67,21 +59,21 @@ export default function ProjectShowcase({ initialProjects }: { initialProjects: 
         </div>
 
         {/* ====== Category Filter ====== */}
-        {/* <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14">
-          {categories.map((category) => (
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14">
+          {dynamicCategories.map((category) => (
             <button
               key={category}
-              onClick={() => setActiveCategory(category)}
+              onClick={() => setActiveCategory(category as string)}
               className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 ${
                 activeCategory === category
-                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
-                  : "bg-card border border-border/60 text-muted-foreground hover:border-primary/30 hover:text-foreground"
+                  ? "bg-blue-600 text-white shadow-lg shadow-blue-600/25"
+                  : "bg-white border border-slate-200 text-slate-500 hover:border-blue-300 hover:text-blue-600"
               }`}
             >
-              {category}
+              {category as string}
             </button>
           ))}
-        </div> */}
+        </div>
 
         {/* ====== Projects — 2-column paired layout ====== */}
         <div className="space-y-6 sm:space-y-8 lg:space-y-10">

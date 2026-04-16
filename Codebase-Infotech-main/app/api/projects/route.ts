@@ -3,7 +3,7 @@ import { getAllProjects, createProject } from "@/lib/project-service";
 
 export async function GET() {
   try {
-    const projects = await getAllProjects();
+    const projects = await getAllProjects(true);
     return NextResponse.json({ projects });
   } catch (error) {
     console.error("Error fetching projects:", error);
@@ -25,6 +25,8 @@ export async function POST(request: Request) {
     const Android_Link = formData.get("Android_Link") as string;
     const website_link = formData.get("website_link") as string;
     const description = formData.get("description") as string;
+    const isActiveStr = formData.get("isActive") as string;
+    const isActive = isActiveStr === "false" ? false : true;
     const imageFile = formData.get("image") as File;
     const client = formData.get("client") as string;
     
@@ -102,6 +104,7 @@ export async function POST(request: Request) {
       website_link,
       description,
       image: imageUrl,
+      isActive,
       client,
       technologies,
       results,

@@ -11,6 +11,7 @@ export interface ProjectData {
   website_link?: string;
   description: string;
   image: string;
+  isActive?: boolean;
   technologies?: string[];
   client?: string;
   results?: string[];
@@ -30,6 +31,7 @@ function toProjectData(doc: IProject): ProjectData {
     website_link: doc.website_link,
     description: doc.description,
     image: doc.image,
+    isActive: doc.isActive !== false,
     technologies: doc.technologies,
     client: doc.client,
     results: doc.results,
@@ -39,9 +41,10 @@ function toProjectData(doc: IProject): ProjectData {
   };
 }
 
-export async function getAllProjects(): Promise<ProjectData[]> {
+export async function getAllProjects(adminMode: boolean = false): Promise<ProjectData[]> {
   await connectDB();
-  const projects = await Project.find().sort({ createdAt: -1 }).lean<IProject[]>();
+  const query = adminMode ? {} : { isActive: { $ne: false } };
+  const projects = await Project.find(query).sort({ createdAt: -1 }).lean<IProject[]>();
   return projects.map((p) => ({
     _id: (p as any)._id?.toString() || p.id?.toString(),
     title: p.title,
@@ -52,6 +55,7 @@ export async function getAllProjects(): Promise<ProjectData[]> {
     website_link: p.website_link,
     description: p.description,
     image: p.image,
+    isActive: p.isActive !== false,
     technologies: p.technologies,
     client: p.client,
     results: p.results,
@@ -75,6 +79,7 @@ export async function getProjectById(id: string): Promise<ProjectData | null> {
     website_link: project.website_link,
     description: project.description,
     image: project.image,
+    isActive: project.isActive !== false,
     technologies: project.technologies,
     client: project.client,
     results: project.results,

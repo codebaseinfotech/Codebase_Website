@@ -22,6 +22,7 @@ export interface IProject extends Document {
   website_link?: string;
   description: string;
   image: string;
+  isActive?: boolean;
   technologies: string[];
   client?: string;
   results?: string[];
@@ -55,6 +56,7 @@ const ProjectSchema = new Schema<IProject>(
     website_link: { type: String, default: "" },
     description: { type: String, required: true },
     image: { type: String, required: true },
+    isActive: { type: Boolean, default: true },
     technologies: { type: [String], default: [] },
     client: { type: String, default: "" },
     results: { type: [String], default: [] },

@@ -18,6 +18,7 @@ export default function ProjectManager() {
 
   // Form state
   const [title, setTitle] = useState("");
+  const [isActive, setIsActive] = useState(true);
   const [category, setCategory] = useState("Mobile App");
   const [type, setType] = useState("mobile");
   const [client, setClient] = useState("");
@@ -75,6 +76,7 @@ export default function ProjectManager() {
 
   const resetForm = useCallback(() => {
     setTitle("");
+    setIsActive(true);
     setCategory("Mobile App");
     setType("mobile");
     setClient("");
@@ -107,6 +109,7 @@ export default function ProjectManager() {
   const openEdit = (project: any) => {
     resetForm();
     setTitle(project.title);
+    setIsActive(project.isActive !== false);
     setCategory(project.category || "Mobile App");
     setType(project.type || "mobile");
     setClient(project.client || "");
@@ -163,6 +166,7 @@ export default function ProjectManager() {
     try {
       const formData = new FormData();
       formData.append("title", title);
+      formData.append("isActive", String(isActive));
       formData.append("category", category);
       formData.append("type", type);
       formData.append("client", client);
@@ -276,6 +280,9 @@ export default function ProjectManager() {
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mt-2">
+                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${project.isActive !== false ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                         {project.isActive !== false ? 'Active' : 'Inactive'}
+                       </span>
                        <span className="text-[10px] font-bold bg-blue-50 text-blue-600 px-2 py-0.5 rounded-full">{project.category}</span>
                        {project.client && <span className="text-[10px] font-bold bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full">Client: {project.client}</span>}
                     </div>
@@ -317,6 +324,17 @@ export default function ProjectManager() {
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-500">Project Title *</label>
                     <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm" placeholder="Ex: Fly Elite" required />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-wider text-slate-500">Project Status *</label>
+                    <select 
+                      value={isActive ? "true" : "false"} 
+                      onChange={(e) => setIsActive(e.target.value === "true")} 
+                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm"
+                    >
+                       <option value="true">Active (Visible)</option>
+                       <option value="false">Inactive (Hidden)</option>
+                    </select>
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-500">Client Name</label>

@@ -89,10 +89,8 @@ export default function ContactPage() {
       <Navigation />
       <main>
         <ContactHero />
-        <div className="grid lg:grid-cols-2 gap-0">
-          <ContactForm />
-          <ContactInfo />
-        </div>
+        <ContactForm />
+        <ContactInfo />
         <ContactMap />
         <FAQSection />
       </main>

@@ -25,7 +25,6 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import Link from "next/link";
-import { projects } from "./projects";
 
 /* ====== Category Filters ====== */
 const categories = [
@@ -38,14 +37,14 @@ const categories = [
   "Digital Marketing",
 ];
 
-export default function ProjectShowcase() {
+export default function ProjectShowcase({ initialProjects }: { initialProjects: any[] }) {
   const [activeCategory, setActiveCategory] = useState("All");
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   const filteredProjects =
     activeCategory === "All"
-      ? projects
-      : projects.filter((project) => project.category === activeCategory);
+      ? initialProjects
+      : initialProjects.filter((project) => project.category === activeCategory);
 
   return (
     <section className="py-16 sm:py-20 lg:py-28 bg-white">
@@ -92,10 +91,10 @@ export default function ProjectShowcase() {
             return (
               <div key={pairIndex} className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8">
                 {pair.map((project) => (
-                  <Dialog key={project.id}>
+                  <Dialog key={project._id || project.id}>
                     <div
                       className="group relative bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-100 hover:border-blue-200/80 transition-all duration-700 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.12)] flex flex-col"
-                      onMouseEnter={() => setHoveredProject(project.id)}
+                      onMouseEnter={() => setHoveredProject(project._id || project.id)}
                       onMouseLeave={() => setHoveredProject(null)}
                     >
                       {/* ====== Image Section ====== */}
@@ -190,7 +189,7 @@ export default function ProjectShowcase() {
 
                         {/* Technology Tags */}
                         <div className="flex flex-wrap gap-1.5">
-                          {project.technologies.map((tech, index) => (
+                          {project.technologies?.map((tech: string, index: number) => (
                             <span
                               key={index}
                               className="px-2.5 py-1 bg-slate-50 text-slate-600 text-[10px] sm:text-[11px] font-semibold rounded-lg border border-slate-100"
@@ -259,13 +258,13 @@ export default function ProjectShowcase() {
                             <div className="flex items-center gap-1.5 text-slate-400 text-xs font-semibold mb-1">
                               <Calendar className="w-3.5 h-3.5" /> Timeline
                             </div>
-                            <div className="text-slate-900 text-sm font-bold">{project.caseStudy.timeline}</div>
+                            <div className="text-slate-900 text-sm font-bold">{project.caseStudy?.timeline || "-"}</div>
                           </div>
                           <div className="bg-slate-50 rounded-xl p-3 sm:p-4 col-span-2 sm:col-span-1">
                             <div className="flex items-center gap-1.5 text-slate-400 text-xs font-semibold mb-1">
                               <Users className="w-3.5 h-3.5" /> Team
                             </div>
-                            <div className="text-slate-900 text-sm font-bold">{project.caseStudy.teamSize}</div>
+                            <div className="text-slate-900 text-sm font-bold">{project.caseStudy?.teamSize || "-"}</div>
                           </div>
                         </div>
 
@@ -306,7 +305,7 @@ export default function ProjectShowcase() {
                             Project Details
                           </h3>
                           <p className="text-amber-800/90 text-sm leading-relaxed">
-                            {project.caseStudy.projectDetails}
+                            {project.caseStudy?.projectDetails || "No details provided."}
                           </p>
                           <p className="text-amber-800/80 text-sm leading-relaxed mt-2">
                             {project.description}
@@ -320,7 +319,7 @@ export default function ProjectShowcase() {
                             App Highlights
                           </h3>
                           <ul className="space-y-2">
-                            {project.caseStudy.AppHighlights.filter((h: string) => h.length > 0).map(
+                            {project.caseStudy?.AppHighlights?.filter((h: string) => h.length > 0).map(
                               (item: string, index: number) => (
                                 <li key={index} className="flex items-start text-sm text-blue-800/90 leading-relaxed">
                                   <ChevronRight className="w-3.5 h-3.5 text-blue-400 mr-2 mt-0.5 flex-shrink-0" />
@@ -352,7 +351,7 @@ export default function ProjectShowcase() {
                           <div>
                             <h3 className="text-sm font-bold text-slate-900 mb-2.5">Third-Party Services</h3>
                             <div className="flex flex-wrap gap-1.5">
-                              {project.caseStudy.thirdPartyServices.map(
+                              {project.caseStudy?.thirdPartyServices?.map(
                                 (tech: string, index: number) => (
                                   <Badge
                                     key={index}
@@ -368,7 +367,7 @@ export default function ProjectShowcase() {
                           <div>
                             <h3 className="text-sm font-bold text-slate-900 mb-2.5">Technologies Used</h3>
                             <div className="flex flex-wrap gap-1.5">
-                              {project.caseStudy.technologies.map((tech: string, index: number) => (
+                              {project.caseStudy?.technologies?.map((tech: string, index: number) => (
                                 <Badge
                                   key={index}
                                   variant="secondary"

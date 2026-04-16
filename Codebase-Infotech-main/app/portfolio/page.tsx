@@ -45,7 +45,13 @@ export const metadata: Metadata = {
   },
 }
 
-export default function PortfolioPage() {
+import { getAllProjects } from "@/lib/project-service"
+
+export const dynamic = "force-dynamic"
+
+export default async function PortfolioPage() {
+  const projects = await getAllProjects()
+
   return (
     <div className="min-h-screen">
       {/* Structured Data for SEO */}
@@ -59,7 +65,7 @@ export default function PortfolioPage() {
       <Navigation />
       <main>
         <PortfolioHero />
-        <ProjectShowcase />
+        <ProjectShowcase initialProjects={projects} />
         <ProjectStats />
         <PortfolioCTA />
       </main>

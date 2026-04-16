@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Star, Users, MessageSquare, } from "lucide-react"
+import { ArrowRight, Star, Users, MessageSquare, Quote } from "lucide-react"
 import Link from "next/link"
 
 // 🔹 Reusable CountUp component
-function CountUp({ end, duration = 2000 }: { end: number; duration?: number }) {
+function CountUp({ end, duration = 2000, decimals = 0 }: { end: number; duration?: number; decimals?: number }) {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
@@ -18,44 +18,70 @@ function CountUp({ end, duration = 2000 }: { end: number; duration?: number }) {
         setCount(end)
         clearInterval(timer)
       } else {
-        setCount(Math.floor(start))
+        setCount(start)
       }
     }, 16)
 
     return () => clearInterval(timer)
   }, [end, duration])
 
-  return <span>{count}</span>
+  return <span>{count.toFixed(decimals)}</span>
 }
 
 export default function TestimonialsHero() {
   return (
-    <section className="relative bg-gradient-to-br from-background via-card to-background py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section className="relative min-h-[85vh] flex items-center bg-[#020617] pt-24 pb-16 overflow-hidden">
+      {/* Advanced Mesh Gradient Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/20 rounded-full blur-[140px] animate-pulse" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-600/15 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }} />
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }} />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Content */}
           <div className="space-y-8">
+            <div className="inline-flex items-center rounded-full border border-blue-500/20 bg-blue-500/10 px-5 py-2 text-xs font-black uppercase tracking-widest text-blue-400 backdrop-blur-xl">
+               <Quote className="w-4 h-4 mr-2" />
+               Client Perspectives
+            </div>
+            
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight">
-                Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">Testimonials</span>
+              <h1 className="text-5xl lg:text-7xl font-black text-white leading-[1]">
+                Client{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+                  Testimonials
+                </span>
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Don't just take our word for it. Hear from the businesses we've helped transform their digital presence
-                and achieve remarkable success.
+              <p className="text-lg sm:text-xl text-blue-100/60 leading-relaxed font-medium">
+                Don't just take our word for it. Hear from the global businesses we've helped transform into digital powerhouses.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Our clients' success stories speak to our commitment to delivering exceptional results and building
-                lasting partnerships.
+              <p className="text-base sm:text-lg text-blue-100/50 leading-relaxed font-medium">
+                Our clients' success stories unequivocally speak to our aggressive commitment to delivering exceptional, highly scalable results and building lasting partnerships.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="text-lg px-8">
-                Start Your Project
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-5 pt-4">
               <Link href="/contact">
-                <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white border-0 shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:shadow-[0_0_45px_rgba(37,99,235,0.6)] transition-all duration-500 h-14 sm:h-16 px-8 sm:px-12 text-base sm:text-lg rounded-2xl group font-bold w-full sm:w-auto"
+                >
+                  Start Your Project
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
+                </Button>
+              </Link>
+              <Link href="/portfolio">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white/10 bg-white/5 text-white hover:bg-white/10 backdrop-blur-md h-14 sm:h-16 px-8 sm:px-12 text-base sm:text-lg rounded-2xl w-full sm:w-auto font-bold"
+                >
                   View Our Work
                 </Button>
               </Link>
@@ -63,27 +89,35 @@ export default function TestimonialsHero() {
           </div>
 
           {/* Stats Cards */}
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-card p-6 rounded-xl border border-border shadow-sm">
-              <Star className="h-12 w-12 text-yellow-400 mb-4" />
-              <div className="text-3xl font-bold text-card-foreground mb-2">
-                <CountUp end={4.5} duration={1500} />/5
+          <div className="grid grid-cols-2 gap-6 relative">
+            <div className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.05] p-8 rounded-[2rem] shadow-lg hover:shadow-[0_20px_60px_-15px_rgba(37,99,235,0.2)] hover:bg-white/[0.06] hover:border-white/[0.1] transition-all duration-500 hover:-translate-y-2 group">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-400/20 to-yellow-600/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <Star className="h-7 w-7 text-yellow-400 fill-yellow-400" />
               </div>
-              <div className="text-muted-foreground">Average Rating</div>
+              <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 mb-2">
+                <CountUp end={4.5} duration={1500} decimals={1} />/5
+              </div>
+              <div className="text-blue-100/50 font-medium">Average Rating</div>
             </div>
-            <div className="bg-card p-6 rounded-xl border border-border shadow-sm">
-              <Users className="h-12 w-12 text-primary mb-4" />
-              <div className="text-3xl font-bold text-card-foreground mb-2">
+
+            <div className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.05] p-8 rounded-[2rem] shadow-lg hover:shadow-[0_20px_60px_-15px_rgba(37,99,235,0.2)] hover:bg-white/[0.06] hover:border-white/[0.1] transition-all duration-500 hover:-translate-y-2 group mt-8">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-cyan-600/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <Users className="h-7 w-7 text-cyan-400" />
+              </div>
+              <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-500 mb-2">
                 <CountUp end={90} duration={2000} />+
               </div>
-              <div className="text-muted-foreground">Happy Clients</div>
+              <div className="text-blue-100/50 font-medium">Happy Clients</div>
             </div>
-            <div className="bg-card p-6 rounded-xl border border-border shadow-sm col-span-2">
-              <MessageSquare className="h-12 w-12 text-secondary mb-4" />
-              <div className="text-3xl font-bold text-card-foreground mb-2">
+
+            <div className="bg-white/[0.03] backdrop-blur-xl border border-white/[0.05] p-8 rounded-[2rem] shadow-lg hover:shadow-[0_20px_60px_-15px_rgba(37,99,235,0.2)] hover:bg-white/[0.06] hover:border-white/[0.1] transition-all duration-500 hover:-translate-y-2 group col-span-2 -mt-4">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-600/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <MessageSquare className="h-7 w-7 text-purple-400" />
+              </div>
+              <div className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-500 mb-2">
                 <CountUp end={99} duration={2500} />%
               </div>
-              <div className="text-muted-foreground">Would Recommend Us</div>
+              <div className="text-blue-100/50 font-medium">Would Recommend Us</div>
             </div>
           </div>
         </div>

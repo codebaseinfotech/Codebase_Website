@@ -77,11 +77,14 @@ export default function Navigation() {
   }, [isMenuOpen])
 
   return (
+    <>
+    {/* Spacer to compensate for fixed header and push the page content down naturally */}
+    <div className="h-[96px] w-full bg-background" aria-hidden="true" />
     <nav 
-      className={`sticky top-0 z-50 w-full transition-all duration-300 border-b ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-b ${
         scrolled 
           ? "bg-background/90 backdrop-blur-xl border-border shadow-sm py-4" 
-          : "bg-background/60 backdrop-blur-sm border-transparent py-6"
+          : "bg-background/90 backdrop-blur-sm border-transparent py-6"
       }`}
     >
       <div className="max-w-7xl mx-auto px-2 sm:px-4">
@@ -194,13 +197,15 @@ export default function Navigation() {
           </div>
         </div>
       </div>
+    </nav>
 
       {/* Mobile Navigation Overlay */}
       <div 
-        className={`lg:hidden fixed inset-0 z-40 bg-background/80 backdrop-blur-md transition-opacity duration-300 ${
+        className={`lg:hidden fixed inset-0 z-40 bg-slate-900/40 backdrop-blur-md transition-opacity duration-300 ${
           isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsMenuOpen(false)}
+        style={{ position: 'fixed' }}
       >
         {/* Mobile Navigation Drawer */}
         <div 
@@ -209,7 +214,7 @@ export default function Navigation() {
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="bg-card/95 backdrop-blur-xl border border-border/50 shadow-2xl rounded-3xl overflow-hidden flex flex-col">
+          <div className="bg-white/95 backdrop-blur-xl border border-slate-200 shadow-2xl rounded-3xl overflow-hidden flex flex-col">
             <div className="px-5 py-6 flex flex-col space-y-2">
               {navItems.map((item, index) => (
                 <div 
@@ -219,58 +224,24 @@ export default function Navigation() {
                 >
                   <Link
                     href={item.href}
-                    className={`flex items-center px-4 py-3.5 text-lg font-medium rounded-2xl transition-all duration-200 group ${
+                    className={`flex items-center px-4 py-3.5 text-lg font-bold rounded-2xl transition-all duration-200 group ${
                       pathname === item.href 
-                      ? "bg-gradient-to-r from-blue-50/80 to-cyan-50/80 text-primary shadow-sm" 
-                      : "text-foreground hover:bg-muted/50 hover:text-primary"
+                      ? "bg-blue-50 text-blue-600 shadow-sm" 
+                      : "text-slate-700 hover:bg-slate-50 hover:text-blue-600"
                     }`}
                   >
                     <span className="flex-1">{item.name}</span>
                     {pathname === item.href && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
                     )}
                   </Link>
                 </div>
               ))}
             </div>
-            
-            {/* <div className="border-t border-border/50 p-6 flex flex-col space-y-4 bg-muted/20">
-              <Dialog open={isQuoteOpen} onOpenChange={setIsQuoteOpen}>
-                <DialogTrigger asChild>
-                  <Button variant="outline" className="w-full justify-between h-14 bg-background border-border shadow-sm rounded-xl text-base group">
-                    Get a Quote
-                    <Quote className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-md w-[95%] max-w-sm rounded-3xl mx-auto border-border shadow-2xl">
-                  <DialogHeader>
-                    <DialogTitle className="text-center text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600">Tech Wisdom</DialogTitle>
-                  </DialogHeader>
-                  <div className="text-center space-y-6 p-4">
-                    <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                      <Quote className="h-8 w-8 text-primary opacity-80" />
-                    </div>
-                    <blockquote className="text-lg text-foreground italic relative">
-                      "{currentQuote}"
-                    </blockquote>
-                    <Button onClick={generateRandomQuote} disabled={isGenerating} className="mt-6 w-full h-12 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg">
-                      {isGenerating ? <RefreshCw className="h-5 w-5 mr-2 animate-spin" /> : <RefreshCw className="h-5 w-5 mr-2" />}
-                      New Quote
-                    </Button>
-                  </div>
-                </DialogContent>
-              </Dialog>
-              <Link href="/contact" className="w-full">
-                <Button className="w-full justify-between h-14 text-base rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 shadow-lg shadow-blue-500/20 text-white">
-                  Contact Us
-                  <ArrowRight className="h-5 w-5" />
-                </Button>
-              </Link>
-            </div> */}
           </div>
         </div>
       </div>
-    </nav>
+    </>
   )
 }
 

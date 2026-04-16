@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react"
 
@@ -113,138 +112,143 @@ export default function TestimonialsSlider() {
   const currentTestimonial = testimonials[currentIndex]
 
   return (
-    <section className="py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-slate-50 relative overflow-hidden">
+      {/* Decorative Gradients */}
+      <div className="absolute top-1/2 left-0 w-[40%] h-[40%] bg-blue-100/50 rounded-full blur-[140px] pointer-events-none -translate-y-1/2" />
+      <div className="absolute bottom-1/4 right-0 w-[30%] h-[30%] bg-cyan-100/50 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-4">
-            What Our <span className="text-primary">Clients Say</span>
+        <div className="text-center mb-16 space-y-4">
+          <div className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-5 py-2 text-xs font-black uppercase tracking-widest text-blue-700">
+             <Star className="w-4 h-4 mr-2" />
+             Client Success Stories
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+            What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Clients Say</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Real stories from real clients who have experienced the Codebase Infotech difference
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto font-medium">
+            Real stories from global enterprises who have experienced the transformative Codebase Infotech difference.
           </p>
         </div>
 
-        {/* Main Testimonial Card */}
-        <div className="relative">
-          <Card className="border-border shadow-2xl bg-card max-w-4xl mx-auto">
-            <CardContent className="p-6 sm:p-12">
-              {/* Quote Icon */}
-              <div className="flex justify-center mb-8">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                  <Quote className="h-8 w-8 text-primary" />
-                </div>
-              </div>
+        {/* Main Testimonial Slider Panel */}
+        <div className="relative max-w-5xl mx-auto">
+          {/* Main Card */}
+          <div className="bg-white border border-slate-200 rounded-[3rem] p-8 sm:p-16 shadow-[0_20px_60px_-15px_rgba(37,99,235,0.1)] relative overflow-hidden group">
+            
+            <div className="absolute top-0 right-0 w-64 h-64 bg-slate-50 rounded-bl-[4rem] pointer-events-none" />
+            <Quote className="absolute top-12 right-12 w-20 h-20 text-blue-50 group-hover:text-blue-100 transition-colors duration-500" />
 
-              {/* Rating */}
-              <div className="flex justify-center mb-6">
-                {[...Array(currentTestimonial.rating)].map((_, i) => (
-                  <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
-                ))}
-              </div>
+            {/* Testimonial Content */}
+            <div className="flex flex-col items-center relative z-10">
+               {/* Rating */}
+               <div className="flex justify-center mb-8 space-x-1">
+                  {[...Array(currentTestimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-6 w-6 text-yellow-400 fill-yellow-400 drop-shadow-sm" />
+                  ))}
+               </div>
 
-              {/* Testimonial Content */}
-              <blockquote className="text-base sm:text-lg lg:text-2xl font-medium text-card-foreground text-center mb-8 leading-relaxed">
-                "{currentTestimonial.content}"
-              </blockquote>
+               <blockquote className="text-xl sm:text-2xl lg:text-3xl font-medium text-slate-800 text-center mb-10 leading-relaxed max-w-4xl italic">
+                 "{currentTestimonial.content}"
+               </blockquote>
 
-              {/* Client Info */}
-              <div className="flex items-center justify-center space-x-6 mb-8">
-                {/* <img
-                  src={currentTestimonial.image || "/placeholder.svg"}
-                  alt={currentTestimonial.name}
-                  className="w-16 h-16 rounded-full border-4 border-primary/20"
-                /> */}
-                <div className="text-center">
-                  <div className="font-bold text-card-foreground text-lg">{currentTestimonial.name}</div>
-                  <div className="text-primary font-medium">{currentTestimonial.role}</div>
-                  <div className="text-muted-foreground">{currentTestimonial.company}</div>
-                </div>
-              </div>
+               {/* Client Info */}
+               <div className="flex items-center justify-center space-x-4 mb-10">
+                 <div className="w-14 h-14 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center font-bold text-blue-700 text-xl shadow-sm">
+                   {currentTestimonial.name.charAt(0)}
+                 </div>
+                 <div className="text-left">
+                   <div className="font-bold text-slate-900 text-lg">{currentTestimonial.name}</div>
+                   <div className="text-cyan-600 font-medium text-sm">
+                     {currentTestimonial.role}, <span className="text-slate-500">{currentTestimonial.company}</span>
+                   </div>
+                 </div>
+               </div>
 
-              {/* Project Type */}
-              <div className="text-center mb-6">
-                <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
-                  {currentTestimonial.project}
-                </span>
-              </div>
-
-              {/* Results */}
-              <div className="grid md:grid-cols-3 gap-4">
-                {currentTestimonial.results.map((result, index) => (
-                  <div key={index} className="text-center p-4 bg-background rounded-lg border border-border">
-                    <div className="text-sm text-muted-foreground">{result}</div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+               {/* Key Results */}
+               <div className="grid md:grid-cols-3 gap-4 w-full">
+                 <div className="col-span-full text-center mb-2">
+                   <span className="px-4 py-1.5 bg-blue-50 border border-blue-100 text-blue-700 rounded-full text-xs font-black uppercase tracking-wider">
+                     {currentTestimonial.project} Results
+                   </span>
+                 </div>
+                 {currentTestimonial.results.map((result, index) => (
+                   <div key={index} className="text-center p-4 bg-slate-50 border border-slate-100 rounded-xl hover:bg-white hover:shadow-md transition-all">
+                     <div className="text-sm font-bold text-slate-700">{result}</div>
+                   </div>
+                 ))}
+               </div>
+            </div>
+          </div>
 
           {/* Navigation Arrows */}
           <Button
             variant="outline"
             size="icon"
-            className="absolute -left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-background border-border hover:bg-card z-10 h-8 w-8 sm:h-10 sm:w-10"
+            className="absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 bg-white border-slate-200 hover:bg-blue-50 hover:text-blue-700 text-slate-700 z-10 h-10 w-10 sm:h-14 sm:w-14 rounded-full shadow-lg transition-all hover:scale-110"
             onClick={goToPrevious}
           >
-            <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+            <ChevronLeft className="h-6 w-6 sm:h-8 sm:w-8" />
           </Button>
           <Button
             variant="outline"
             size="icon"
-            className="absolute -right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-background border-border hover:bg-card z-10 h-8 w-8 sm:h-10 sm:w-10"
+            className="absolute -right-4 sm:-right-6 top-1/2 -translate-y-1/2 bg-white border-slate-200 hover:bg-blue-50 hover:text-blue-700 text-slate-700 z-10 h-10 w-10 sm:h-14 sm:w-14 rounded-full shadow-lg transition-all hover:scale-110"
             onClick={goToNext}
           >
-            <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
+            <ChevronRight className="h-6 w-6 sm:h-8 sm:w-8" />
           </Button>
         </div>
 
         {/* Dots Indicator */}
-        <div className="flex justify-center space-x-2 mt-8">
+        <div className="flex justify-center space-x-3 mt-10">
           {testimonials.map((_, index) => (
             <button
               key={index}
-              className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                index === currentIndex ? "bg-primary" : "bg-border hover:bg-primary/50"
+              className={`rounded-full transition-all duration-300 ${
+                index === currentIndex 
+                   ? "w-8 h-2 bg-gradient-to-r from-blue-600 to-cyan-500 shadow-sm" 
+                   : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
               }`}
               onClick={() => goToSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
 
-        {/* All Testimonials Grid */}
-        <div className="mt-20">
-          <h3 className="text-2xl font-bold text-foreground text-center mb-12">More Client Reviews</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.slice(0, 6).map((testimonial) => (
-              <Card key={testimonial.id} className="border-border hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-6">
-                  {/* Rating */}
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                    ))}
+        {/* All Testimonials Grid (More Reviews) */}
+        <div className="mt-24 pt-16 border-t border-slate-200">
+          <h3 className="text-3xl font-black text-slate-900 text-center mb-12">More Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Reviews</span></h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className="group bg-white border border-slate-200 rounded-[2rem] p-8 hover:border-blue-200 hover:shadow-lg transition-all duration-500 hover:-translate-y-2 flex flex-col relative h-full">
+                
+                {/* Rating */}
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400 drop-shadow-sm" />
+                  ))}
+                </div>
+
+                {/* Content */}
+                <p className="text-slate-600 mb-6 leading-relaxed text-sm italic flex-grow">
+                  "{testimonial.content.substring(0, 140)}..."
+                </p>
+
+                {/* Client */}
+                <div className="pt-5 border-t border-slate-100 flex items-center space-x-4">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center font-bold text-blue-700 shadow-sm text-sm">
+                   {testimonial.name.charAt(0)}
                   </div>
-
-                  {/* Content */}
-                  <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
-                    "{testimonial.content.substring(0, 120)}..."
-                  </p>
-
-                  {/* Client */}
-                  <div className="flex items-center space-x-3">
-                    {/* <img
-                      src={testimonial.image || "/placeholder.svg"}
-                      alt={testimonial.name}
-                      className="w-10 h-10 rounded-full border-2 border-primary/20"
-                    /> */}
-                    <div>
-                      <div className="font-semibold text-card-foreground text-sm">{testimonial.name}</div>
-                      <div className="text-muted-foreground text-xs">{testimonial.company}</div>
+                  <div>
+                    <div className="font-bold text-slate-900 text-sm">{testimonial.name}</div>
+                    <div className="text-cyan-600 font-medium text-xs">
+                      {testimonial.company}
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>

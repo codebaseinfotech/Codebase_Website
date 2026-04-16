@@ -1,194 +1,60 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Phone, Mail, MapPin, MessageSquare, Calendar, Video, Headphones } from "lucide-react"
-
-const contactMethods = [
-  {
-    icon: Phone,
-    title: "Call Us",
-    description: "Speak directly with our experts",
-    details: ["+91 70968 59504", "Monday - Saturday: 9 AM - 6 PM IST"],
-    action: "Call Now",
-    href: "tel:+917096859504",
-    color: "text-green-600",
-    bgColor: "bg-green-50",
-    borderColor: "border-green-100",
-  },
-  {
-    icon: Mail,
-    title: "Email Us",
-    description: "Get detailed information via email",
-    details: ["codebaseinfotech@gmail.com", "Response within 24 hours"],
-    action: "Send Email",
-    href: "mailto:codebaseinfotech@gmail.com",
-    color: "text-blue-600",
-    bgColor: "bg-blue-50",
-    borderColor: "border-blue-100",
-  },
-  {
-    icon: Video,
-    title: "Video Call",
-    description: "Schedule a face-to-face meeting",
-    details: ["Google Meet or Zoom", "30-60 minute sessions"],
-    action: "Schedule Call",
-    href: "#",
-    color: "text-purple-600",
-    bgColor: "bg-purple-50",
-    borderColor: "border-purple-100",
-  },
-  {
-    icon: MessageSquare,
-    title: "WhatsApp",
-    description: "Quick chat on WhatsApp",
-    details: ["+91 70968 59504", "Available 24/7"],
-    action: "Chat Now",
-    href: "https://wa.me/917096859504",
-    color: "text-green-600",
-    bgColor: "bg-green-50",
-    borderColor: "border-green-100",
-  },
-  {
-    icon: Calendar,
-    title: "Schedule Meeting",
-    description: "Book a consultation call",
-    details: ["Free 30-minute consultation", "Available slots daily"],
-    action: "Book Now",
-    href: "#",
-    color: "text-orange-600",
-    bgColor: "bg-orange-50",
-    borderColor: "border-orange-100",
-  },
-  {
-    icon: Headphones,
-    title: "Live Support",
-    description: "Chat with our support team",
-    details: ["Available 9 AM - 6 PM IST", "Instant responses"],
-    action: "Start Chat",
-    href: "#",
-    color: "text-cyan-600",
-    bgColor: "bg-cyan-50",
-    borderColor: "border-cyan-100",
-  },
-]
+import ReactCountryFlag from "react-country-flag"
 
 export default function ContactInfo() {
+  const locations = [
+    {
+      country: "INDIA",
+      code: "IN",
+      company: "CODEBASE INFOTECH",
+      address: "201, Akshar Square, opp. Cancer Hospital, Dabholi, Surat, Gujarat, India - 395004",
+    },
+    {
+      country: "UAE",
+      code: "AE",
+      company: "ADDRESS",
+      address: "Office 306 Arjumand Building-3rd Floor, Dubai Investment Park 1, Dubai UAE",
+    },
+    {
+      country: "AUSTRALIA",
+      code: "AU",
+      company: "ADDRESS",
+      address: "14 Wellington Ave, Parafield Gardens 5107, Australia",
+    }
+  ]
+
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
-            Get in{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">Touch</span>
-          </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Choose the communication method that works best for you. We're here to help bring your ideas to life.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
-          {contactMethods.map((method, index) => {
-            const IconComponent = method.icon
-            return (
-              <Card
-                key={index}
-                className={`${method.borderColor} hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-white group`}
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div
-                      className={`w-14 h-14 ${method.bgColor} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <IconComponent className={`h-7 w-7 ${method.color}`} />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-slate-900 mb-2">{method.title}</h3>
-                      <p className="text-slate-600 mb-3">{method.description}</p>
-                      <div className="space-y-1 mb-4">
-                        {method.details.map((detail, idx) => (
-                          <div key={idx} className="text-sm text-slate-500 flex items-center">
-                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
-                            {detail}
-                          </div>
-                        ))}
-                      </div>
-                      <a href={method.href}>
-                        <Button variant="ghost" className={`${method.color} cursor-pointer p-2 hover:text-black hover:${method.bgColor} font-semibold`}>
-                          {method.action} →
-                        </Button>
-                      </a>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            )
-          })}
-        </div>
-
-        <Card className="border-slate-200 mb-16 bg-white shadow-lg">
-          <CardContent className="p-8">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="flex items-start space-x-4">
-                <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <MapPin className="h-7 w-7 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">Visit Our Office</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    201, Akshar Square, opp. Cancer Hospital, Dabholi, Surat, Gujarat,<br /> India - 395004
-                  </p>
-                  <a
-                    href="https://maps.app.goo.gl/N7NDybeZHDG5pvPU8"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button variant="outline" className="border-blue-200 text-blue-600 hover:bg-blue-50 bg-transparent">
-                      Get Directions
-                    </Button>
-                  </a>
-                </div>
+    <section className="py-24 bg-[#0a071c]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Global Presence Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-12">
+          {locations.map((loc, index) => (
+            <div key={index} className="flex flex-col text-left">
+              {/* Flag & Country Row */}
+              <div className="flex items-center gap-5 mb-10">
+                <ReactCountryFlag 
+                  countryCode={loc.code} 
+                  svg 
+                  style={{ width: '56px', height: '40px', borderRadius: '3px', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' }} 
+                />
+                <span className="text-2xl font-medium text-white tracking-wide">
+                  {loc.country}
+                </span>
               </div>
-
-              <div className="space-y-4">
-                <h4 className="text-lg font-bold text-slate-900 mb-4">Office Hours</h4>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
-                    <span className="text-slate-700 font-medium">Monday - Saturday</span>
-                    <span className="text-slate-600">9:00 AM - 6:00 PM</span>
-                  </div>
-                  {/* <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
-                    <span className="text-slate-700 font-medium">Saturday</span>
-                    <span className="text-slate-600">9:00 AM - 6:00 PM</span>
-                  </div> */}
-                  <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
-                    <span className="text-slate-700 font-medium">Sunday</span>
-                    <span className="text-slate-600">Closed</span>
-                  </div>
-                </div>
-              </div>
+              
+              {/* Company / Subheading Row */}
+              <h4 className="text-[11px] font-bold text-white/80 uppercase tracking-widest mb-3 font-sans">
+                {loc.company}
+              </h4>
+              
+              {/* Address Row */}
+              <p className="text-white/95 text-[15px] leading-relaxed max-w-[300px] font-medium">
+                {loc.address}
+              </p>
             </div>
-          </CardContent>
-        </Card>
-
-        <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Need Immediate Assistance?</h3>
-          <p className="text-lg mb-6 opacity-90">
-            For urgent technical support or critical project issues, reach out to us immediately.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+917096859504">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
-                <Phone className="h-5 w-5 mr-2" />
-                Emergency Hotline
-              </Button>
-            </a>
-            <a href="mailto:codebaseinfotech@gmail.com">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent">
-                <Mail className="h-5 w-5 mr-2" />
-                Priority Email
-              </Button>
-            </a>
-          </div>
+          ))}
         </div>
+        
       </div>
     </section>
   )

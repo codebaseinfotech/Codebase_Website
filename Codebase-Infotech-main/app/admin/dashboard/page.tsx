@@ -10,6 +10,8 @@ import {
   Save, ImageIcon, HelpCircle
 } from "lucide-react";
 
+import ProjectManager from "@/components/admin/project-manager";
+
 // Rich text editor — dynamic import to avoid SSR issues
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 import "react-quill-new/dist/quill.snow.css";
@@ -69,6 +71,7 @@ export default function AdminDashboard() {
   const router = useRouter();
 
   // View state
+  const [activeTab, setActiveTab] = useState<"blogs" | "projects">("blogs");
   const [view, setView] = useState<ViewMode>("list");
   const [editSlug, setEditSlug] = useState<string | null>(null);
 
@@ -230,11 +233,11 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        <nav className="flex-1 p-4 space-y-1">
+        <nav className="flex-1 p-4 space-y-2">
           <button
-            onClick={goBack}
+            onClick={() => { setActiveTab("blogs"); goBack(); }}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-              view === "list"
+              activeTab === "blogs"
                 ? "bg-white/[0.06] text-white"
                 : "text-blue-200/50 hover:text-white hover:bg-white/[0.04]"
             }`}
@@ -245,23 +248,18 @@ export default function AdminDashboard() {
               {blogs.length}
             </span>
           </button>
+          
           <button
-            onClick={openNew}
+            onClick={() => { setActiveTab("projects"); setView("list"); }}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-              view === "new"
+              activeTab === "projects"
                 ? "bg-white/[0.06] text-white"
                 : "text-blue-200/50 hover:text-white hover:bg-white/[0.04]"
             }`}
           >
-            <Plus className="w-4 h-4" />
-            Add New Blog
+            <LayoutDashboard className="w-4 h-4 text-cyan-400" />
+            Manage Projects
           </button>
-          {view === "edit" && (
-            <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-amber-500/10 text-amber-300 text-sm font-medium">
-              <Edit3 className="w-4 h-4" />
-              Editing Blog
-            </div>
-          )}
         </nav>
 
         <div className="p-4 border-t border-white/[0.06]">
@@ -303,11 +301,19 @@ export default function AdminDashboard() {
           </button>
         </div>
       </header>
+      {/* ====== Mobile Navigation Tabs ====== */}
+      <nav className="lg:hidden flex bg-[#020617] border-b border-white/[0.06] w-full text-sm">
+         <button onClick={() => { setActiveTab("blogs"); setView("list"); }} className={`flex-1 text-center py-3 font-semibold transition-colors ${activeTab === 'blogs' ? 'text-white border-b-2 border-blue-500 bg-white/[0.04]' : 'text-slate-400 hover:bg-white/[0.02]'}`}>Blogs</button>
+         <button onClick={() => { setActiveTab("projects"); setView("list"); }} className={`flex-1 text-center py-3 font-semibold transition-colors ${activeTab === 'projects' ? 'text-white border-b-2 border-cyan-500 bg-white/[0.04]' : 'text-slate-400 hover:bg-white/[0.02]'}`}>Projects</button>
+      </nav>
 
       {/* ====== Main Content ====== */}
       <main className="lg:ml-64 p-4 sm:p-6 lg:p-8">
-
-        {/* ===== LIST VIEW ===== */}
+        {activeTab === "projects" ? (
+           <ProjectManager />
+        ) : (
+          <>
+            {/* ===== LIST VIEW ===== */}
         {view === "list" && (
           <>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
@@ -428,7 +434,7 @@ export default function AdminDashboard() {
             <div className="flex items-center gap-3 mb-8">
               <button onClick={goBack} className="flex items-center gap-2 text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors">
                 <ArrowLeft className="w-4 h-4" />
-                Back to All Blogs
+                Back
               </button>
               <div className="w-px h-6 bg-slate-200" />
               <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -589,9 +595,10 @@ export default function AdminDashboard() {
             </form>
           </div>
         )}
+        </>
+      )}
       </main>
 
-      {/* ====== Delete Confirmation Modal ====== */}
       {deleteModal && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
           <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl">

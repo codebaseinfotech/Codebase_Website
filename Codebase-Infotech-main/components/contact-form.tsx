@@ -1,74 +1,61 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Send, CheckCircle, AlertCircle } from "lucide-react"
 
 interface FormData {
   name: string
-  email: string
   phone: string
+  email: string
+  service: string
   message: string
 }
 
 interface FormErrors {
   name?: string
-  email?: string
   phone?: string
+  email?: string
+  service?: string
   message?: string
 }
 
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
-    email: "",
     phone: "",
+    email: "",
+    service: "",
     message: "",
   })
   const [errors, setErrors] = useState<FormErrors>({})
   const [serverError, setServerError] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isRobot, setIsRobot] = useState(false) // Fake captcha state for UI matching
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {}
 
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required"
-    }
-
+    if (!formData.name.trim()) newErrors.name = "Name is required"
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required"
     if (!formData.email.trim()) {
       newErrors.email = "Email is required"
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address"
+      newErrors.email = "Invalid email"
     }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required"
-    } else if (!/^[+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/[\s\-$$$$]/g, ""))) {
-      newErrors.phone = "Please enter a valid phone number"
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required"
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Message must be at least 10 characters long"
-    }
+    if (!formData.message.trim()) newErrors.message = "Message is required"
 
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
-    // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }))
     }
@@ -78,19 +65,14 @@ export default function ContactForm() {
     e.preventDefault()
     setServerError(null)
 
-    if (!validateForm()) {
-      return
-    }
+    if (!validateForm()) return
 
     setIsSubmitting(true)
 
     try {
-      // Send the data to the backend API route you created
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       })
 
@@ -100,12 +82,9 @@ export default function ContactForm() {
         throw new Error(data.error || "Failed to send message.")
       }
 
-      console.log("Form successfully submitted:", data)
-
       setIsSubmitted(true)
-      setFormData({ name: "", email: "", phone: "", message: "" })
+      setFormData({ name: "", phone: "", email: "", service: "", message: "" })
     } catch (error: any) {
-      console.error("Error submitting form:", error)
       setServerError(error.message || "An unexpected error occurred. Please try again.")
     } finally {
       setIsSubmitting(false)
@@ -114,155 +93,123 @@ export default function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <section className="py-20 bg-background">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="border-border">
-            <CardContent className="p-12 text-center">
-              <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-6" />
-              <h2 className="text-2xl font-bold text-foreground mb-4">Thank You!</h2>
-              <p className="text-muted-foreground mb-6">
-                Your message has been sent successfully. We'll get back to you within 24 hours.
-              </p>
-              <Button onClick={() => setIsSubmitted(false)} variant="outline" className="bg-transparent">
-                Send Another Message
-              </Button>
-            </CardContent>
-          </Card>
+      <section className="py-16 bg-slate-50 relative flex items-center justify-center min-h-[400px]">
+        <div className="max-w-3xl mx-auto px-4 w-full z-10 text-center">
+          <CheckCircle className="h-20 w-20 text-[#1e3a8a] mx-auto mb-6" />
+          <h2 className="text-3xl font-bold text-slate-800 mb-4">Message Sent Successfully!</h2>
+          <p className="text-slate-600 mb-8 text-lg">
+            Thank you for contacting us. Our team will get back to you shortly.
+          </p>
+          <Button onClick={() => setIsSubmitted(false)} className="bg-[#1e3a8a] text-white hover:bg-blue-800 h-12 px-8 rounded-full">
+            Send Another Message
+          </Button>
         </div>
       </section>
     )
   }
 
   return (
-    <section className="py-20 bg-background">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Card className="border-border shadow-lg">
-          <CardHeader>
-            <CardTitle className="text-2xl font-bold text-foreground text-center">
-              Send Us a <span className="text-primary">Message</span>
-            </CardTitle>
-            <p className="text-muted-foreground text-center">
-              Fill out the form below and we'll get back to you as soon as possible
-            </p>
-          </CardHeader>
-          <CardContent className="p-8">
-            {serverError && (
-              <div className="mb-6 p-4 rounded-md bg-red-500/10 border border-red-500 text-red-500 flex items-start text-sm">
-                <AlertCircle className="h-5 w-5 mr-3 flex-shrink-0 mt-0.5" />
-                <span>{serverError}</span>
-              </div>
-            )}
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Field */}
-              <div className="space-y-2">
-                <Label htmlFor="name" className="text-foreground font-medium">
-                  Full Name *
-                </Label>
-                <Input
-                  id="name"
-                  name="name"
-                  type="text"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="Enter your full name"
-                  className={`bg-input border-border ${errors.name ? "border-red-500" : ""}`}
-                />
-                {errors.name && (
-                  <div className="flex items-center text-red-500 text-sm">
-                    <AlertCircle className="h-4 w-4 mr-1" />
-                    {errors.name}
-                  </div>
-                )}
-              </div>
+    <section className="py-20 bg-slate-50 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {serverError && (
+          <div className="mb-8 p-4 rounded-lg bg-red-50 border border-red-200 text-red-600 flex items-start max-w-4xl mx-auto">
+            <AlertCircle className="h-5 w-5 mr-3 flex-shrink-0 mt-0.5" />
+            <span>{serverError}</span>
+          </div>
+        )}
+        
+        <form onSubmit={handleSubmit} className="w-full max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            {/* Name Input */}
+            <div>
+              <Input
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="Name Here"
+                className={`bg-slate-50 border ${errors.name ? 'border-red-400' : 'border-slate-300'} h-14 rounded-lg px-4 focus-visible:ring-1 focus-visible:ring-[#1e3a8a] text-slate-800 text-base shadow-sm`}
+              />
+              {errors.name && <span className="text-red-500 text-xs mt-1 block pl-1">{errors.name}</span>}
+            </div>
 
-              {/* Email Field */}
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-foreground font-medium">
-                  Email Address *
-                </Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder="Enter your email address"
-                  className={`bg-input border-border ${errors.email ? "border-red-500" : ""}`}
-                />
-                {errors.email && (
-                  <div className="flex items-center text-red-500 text-sm">
-                    <AlertCircle className="h-4 w-4 mr-1" />
-                    {errors.email}
-                  </div>
-                )}
-              </div>
+            {/* Phone/Contact Input */}
+            <div>
+              <Input
+                name="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleInputChange}
+                placeholder="Contact Here"
+                className={`bg-slate-50 border ${errors.phone ? 'border-red-400' : 'border-slate-300'} h-14 rounded-lg px-4 focus-visible:ring-1 focus-visible:ring-[#1e3a8a] text-slate-800 text-base shadow-sm`}
+              />
+              {errors.phone && <span className="text-red-500 text-xs mt-1 block pl-1">{errors.phone}</span>}
+            </div>
 
-              {/* Phone Field */}
-              <div className="space-y-2">
-                <Label htmlFor="phone" className="text-foreground font-medium">
-                  Phone Number *
-                </Label>
-                <Input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  placeholder="Enter your phone number"
-                  className={`bg-input border-border ${errors.phone ? "border-red-500" : ""}`}
-                />
-                {errors.phone && (
-                  <div className="flex items-center text-red-500 text-sm">
-                    <AlertCircle className="h-4 w-4 mr-1" />
-                    {errors.phone}
-                  </div>
-                )}
-              </div>
+            {/* Email Input */}
+            <div>
+              <Input
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="Email Here"
+                className={`bg-slate-50 border ${errors.email ? 'border-red-400' : 'border-slate-300'} h-14 rounded-lg px-4 focus-visible:ring-1 focus-visible:ring-[#1e3a8a] text-slate-800 text-base shadow-sm`}
+              />
+              {errors.email && <span className="text-red-500 text-xs mt-1 block pl-1">{errors.email}</span>}
+            </div>
 
-              {/* Message Field */}
-              <div className="space-y-2">
-                <Label htmlFor="message" className="text-foreground font-medium">
-                  Message *
-                </Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder="Tell us about your project requirements..."
-                  rows={6}
-                  className={`bg-input border-border resize-none ${errors.message ? "border-red-500" : ""}`}
-                />
-                {errors.message && (
-                  <div className="flex items-center text-red-500 text-sm">
-                    <AlertCircle className="h-4 w-4 mr-1" />
-                    {errors.message}
-                  </div>
-                )}
-              </div>
+            {/* Service Dropdown */}
+            <div>
+              <select
+                name="service"
+                value={formData.service}
+                onChange={handleInputChange}
+                className="w-full bg-slate-50 border border-slate-300 h-14 rounded-lg px-4 focus:ring-1 focus:ring-[#1e3a8a] focus:outline-none text-slate-500 text-base shadow-sm"
+              >
+                <option value="" disabled>Select a Product or Service</option>
+                <option value="Mobile App Development">Mobile App Development</option>
+                <option value="Web Development">Web Development</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
 
-              {/* Submit Button */}
-              <Button type="submit" size="lg" className="w-full text-lg" disabled={isSubmitting}>
-                {isSubmitting ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-primary-foreground mr-2"></div>
-                    Sending Message...
-                  </>
-                ) : (
-                  <>
-                    Send Message
-                    <Send className="ml-2 h-5 w-5" />
-                  </>
-                )}
-              </Button>
+          <div className="mb-6">
+            <Textarea
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              placeholder="Message ..."
+              rows={8}
+              className={`bg-slate-50 border ${errors.message ? 'border-red-400' : 'border-slate-300'} rounded-lg p-5 focus-visible:ring-1 focus-visible:ring-[#1e3a8a] text-slate-800 text-base resize-none shadow-sm`}
+            />
+            {errors.message && <span className="text-red-500 text-xs mt-1 block pl-1">{errors.message}</span>}
+          </div>
 
-              <p className="text-sm text-muted-foreground text-center">
-                By submitting this form, you agree to our privacy policy and terms of service.
-              </p>
-            </form>
-          </CardContent>
-        </Card>
+          <div className="flex items-center mb-6">
+            <label className="flex items-center space-x-2 cursor-pointer text-slate-600 text-sm">
+              <input 
+                type="checkbox" 
+                checked={isRobot} 
+                onChange={(e) => setIsRobot(e.target.checked)} 
+                className="w-4 h-4 text-[#1e3a8a] border-slate-300 rounded focus:ring-[#1e3a8a]"
+              />
+              <span>I'm not a robot</span>
+            </label>
+          </div>
+
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="bg-[#1e3a8a] hover:bg-blue-900 text-white border-0 h-12 px-8 rounded-full font-medium text-base inline-flex items-center transition-colors"
+          >
+            {isSubmitting ? "Sending..." : "Contact Us"}
+            {!isSubmitting && <Send className="ml-2 h-4 w-4" />}
+          </Button>
+        </form>
       </div>
     </section>
   )

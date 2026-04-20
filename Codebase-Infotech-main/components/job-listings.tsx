@@ -8,194 +8,7 @@ import { useState, useRef } from "react"
 import { Badge } from "@/components/ui/badge"
 import { MapPin, ChevronDown, ChevronUp, ArrowRight, Upload, X, CheckCircle } from "lucide-react"
 
-const jobs = [
-  {
-    id: 1,
-    title: "Android Developer (Fresher)",
-    location: "Surat",
-    type: "Full-time",
-    experience: "Fresher",
-    summary:
-      "We are looking for an enthusiastic and motivated Android Developer (Fresher) eager to build a career in mobile application development. Strong foundational knowledge of Java and Kotlin, Android basics, and a willingness to learn modern Android development practices required.",
-    responsibilities: [
-      "Assist in developing Android applications using Java and Kotlin.",
-      "Write clean and maintainable code under guidance.",
-      "Support API integration and data handling.",
-      "Fix minor bugs and improve app performance.",
-      "Participate in testing applications across devices.",
-      "Collaborate with designers and developers during implementation.",
-      "Follow coding standards and version control practices.",
-      "Learn and apply modern Android development techniques.",
-    ],
-    requiredSkills: [
-      "Basic knowledge of Java and Kotlin programming.",
-      "Understanding of Android fundamentals (Activities, Fragments, Lifecycle).",
-      "Familiarity with Android Studio and SDK.",
-      "Basic understanding of API integration.",
-      "Knowledge of Git fundamentals (preferred).",
-      "Problem-solving mindset and eagerness to learn.",
-      "Strong logical thinking and debugging ability.",
-    ],
-    preferredSkills: [
-      "Academic or personal Android project experience.",
-      "Familiarity with UI design implementation.",
-      "Understanding of MVVM architecture basics.",
-      "Exposure to Firebase or REST APIs.",
-    ],
-    education: "Bachelor's degree in Computer Science, IT, Engineering, or related field.",
-    offers: [
-      "Hands-on exposure to real Android projects.",
-      "Mentorship from experienced developers.",
-      "Learning opportunities in modern Android technologies.",
-      "Supportive and growth-focused work environment.",
-      "Career development opportunities.",
-    ],
-  },
-  {
-    id: 2,
-    title: "Android Developer (1–6 Years Experience)",
-    location: "Surat",
-    type: "Full-time",
-    experience: "1–6 Years",
-    summary:
-      "We are hiring a passionate Android Developer with 1–6 years of hands-on experience. Strong knowledge of Kotlin, MVVM architecture, Ads integration, event tracking, remote configuration, and Git-based version control required.",
-    responsibilities: [
-      "Design, develop, and maintain Android applications using Kotlin.",
-      "Implement clean, scalable code following MVVM architecture.",
-      "Integrate REST APIs and handle data using ViewModel, LiveData, and/or Flow.",
-      "Work on Ads placement and integration (Banner, Interstitial, Rewarded Ads).",
-      "Implement event tracking for user actions and analytics.",
-      "Ensure smooth app performance, stability, and memory optimization.",
-      "Identify, debug, and fix bugs, crashes, and ANR issues.",
-      "Collaborate with cross-functional teams to ship new features.",
-      "Maintain proper Git usage for each project.",
-      "Support app publishing and post-release maintenance.",
-    ],
-    requiredSkills: [
-      "Strong understanding of Android SDK.",
-      "Hands-on experience with Kotlin.",
-      "Practical knowledge of MVVM architecture.",
-      "Ads integration (Google AdMob or similar).",
-      "Event integration (Firebase Analytics or similar).",
-      "Remote Config integration.",
-      "API integration using Retrofit / Volley.",
-      "Local data handling using Room / SharedPreferences.",
-      "Experience using Git for version control.",
-    ],
-    preferredSkills: [
-      "Experience with Coroutines.",
-      "Knowledge of Dependency Injection (Hilt / Dagger).",
-      "Familiarity with Crashlytics and performance monitoring.",
-      "Understanding of push notifications (FCM).",
-    ],
-    education: "Bachelor's degree in Computer Science, Engineering, or a related field.",
-    offers: [
-      "Opportunity to work on live and scalable Android applications.",
-      "Learning and growth in modern Android technologies.",
-      "Collaborative and developer-friendly work environment.",
-      "Career growth opportunities based on performance.",
-    ],
-  },
-  {
-    id: 3,
-    title: "React Native Developer",
-    location: "Surat",
-    type: "Full-time",
-    experience: "2+ Years",
-    summary:
-      "We are looking for a skilled React Native Developer to develop and maintain high-quality cross-platform mobile applications. You'll work closely with UI/UX designers, backend developers, and QA teams to deliver seamless app features.",
-    responsibilities: [
-      "Develop and maintain cross-platform mobile applications using React Native.",
-      "Write clean, efficient, and reusable code following best practices.",
-      "Integrate mobile applications with RESTful APIs and third-party libraries.",
-      "Collaborate with UI/UX designers to ensure technical feasibility.",
-      "Debug and fix bugs, performance issues, and ensure app stability across devices.",
-      "Participate in code reviews and contribute to improving coding standards.",
-    ],
-    requiredSkills: [
-      "2+ years of experience in React Native app development.",
-      "Strong proficiency in JavaScript (ES6+) and React concepts.",
-      "Experience with state management (Redux / Context API / MobX).",
-      "Good understanding of Android Studio and Xcode.",
-      "Familiarity with Firebase, Push Notifications, App Store / Play Store deployment.",
-      "Understanding of Git / GitHub version control.",
-    ],
-    preferredSkills: [],
-    education: "Bachelor's degree in Computer Science, IT, or a related field.",
-    offers: [
-      "Work on real-world, cross-platform mobile applications.",
-      "Collaborative and growth-focused work culture.",
-      "Career development opportunities.",
-    ],
-  },
-  {
-    id: 4,
-    title: "UI/UX Designer",
-    location: "Surat",
-    type: "Full-time",
-    experience: "3+ Years",
-    summary:
-      "We are hiring a professional UI/UX Designer with minimum 3 years of hands-on experience delivering high-quality design solutions for real client projects. Detail-oriented, creative, and capable of independently handling end-to-end UI/UX responsibilities.",
-    responsibilities: [
-      "Design user-friendly and visually appealing UI/UX for mobile applications.",
-      "Create modern and responsive web app interfaces.",
-      "Develop website designs aligned with client requirements and brand identity.",
-      "Understand client briefs and convert them into effective design solutions.",
-      "Maintain design consistency across typography, colors, and layouts.",
-      "Present design concepts clearly to clients and internal teams.",
-    ],
-    requiredSkills: [
-      "Strong expertise in UI/UX design principles.",
-      "Mobile app and web application interface design.",
-      "User-centered design thinking.",
-      "Wireframing, prototyping, and usability optimization.",
-      "Experience handling client-based projects independently.",
-      "Fluent English communication — mandatory.",
-    ],
-    preferredSkills: ["Adobe Photoshop", "Figma", "Adobe XD", "Sketch"],
-    education: "Minimum 3 years of proven UI/UX design experience with a strong portfolio.",
-    offers: [
-      "Work on real, client-facing design projects.",
-      "Creative and collaborative work environment.",
-      "Career growth based on performance.",
-    ],
-  },
-  {
-    id: 5,
-    title: "Social Media Manager",
-    location: "Surat",
-    type: "Full-time",
-    experience: "1+ Years",
-    summary:
-      "We are looking for a highly creative Social Media Manager who understands how to create engaging, high-impact content. Manage all social media platforms, build brand presence, and produce content that drives reach, engagement, and app installs.",
-    responsibilities: [
-      "Plan and execute monthly content calendars.",
-      "Create engaging posts, reels, shorts, stories, and community-focused content.",
-      "Write powerful hooks, captions, and storytelling-style scripts.",
-      "Monitor trending topics and convert them into relevant content.",
-      "Track performance metrics: reach, shares, saves, engagement rate.",
-      "Prepare weekly and monthly performance reports.",
-      "Create campaigns for app feature launches and updates.",
-    ],
-    requiredSkills: [
-      "Strong understanding of social media content dynamics.",
-      "Experience in creating reels, shorts, and trending video formats.",
-      "Excellent copywriting skills and high-engagement hooks.",
-      "Basic video editing and motion graphics understanding.",
-      "Creativity with fast execution ability.",
-    ],
-    preferredSkills: [
-      "Experience creating viral or high-reach content.",
-      "Working with mobile apps or tech products.",
-    ],
-    education: "Any degree; relevant experience and portfolio required.",
-    offers: [
-      "Creative and dynamic work environment.",
-      "Opportunity to manage brand presence at scale.",
-      "Performance-based growth and recognition.",
-    ],
-  },
-]
+// Jobs passed dynamically from parent page
 
 // ─── Apply Now Modal (portal-style, no shadcn Dialog) ──────────────
 function ApplyModal({
@@ -486,7 +299,7 @@ function ApplyModal({
 }
 
 // ─── Inline "Send Resume" form ──────────────────────────────────────
-function SendResumeInline() {
+function SendResumeInline({ jobs }: { jobs: any[] }) {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -593,7 +406,7 @@ function SendResumeInline() {
         >
           <option value="" className="bg-[#080d1a]">Select a role (optional)</option>
           {jobs.map((j) => (
-            <option key={j.id} value={j.title} className="bg-[#080d1a]">{j.title}</option>
+            <option key={j._id || j.id} value={j.title} className="bg-[#080d1a]">{j.title}</option>
           ))}
           <option value="Other" className="bg-[#080d1a]">Other</option>
         </select>
@@ -674,9 +487,12 @@ function SendResumeInline() {
 }
 
 // ─── Main Export ────────────────────────────────────────────────────
-export default function JobListings() {
-  const [openId, setOpenId] = useState<number | null>(null)
-  const [applyJob, setApplyJob] = useState<{ id: number; title: string } | null>(null)
+export default function JobListings({ initialJobs = [] }: { initialJobs?: any[] }) {
+  const [openId, setOpenId] = useState<string | number | null>(null)
+  const [applyJob, setApplyJob] = useState<{ id: string | number; title: string } | null>(null)
+  
+  // Safe fallback in case DB fetch fails or hasn't loaded
+  const jobs = initialJobs;
 
   return (
     <>
@@ -702,17 +518,22 @@ export default function JobListings() {
 
           {/* Job Cards */}
           <div className="space-y-4">
-            {jobs.map((job) => {
-              const isOpen = openId === job.id
+            {jobs.length === 0 ? (
+              <div className="text-center py-12 bg-white/[0.02] border border-white/[0.05] rounded-2xl">
+                <p className="text-blue-100/40">No open positions atm. Check back later!</p>
+              </div>
+            ) : jobs.map((job) => {
+              const jobId = job._id || job.id;
+              const isOpen = openId === jobId;
               return (
                 <div
-                  key={job.id}
+                  key={jobId}
                   className="bg-white/[0.03] border border-white/[0.07] rounded-2xl overflow-hidden transition-colors duration-300 hover:border-blue-500/25"
                 >
                   {/* Card Header toggle */}
                   <div
                     className="px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 cursor-pointer group"
-                    onClick={() => setOpenId(isOpen ? null : job.id)}
+                    onClick={() => setOpenId(isOpen ? null : jobId)}
                   >
                     <div className="space-y-2">
                       <h3 className="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
@@ -739,7 +560,7 @@ export default function JobListings() {
                     >
                       <button
                         type="button"
-                        onClick={() => setApplyJob({ id: job.id, title: job.title })}
+                        onClick={() => setApplyJob({ id: jobId, title: job.title })}
                         className="flex items-center gap-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white text-sm font-bold rounded-xl px-5 h-9 shadow-[0_0_15px_rgba(37,99,235,0.25)] hover:shadow-[0_0_25px_rgba(37,99,235,0.45)] transition-all"
                       >
                         Apply Now
@@ -759,7 +580,7 @@ export default function JobListings() {
                       <div>
                         <h4 className="text-blue-400 font-bold mb-3 text-xs uppercase tracking-widest">Key Responsibilities</h4>
                         <ul className="space-y-1.5">
-                          {job.responsibilities.map((r, i) => (
+                          {job.responsibilities.map((r: string, i: number) => (
                             <li key={i} className="flex items-start gap-2 text-blue-100/55 text-sm">
                               <span className="text-cyan-500 mt-0.5 shrink-0">→</span>{r}
                             </li>
@@ -770,7 +591,7 @@ export default function JobListings() {
                       <div>
                         <h4 className="text-blue-400 font-bold mb-3 text-xs uppercase tracking-widest">Required Skills</h4>
                         <ul className="space-y-1.5">
-                          {job.requiredSkills.map((s, i) => (
+                          {job.requiredSkills.map((s: string, i: number) => (
                             <li key={i} className="flex items-start gap-2 text-blue-100/55 text-sm">
                               <span className="text-cyan-500 mt-0.5 shrink-0">→</span>{s}
                             </li>
@@ -782,7 +603,7 @@ export default function JobListings() {
                         <div>
                           <h4 className="text-blue-400 font-bold mb-3 text-xs uppercase tracking-widest">Good to Have</h4>
                           <div className="flex flex-wrap gap-2">
-                            {job.preferredSkills.map((s, i) => (
+                            {job.preferredSkills.map((s: string, i: number) => (
                               <span key={i} className="bg-white/[0.04] border border-white/[0.07] text-blue-100/50 text-xs px-3 py-1 rounded-full">
                                 {s}
                               </span>
@@ -799,7 +620,7 @@ export default function JobListings() {
                       <div>
                         <h4 className="text-blue-400 font-bold mb-3 text-xs uppercase tracking-widest">What We Offer</h4>
                         <ul className="space-y-1.5">
-                          {job.offers.map((o, i) => (
+                          {job.offers.map((o: string, i: number) => (
                             <li key={i} className="flex items-start gap-2 text-blue-100/55 text-sm">
                               <span className="text-green-400 mt-0.5 shrink-0">✓</span>{o}
                             </li>
@@ -809,7 +630,7 @@ export default function JobListings() {
 
                       <button
                         type="button"
-                        onClick={() => setApplyJob({ id: job.id, title: job.title })}
+                        onClick={() => setApplyJob({ id: jobId, title: job.title })}
                         className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold rounded-xl h-11 px-7 text-sm shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_35px_rgba(37,99,235,0.5)] transition-all group"
                       >
                         Apply for This Role
@@ -841,7 +662,7 @@ export default function JobListings() {
                 </p>
               </div>
 
-              <SendResumeInline />
+              <SendResumeInline jobs={jobs} />
             </div>
           </div>
         </div>

@@ -5,6 +5,11 @@ import Footer from "@/components/footer"
 import CareersHero from "@/components/careers-hero"
 import JobListings from "@/components/job-listings"
 
+import { connectDB } from "@/lib/mongodb"
+import Job from "@/models/Job"
+
+export const revalidate = 60; // optionally revalidate every 60s
+
 export const metadata: Metadata = {
   title: generateTitle("Careers — Join Our Team"),
   description:
@@ -50,13 +55,17 @@ export const metadata: Metadata = {
   },
 }
 
-export default function CareersPage() {
+export default async function CareersPage() {
+  await connectDB();
+  const rawJobs = await Job.find({ isActive: true }).sort({ createdAt: -1 });
+  const activeJobs = JSON.parse(JSON.stringify(rawJobs)); // serialize for client props
+
   return (
     <div className="min-h-screen">
       <Navigation />
       <main>
         <CareersHero />
-        <JobListings />
+        <JobListings initialJobs={activeJobs} />
       </main>
       <Footer />
     </div>

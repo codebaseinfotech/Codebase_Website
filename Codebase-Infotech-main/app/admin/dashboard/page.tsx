@@ -7,10 +7,11 @@ import dynamic from "next/dynamic";
 import {
   Plus, Edit3, Trash2, LogOut, LayoutDashboard, FileText,
   Calendar, Eye, Search, AlertTriangle, X, ArrowLeft,
-  Save, ImageIcon, HelpCircle
+  Save, ImageIcon, HelpCircle, Briefcase
 } from "lucide-react";
 
 import ProjectManager from "@/components/admin/project-manager";
+import JobManager from "@/components/admin/job-manager";
 
 // Rich text editor — dynamic import to avoid SSR issues
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
@@ -71,7 +72,7 @@ export default function AdminDashboard() {
   const router = useRouter();
 
   // View state
-  const [activeTab, setActiveTab] = useState<"blogs" | "projects">("blogs");
+  const [activeTab, setActiveTab] = useState<"blogs" | "projects" | "jobs">("blogs");
   const [view, setView] = useState<ViewMode>("list");
   const [editSlug, setEditSlug] = useState<string | null>(null);
 
@@ -260,6 +261,18 @@ export default function AdminDashboard() {
             <LayoutDashboard className="w-4 h-4 text-cyan-400" />
             Manage Projects
           </button>
+
+          <button
+            onClick={() => { setActiveTab("jobs"); setView("list"); }}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+              activeTab === "jobs"
+                ? "bg-white/[0.06] text-white"
+                : "text-blue-200/50 hover:text-white hover:bg-white/[0.04]"
+            }`}
+          >
+            <Briefcase className="w-4 h-4 text-purple-400" />
+            Job Openings
+          </button>
         </nav>
 
         <div className="p-4 border-t border-white/[0.06]">
@@ -305,11 +318,14 @@ export default function AdminDashboard() {
       <nav className="lg:hidden flex bg-[#020617] border-b border-white/[0.06] w-full text-sm">
          <button onClick={() => { setActiveTab("blogs"); setView("list"); }} className={`flex-1 text-center py-3 font-semibold transition-colors ${activeTab === 'blogs' ? 'text-white border-b-2 border-blue-500 bg-white/[0.04]' : 'text-slate-400 hover:bg-white/[0.02]'}`}>Blogs</button>
          <button onClick={() => { setActiveTab("projects"); setView("list"); }} className={`flex-1 text-center py-3 font-semibold transition-colors ${activeTab === 'projects' ? 'text-white border-b-2 border-cyan-500 bg-white/[0.04]' : 'text-slate-400 hover:bg-white/[0.02]'}`}>Projects</button>
+         <button onClick={() => { setActiveTab("jobs"); setView("list"); }} className={`flex-1 text-center py-3 font-semibold transition-colors ${activeTab === 'jobs' ? 'text-white border-b-2 border-purple-500 bg-white/[0.04]' : 'text-slate-400 hover:bg-white/[0.02]'}`}>Careers</button>
       </nav>
 
       {/* ====== Main Content ====== */}
       <main className="lg:ml-64 p-4 sm:p-6 lg:p-8">
-        {activeTab === "projects" ? (
+        {activeTab === "jobs" ? (
+           <JobManager />
+        ) : activeTab === "projects" ? (
            <ProjectManager />
         ) : (
           <>

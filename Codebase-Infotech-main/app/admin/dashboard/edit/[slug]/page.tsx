@@ -239,19 +239,9 @@ export default function EditBlogPage({ params }: { params: Promise<{ slug: strin
 
           {/* FAQs */}
           <div className="bg-white rounded-2xl border border-slate-100 p-5 sm:p-6 shadow-sm space-y-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-sm font-bold text-slate-900">
-                <HelpCircle className="w-4 h-4 text-purple-600" />
-                FAQs ({faqs.length})
-              </div>
-              <button
-                type="button"
-                onClick={addFaq}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-50 text-purple-600 text-xs font-bold hover:bg-purple-100 transition-colors"
-              >
-                <Plus className="w-3.5 h-3.5" />
-                Add FAQ
-              </button>
+            <div className="flex items-center gap-2 text-sm font-bold text-slate-900">
+              <HelpCircle className="w-4 h-4 text-purple-600" />
+              FAQs ({faqs.length})
             </div>
 
             {faqs.length === 0 && (
@@ -291,6 +281,15 @@ export default function EditBlogPage({ params }: { params: Promise<{ slug: strin
                 </div>
               </div>
             ))}
+
+            <button
+              type="button"
+              onClick={addFaq}
+              className="flex items-center justify-center gap-1.5 w-full px-3 py-2.5 rounded-xl border-2 border-dashed border-purple-200 text-purple-600 text-sm font-bold hover:bg-purple-50 hover:border-purple-300 transition-colors"
+            >
+              <Plus className="w-4 h-4" />
+              Add FAQ
+            </button>
           </div>
 
           {/* Error */}

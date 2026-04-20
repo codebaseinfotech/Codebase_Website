@@ -190,6 +190,7 @@ export default function JobManager() {
                   <option value="Part-time">Part-time</option>
                   <option value="Contract">Contract</option>
                   <option value="Internship">Internship</option>
+                  <option value="Remote">Remote</option>
                 </select>
               </div>
               <div className="space-y-1">

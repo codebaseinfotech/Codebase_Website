@@ -118,6 +118,30 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/careers"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/affiliates"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Affiliates
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/our-partners"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Our Partners
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -203,7 +227,7 @@ export default function Footer() {
             <p className="text-muted-foreground text-sm">
               © {new Date().getFullYear()} All Rights Reserved - codebaseinfotech.com
             </p>
-            <div className="flex items-center gap-2 text-sm">
+            <div className="flex flex-wrap items-center gap-2 text-sm">
               <Link
                 href="/privacy-policy"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -216,6 +240,27 @@ export default function Footer() {
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 Terms &amp; Conditions
+              </Link>
+              <span className="text-border">|</span>
+              <Link
+                href="/careers"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                Careers
+              </Link>
+              <span className="text-border">|</span>
+              <Link
+                href="/affiliates"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                Affiliates
+              </Link>
+              <span className="text-border">|</span>
+              <Link
+                href="/our-partners"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                Our Partners
               </Link>
               <span className="text-border">|</span>
               <Link

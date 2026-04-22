@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import dynamic from "next/dynamic";
@@ -9,9 +9,10 @@ import {
   Calendar, Eye, Search, AlertTriangle, X, ArrowLeft,
   Save, ImageIcon, HelpCircle, Briefcase
 } from "lucide-react";
+import AdminHeader from "@/components/admin/admin-header";
 
-import ProjectManager from "@/components/admin/project-manager";
-import JobManager from "@/components/admin/job-manager";
+import ProjectManager, { type ProjectManagerActions } from "@/components/admin/project-manager";
+import JobManager, { type JobManagerActions } from "@/components/admin/job-manager";
 
 // Rich text editor — dynamic import to avoid SSR issues
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
@@ -75,6 +76,14 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState<"blogs" | "projects" | "jobs">("blogs");
   const [view, setView] = useState<ViewMode>("list");
   const [editSlug, setEditSlug] = useState<string | null>(null);
+
+  // Header dynamic state
+  const [headerTitle, setHeaderTitle] = useState("Blog Posts");
+  const [headerIsForm, setHeaderIsForm] = useState(false);
+
+  // Child manager refs
+  const projectActionsRef = useRef<ProjectManagerActions | null>(null);
+  const jobActionsRef = useRef<JobManagerActions | null>(null);
 
   // Form state
   const [title, setTitle] = useState("");
@@ -236,7 +245,7 @@ export default function AdminDashboard() {
 
         <nav className="flex-1 p-4 space-y-2">
           <button
-            onClick={() => { setActiveTab("blogs"); goBack(); }}
+            onClick={() => { setActiveTab("blogs"); goBack(); setHeaderTitle("Blog Posts"); setHeaderIsForm(false); }}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
               activeTab === "blogs"
                 ? "bg-white/[0.06] text-white"
@@ -251,7 +260,7 @@ export default function AdminDashboard() {
           </button>
           
           <button
-            onClick={() => { setActiveTab("projects"); setView("list"); }}
+            onClick={() => { setActiveTab("projects"); setView("list"); setHeaderTitle("Portfolio Projects"); setHeaderIsForm(false); }}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
               activeTab === "projects"
                 ? "bg-white/[0.06] text-white"
@@ -263,7 +272,7 @@ export default function AdminDashboard() {
           </button>
 
           <button
-            onClick={() => { setActiveTab("jobs"); setView("list"); }}
+            onClick={() => { setActiveTab("jobs"); setView("list"); setHeaderTitle("Job Openings"); setHeaderIsForm(false); }}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
               activeTab === "jobs"
                 ? "bg-white/[0.06] text-white"
@@ -286,66 +295,51 @@ export default function AdminDashboard() {
         </div>
       </aside>
 
-      {/* ====== Mobile Header ====== */}
-      <header className="lg:hidden sticky top-0 z-50 bg-[#020617] border-b border-white/[0.06] px-4 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          {view !== "list" ? (
-            <button onClick={goBack} className="flex items-center gap-2 text-white text-sm font-medium">
-              <ArrowLeft className="w-4 h-4" />
-              Back
-            </button>
-          ) : (
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center">
-                <LayoutDashboard className="w-4 h-4 text-white" />
-              </div>
-              <p className="text-white font-bold text-sm">Admin</p>
-            </div>
-          )}
-        </div>
-        <div className="flex items-center gap-2">
-          {view === "list" && (
-            <button onClick={openNew} className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white">
-              <Plus className="w-4 h-4" />
-            </button>
-          )}
-          <button onClick={handleLogout} className="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center text-red-400">
-            <LogOut className="w-4 h-4" />
-          </button>
-        </div>
-      </header>
-      {/* ====== Mobile Navigation Tabs ====== */}
-      <nav className="lg:hidden flex bg-[#020617] border-b border-white/[0.06] w-full text-sm">
-         <button onClick={() => { setActiveTab("blogs"); setView("list"); }} className={`flex-1 text-center py-3 font-semibold transition-colors ${activeTab === 'blogs' ? 'text-white border-b-2 border-blue-500 bg-white/[0.04]' : 'text-slate-400 hover:bg-white/[0.02]'}`}>Blogs</button>
-         <button onClick={() => { setActiveTab("projects"); setView("list"); }} className={`flex-1 text-center py-3 font-semibold transition-colors ${activeTab === 'projects' ? 'text-white border-b-2 border-cyan-500 bg-white/[0.04]' : 'text-slate-400 hover:bg-white/[0.02]'}`}>Projects</button>
-         <button onClick={() => { setActiveTab("jobs"); setView("list"); }} className={`flex-1 text-center py-3 font-semibold transition-colors ${activeTab === 'jobs' ? 'text-white border-b-2 border-purple-500 bg-white/[0.04]' : 'text-slate-400 hover:bg-white/[0.02]'}`}>Careers</button>
-      </nav>
+      {/* ====== Premium Top Header ====== */}
+      <AdminHeader
+        title={headerTitle}
+        subtitle={activeTab === "blogs" ? "Blogs" : activeTab === "projects" ? "Projects" : "Careers"}
+        onBack={headerIsForm ? () => {
+          if (activeTab === "blogs") { goBack(); }
+          else if (activeTab === "projects") { projectActionsRef.current?.goBack(); }
+          else if (activeTab === "jobs") { jobActionsRef.current?.goBack(); }
+          setHeaderIsForm(false);
+          setHeaderTitle(activeTab === "blogs" ? "Blog Posts" : activeTab === "projects" ? "Portfolio Projects" : "Job Openings");
+        } : undefined}
+        actionButton={!headerIsForm ? {
+          label: activeTab === "blogs" ? "New Blog" : activeTab === "projects" ? "New Project" : "New Job",
+          icon: <Plus className="w-3.5 h-3.5" />,
+          onClick: () => {
+            if (activeTab === "blogs") { openNew(); setHeaderTitle("Create New Blog Post"); setHeaderIsForm(true); }
+            else if (activeTab === "projects") { projectActionsRef.current?.openNew(); }
+            else if (activeTab === "jobs") { jobActionsRef.current?.openNew(); }
+          }
+        } : undefined}
+      />
 
       {/* ====== Main Content ====== */}
       <main className="lg:ml-64 p-4 sm:p-6 lg:p-8">
         {activeTab === "jobs" ? (
-           <JobManager />
+           <JobManager
+             actionsRef={jobActionsRef}
+             onViewChange={({ title, view: v }) => {
+               setHeaderTitle(title);
+               setHeaderIsForm(v === "form");
+             }}
+           />
         ) : activeTab === "projects" ? (
-           <ProjectManager />
+           <ProjectManager
+             actionsRef={projectActionsRef}
+             onViewChange={({ title, view: v }) => {
+               setHeaderTitle(title);
+               setHeaderIsForm(v !== "list");
+             }}
+           />
         ) : (
           <>
             {/* ===== LIST VIEW ===== */}
         {view === "list" && (
           <>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-              <div>
-                <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Blog Posts</h1>
-                <p className="text-slate-500 text-sm mt-1">Manage your blog content</p>
-              </div>
-              <button
-                onClick={openNew}
-                className="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-blue-500/20 transition-all hover:scale-[1.02]"
-              >
-                <Plus className="w-4 h-4" />
-                New Blog Post
-              </button>
-            </div>
-
             {/* Search */}
             <div className="relative mb-6">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
@@ -374,7 +368,7 @@ export default function AdminDashboard() {
                 </p>
                 {!search && (
                   <button
-                    onClick={openNew}
+                    onClick={() => { openNew(); setHeaderTitle("Create New Blog Post"); setHeaderIsForm(true); }}
                     className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-blue-500/20 hover:scale-[1.02] transition-all"
                   >
                     <Plus className="w-4 h-4" />
@@ -422,7 +416,7 @@ export default function AdminDashboard() {
                         View
                       </Link>
                       <button
-                        onClick={() => openEdit(blog)}
+                        onClick={() => { openEdit(blog); setHeaderTitle("Edit Blog Post"); setHeaderIsForm(true); }}
                         className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 text-xs font-medium transition-colors flex-1 sm:flex-initial justify-center"
                       >
                         <Edit3 className="w-3.5 h-3.5" />
@@ -446,18 +440,6 @@ export default function AdminDashboard() {
         {/* ===== NEW / EDIT VIEW ===== */}
         {(view === "new" || view === "edit") && (
           <div>
-            {/* Header */}
-            <div className="flex items-center gap-3 mb-8">
-              <button onClick={goBack} className="flex items-center gap-2 text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors">
-                <ArrowLeft className="w-4 h-4" />
-                Back
-              </button>
-              <div className="w-px h-6 bg-slate-200" />
-              <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                {view === "new" ? "Create New Blog Post" : "Edit Blog Post"}
-              </h1>
-            </div>
-
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Title */}
               <div className="bg-white rounded-2xl border border-slate-100 p-5 sm:p-6 shadow-sm space-y-4">

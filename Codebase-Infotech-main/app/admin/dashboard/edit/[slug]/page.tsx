@@ -7,6 +7,7 @@ import {
   ArrowLeft, Save, Plus, Trash2, ImageIcon, FileText,
   HelpCircle, LayoutDashboard, LogOut
 } from "lucide-react";
+import AdminHeader from "@/components/admin/admin-header";
 
 interface FAQ {
   question: string;
@@ -154,29 +155,11 @@ export default function EditBlogPage({ params }: { params: Promise<{ slug: strin
         </div>
       </aside>
 
-      {/* Mobile Header */}
-      <header className="lg:hidden sticky top-0 z-50 bg-[#020617] border-b border-white/[0.06] px-4 py-3 flex items-center justify-between">
-        <Link href="/admin/dashboard" className="flex items-center gap-2 text-white text-sm font-medium">
-          <ArrowLeft className="w-4 h-4" />
-          Back
-        </Link>
-        <p className="text-white font-bold text-sm">Edit Blog</p>
-        <button onClick={handleLogout} className="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center text-red-400">
-          <LogOut className="w-4 h-4" />
-        </button>
-      </header>
-
-      {/* Main Content */}
-      <main className="lg:ml-64 p-4 sm:p-6 lg:p-8 max-w-4xl">
-        <div className="flex items-center gap-3 mb-8">
-          <Link href="/admin/dashboard" className="hidden lg:flex items-center gap-2 text-slate-500 hover:text-slate-900 text-sm font-medium transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            Back
-          </Link>
-          <div className="hidden lg:block w-px h-6 bg-slate-200" />
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Edit Blog Post</h1>
-        </div>
-
+      {/* Premium Top Header */}\r
+      <AdminHeader title="Edit Blog Post" subtitle="Blogs" onBack={() => router.push("/admin/dashboard")} />\r
+\r
+      {/* Main Content */}\r
+      <main className="lg:ml-64 p-4 sm:p-6 lg:p-8 max-w-4xl">\r
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Title */}
           <div className="bg-white rounded-2xl border border-slate-100 p-5 sm:p-6 shadow-sm space-y-4">

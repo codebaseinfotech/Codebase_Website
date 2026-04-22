@@ -1,14 +1,25 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, MutableRefObject } from "react";
 import { Plus, Edit3, Trash2, Eye, EyeOff, Save, X, Briefcase, MapPin, Search, ArrowLeft } from "lucide-react";
 
-export default function JobManager() {
+export interface JobManagerActions {
+  openNew: () => void;
+  goBack: () => void;
+}
+
+interface JobManagerProps {
+  onViewChange?: (info: { view: "list" | "form"; title: string }) => void;
+  actionsRef?: MutableRefObject<JobManagerActions | null>;
+}
+
+export default function JobManager({ onViewChange, actionsRef }: JobManagerProps) {
   const [jobs, setJobs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [view, setView] = useState<"list" | "form">("list");
   const [search, setSearch] = useState("");
   const [saving, setSaving] = useState(false);
+
   const [formError, setFormError] = useState("");
 
   const [form, setForm] = useState({
@@ -29,6 +40,33 @@ export default function JobManager() {
   useEffect(() => {
     fetchJobs();
   }, []);
+
+  const openNew = () => {
+    setForm({
+      _id: "",
+      title: "",
+      location: "Surat",
+      type: "Full-time",
+      experience: "",
+      education: "",
+      summary: "",
+      responsibilities: "",
+      requiredSkills: "",
+      preferredSkills: "",
+      offers: "",
+      isActive: true,
+    });
+    setFormError("");
+    setView("form");
+    onViewChange?.({ view: "form", title: "Create Job Opening" });
+  };
+
+  // Expose actions to parent via ref
+  useEffect(() => {
+    if (actionsRef) {
+      actionsRef.current = { openNew, goBack: resetForm };
+    }
+  });
 
   const fetchJobs = async () => {
     try {
@@ -59,6 +97,7 @@ export default function JobManager() {
     });
     setFormError("");
     setView("list");
+    onViewChange?.({ view: "list", title: "Job Openings" });
   };
 
   const handleEdit = (job: any) => {
@@ -77,6 +116,7 @@ export default function JobManager() {
       isActive: job.isActive,
     });
     setView("form");
+    onViewChange?.({ view: "form", title: "Edit Job Opening" });
   };
 
   const handleToggleActive = async (id: string, currentStatus: boolean) => {
@@ -154,19 +194,6 @@ export default function JobManager() {
   if (view === "form") {
     return (
       <div className="mx-auto space-y-6">
-        <div className="flex items-center gap-3">
-          <button 
-            type="button"
-            onClick={resetForm}
-            className="p-2 hover:bg-slate-100 rounded-xl transition-colors"
-          >
-            <ArrowLeft className="w-5 h-5 text-slate-500" />
-          </button>
-          <h1 className="text-2xl font-black text-slate-900">
-            {form._id ? "Edit Job Opening" : "Create Job Opening"}
-          </h1>
-        </div>
-
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm space-y-4">
             <h3 className="font-bold text-slate-900 border-b pb-2">Basic Info</h3>
@@ -258,19 +285,6 @@ export default function JobManager() {
 
   return (
     <div>
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-        <div>
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Job Openings</h1>
-          <p className="text-slate-500 text-sm mt-1">Manage careers page listings</p>
-        </div>
-        <button
-          onClick={() => setView("form")}
-          className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg"
-        >
-          <Plus className="w-4 h-4" /> New Job
-        </button>
-      </div>
-
       <div className="relative mb-6">
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
         <input

@@ -1,11 +1,21 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, MutableRefObject } from "react";
 import { Plus, Edit3, Trash2, Eye, Search, AlertTriangle, X, ArrowLeft, Save, ImageIcon, Code2 } from "lucide-react";
 
 type ProjectViewMode = "list" | "new" | "edit";
 
-export default function ProjectManager() {
+export interface ProjectManagerActions {
+  openNew: () => void;
+  goBack: () => void;
+}
+
+interface ProjectManagerProps {
+  onViewChange?: (info: { view: ProjectViewMode; title: string }) => void;
+  actionsRef?: MutableRefObject<ProjectManagerActions | null>;
+}
+
+export default function ProjectManager({ onViewChange, actionsRef }: ProjectManagerProps) {
   const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -48,6 +58,13 @@ export default function ProjectManager() {
   useEffect(() => {
     fetchProjects();
   }, []);
+
+  // Expose actions to parent via ref
+  useEffect(() => {
+    if (actionsRef) {
+      actionsRef.current = { openNew, goBack };
+    }
+  });
 
   const fetchProjects = async () => {
     try {
@@ -104,6 +121,7 @@ export default function ProjectManager() {
   const openNew = () => {
     resetForm();
     setView("new");
+    onViewChange?.({ view: "new", title: "New Project" });
   };
 
   const openEdit = (project: any) => {
@@ -135,11 +153,13 @@ export default function ProjectManager() {
     
     setEditId(project._id);
     setView("edit");
+    onViewChange?.({ view: "edit", title: "Edit Project" });
   };
 
   const goBack = () => {
     resetForm();
     setView("list");
+    onViewChange?.({ view: "list", title: "Portfolio Projects" });
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -222,20 +242,6 @@ export default function ProjectManager() {
       {/* ===== LIST VIEW ===== */}
       {view === "list" && (
         <>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Portfolio Projects</h1>
-              <p className="text-slate-500 text-sm mt-1">Manage showcase and case studies</p>
-            </div>
-            <button
-              onClick={openNew}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-blue-500/20 transition-all hover:scale-[1.02]"
-            >
-              <Plus className="w-4 h-4" />
-              New Project
-            </button>
-          </div>
-
           {/* Search */}
           <div className="relative mb-6">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
@@ -305,16 +311,6 @@ export default function ProjectManager() {
       {/* ===== NEW / EDIT VIEW ===== */}
       {(view === "new" || view === "edit") && (
         <div className="w-full">
-          <div className="flex items-center gap-3 mb-8">
-            <button onClick={goBack} className="flex flex-shrink-0 items-center gap-2 text-slate-500 hover:text-slate-900 text-sm font-medium">
-              <ArrowLeft className="w-4 h-4" /> Back
-            </button>
-            <div className="w-px h-6 bg-slate-200" />
-            <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              {view === "new" ? "New Project" : "Edit Project"}
-            </h1>
-          </div>
-
           <form onSubmit={handleSubmit} className="space-y-6">
             
             {/* General Info */}
